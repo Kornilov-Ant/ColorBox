@@ -29,7 +29,7 @@
                 <configuration>
                     <archive>
                         <manifest>
-                            <mainClass>ColorBox.Stiart</mainClass>
+                            <mainClass>ColorBox.Start</mainClass>
                         </manifest>
                     </archive>
                 </configuration>
