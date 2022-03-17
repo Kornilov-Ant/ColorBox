@@ -25,7 +25,7 @@ public class Play {
         twoCapLite.DevelopTwoCap(box, number, now);
     }
 
-    public void Play(BoxTwoCap box, int number){
+    public void Play(BoxTwoCap box, int number, boolean now){
 
     }
 

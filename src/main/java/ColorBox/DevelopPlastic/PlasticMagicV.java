@@ -16,9 +16,9 @@ public class PlasticMagicV extends PlasticCap {
 
         That.list.add("Оклейка снаружи:");
 
-        smallPlastic(filmDown, number);    //дно
-        bigPlastic(filmUp, number);          // крышка
-        backPlastic(filmBack, number);      // вклейка внутри
+        Plastic(filmDown, number);    //дно
+        Plastic(filmUp, number);          // крышка
+        Plastic(filmBack, number);      // вклейка внутри
 
         oracalBig.setY(Math.round(oracalBig.getY()*100)/100D);
         oracalSmall.setY(Math.round(oracalSmall.getY()*100)/100D);
@@ -26,7 +26,7 @@ public class PlasticMagicV extends PlasticCap {
         return "" + System.lineSeparator() + "________________________________";
     }
 
-    private void smallPlastic(Film filmDown, int number){
+    private void Plastic(Film filmDown, int number){
         aD = Math.floor(oracalSmall.getZ() / filmDown.x);
         aU = Math.floor(oracalSmall.getX() / filmDown.y); // CONST
 
@@ -78,7 +78,7 @@ public class PlasticMagicV extends PlasticCap {
                     + result + " м. пленки");
         }
     }
-
+/*
     private void bigPlastic(Film filmUp, int number){
         aD = Math.floor(oracalSmall.getZ() / filmUp.x);
         aU = Math.floor(oracalSmall.getX() / filmUp.y); // CONST
@@ -184,4 +184,5 @@ public class PlasticMagicV extends PlasticCap {
                     + result + " м. пленки");
         }
     }
+    */
 }

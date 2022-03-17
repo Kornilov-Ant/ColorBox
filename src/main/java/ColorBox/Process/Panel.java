@@ -4,6 +4,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 public class Panel extends JPanel {
 
@@ -96,9 +97,11 @@ public class Panel extends JPanel {
                     boolean cY = CheckXYZGNumber(inputY, textY, 30, 690);
                     boolean cZ = CheckXYZGNumber(inputZ, textZ, 15, 350);
                     boolean cF = CheckF(inputF, inputZ, textF, 15, 350);
-                    boolean cNumber=CheckXYZGNumber(inputNumber,textNumber,5,5000);
+                    boolean cNumber=CheckXYZGNumber(inputNumber, textNumber,5,5000);
                     boolean now = (flag.isSelected()) ? true : false;
                     if (cX && cY && cZ && cF && cNumber){
+                        That.ou = "";
+                        That.list = new ArrayList<>();
                         new That().Cap(
                                 Integer.parseInt(inputX.getText()),
                                 Integer.parseInt(inputY.getText()),
@@ -107,10 +110,7 @@ public class Panel extends JPanel {
                                 Integer.parseInt(inputNumber.getText()),
                                 now
                         );
-
                         output.setText(That.ou);
-                        That.ou = "";
-                        That.list.clear();
                     } else {
                     output.setText("Ошибка ввода данных!");
                     }
@@ -193,6 +193,8 @@ public class Panel extends JPanel {
                     boolean cNumber=CheckXYZGNumber(inputNumber,textNumber,5,5000);
                     boolean now = (flag.isSelected()) ? true : false;
                     if (cX && cY && cZ && cNumber){
+                        That.ou = "";
+                        That.list = new ArrayList<>();
                         new That().MagicG(
                                 Integer.parseInt(inputX.getText()),
                                 Integer.parseInt(inputY.getText()),
@@ -200,10 +202,8 @@ public class Panel extends JPanel {
                                 Integer.parseInt(inputNumber.getText()),
                                 now
                         );
-
                         output.setText(That.ou);
-                        That.ou = "";
-                        That.list.clear();
+
                     } else {
                     output.setText("Ошибка ввода данных!");
                     }
@@ -286,6 +286,8 @@ public class Panel extends JPanel {
                     boolean cNumber = CheckXYZGNumber(inputNumber, textNumber, 5, 5000);
                     boolean now = (flag.isSelected()) ? true : false;
                     if (cX && cY && cZ && cNumber) {
+                        That.ou = "";
+                        That.list = new ArrayList<>();
                         new That().MagicV(
                                 Integer.parseInt(inputX.getText()),
                                 Integer.parseInt(inputY.getText()),
@@ -293,10 +295,7 @@ public class Panel extends JPanel {
                                 Integer.parseInt(inputNumber.getText()),
                                 now
                         );
-
                         output.setText(That.ou);
-                        That.ou = "";
-                        That.list.clear();
                     } else {
                         output.setText("Ошибка ввода данных!");
                     }
@@ -390,6 +389,8 @@ public class Panel extends JPanel {
                     boolean cNumber=CheckXYZGNumber(inputNumber,textNumber,5,5000);
                     boolean now = (flag.isSelected()) ? true : false;
                     if (cX && cY && cZ && cF && cNumber){
+                        That.ou = "";
+                        That.list = new ArrayList<>();
                         new That().TwoCapLite(
                                 Integer.parseInt(inputX.getText()),
                                 Integer.parseInt(inputY.getText()),
@@ -398,10 +399,7 @@ public class Panel extends JPanel {
                                 Integer.parseInt(inputNumber.getText()),
                                 now
                         );
-
                         output.setText(That.ou);
-                        That.ou = "";
-                        That.list.clear();
                     } else {
                         output.setText("Ошибка ввода данных!");
                     }
