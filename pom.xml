@@ -6,7 +6,8 @@
 
     <groupId>org.example</groupId>
     <artifactId>ColorBox</artifactId>
-    <version>0.8 ver.</version>
+    <packaging>jar</packaging>
+    <version>0.8.1 ver.</version>
     <dependencies>
         <dependency>
             <groupId>org.jetbrains</groupId>
