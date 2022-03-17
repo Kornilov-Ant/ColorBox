@@ -99,11 +99,14 @@ public class Panel extends JPanel {
                     boolean cNumber=CheckXYZGNumber(inputNumber,textNumber,10,5000);
                     boolean now = (flag.isSelected()) ? true : false;
                     if (cX && cY && cZ && cF && cNumber){
-                        new That().Cap(Integer.parseInt(inputX.getText()),
+                        new That().Cap(
+                                Integer.parseInt(inputX.getText()),
                                 Integer.parseInt(inputY.getText()),
                                 Integer.parseInt(inputZ.getText()),
                                 Integer.parseInt(inputF.getText()),
-                                Integer.parseInt(inputNumber.getText()), now);
+                                Integer.parseInt(inputNumber.getText()),
+                                now
+                        );
 
                         output.setText(That.ou);
                         That.ou = "";
@@ -190,10 +193,13 @@ public class Panel extends JPanel {
                     boolean cNumber=CheckXYZGNumber(inputNumber,textNumber,10,5000);
                     boolean now = (flag.isSelected()) ? true : false;
                     if (cX && cY && cZ && cNumber){
-                        new That().MagicG(Integer.parseInt(inputX.getText()),
+                        new That().MagicG(
+                                Integer.parseInt(inputX.getText()),
                                 Integer.parseInt(inputY.getText()),
                                 Integer.parseInt(inputZ.getText()),
-                                Integer.parseInt(inputNumber.getText()), now);
+                                Integer.parseInt(inputNumber.getText()),
+                                now
+                        );
 
                         output.setText(That.ou);
                         That.ou = "";
@@ -280,10 +286,13 @@ public class Panel extends JPanel {
                     boolean cNumber = CheckXYZGNumber(inputNumber, textNumber, 10, 5000);
                     boolean now = (flag.isSelected()) ? true : false;
                     if (cX && cY && cZ && cNumber) {
-                        new That().MagicV(Integer.parseInt(inputX.getText()),
+                        new That().MagicV(
+                                Integer.parseInt(inputX.getText()),
                                 Integer.parseInt(inputY.getText()),
                                 Integer.parseInt(inputZ.getText()),
-                                Integer.parseInt(inputNumber.getText()), now);
+                                Integer.parseInt(inputNumber.getText()),
+                                now
+                        );
 
                         output.setText(That.ou);
                         That.ou = "";
@@ -334,7 +343,7 @@ public class Panel extends JPanel {
             textZ.setBounds(125, 150, 100,30);
             add(textZ);
 
-            JLabel labF = new JLabel("Высота крышки F:");
+            JLabel labF = new JLabel("Ширина боковой линии F:");
             labF.setBounds(29, 163, 200, 54);
             add(labF);
             JTextField inputF = new JTextField("0", 20);
@@ -343,16 +352,6 @@ public class Panel extends JPanel {
             JLabel textF = new JLabel();
             textF.setBounds(125, 201, 100,30);
             add(textF);
-
-            JLabel labG = new JLabel("Высота ???крышки G:");
-            labG.setBounds(29, 214, 200, 54);
-            add(labG);
-            JTextField inputG = new JTextField("0", 20);
-            inputG.setBounds(25, 252, 100, 30);
-            add(inputG);
-            JLabel textG = new JLabel();
-            textG.setBounds(125, 252, 100,30);
-            add(textG);
 
             JLabel labNumber = new JLabel("Тираж:");
             labNumber.setBounds(29, 265, 200, 54);
@@ -387,16 +386,18 @@ public class Panel extends JPanel {
                     boolean cX = CheckXYZGNumber(inputX, textX, 30, 450);
                     boolean cY = CheckXYZGNumber(inputY, textY, 30, 450);
                     boolean cZ = CheckXYZGNumber(inputZ, textZ, 30, 350);
-                    boolean cF = CheckF(inputF, inputZ, textF, 15, 350);
-                    boolean cG = CheckXYZGNumber(inputG, textG, 10, 5000);
+                    boolean cF = CheckF(inputF, inputZ, textF, 2, 350);
                     boolean cNumber=CheckXYZGNumber(inputNumber,textNumber,10,5000);
                     boolean now = (flag.isSelected()) ? true : false;
-                    if (cX && cY && cZ && cF && cG && cNumber){
-                        new That().Cap(Integer.parseInt(inputX.getText()),
+                    if (cX && cY && cZ && cF && cNumber){
+                        new That().Cap(
+                                Integer.parseInt(inputX.getText()),
                                 Integer.parseInt(inputY.getText()),
                                 Integer.parseInt(inputZ.getText()),
                                 Integer.parseInt(inputF.getText()),
-                                Integer.parseInt(inputNumber.getText()), now);
+                                Integer.parseInt(inputNumber.getText()),
+                                now
+                        );
 
                         output.setText(That.ou);
                         That.ou = "";
