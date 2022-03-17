@@ -5,8 +5,16 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>org.example</groupId>
-    <artifactId>ColotBox</artifactId>
+    <artifactId>ColorBox</artifactId>
     <version>0.8 ver.</version>
+    <dependencies>
+        <dependency>
+            <groupId>org.jetbrains</groupId>
+            <artifactId>annotations</artifactId>
+            <version>RELEASE</version>
+            <scope>compile</scope>
+        </dependency>
+    </dependencies>
 
     <properties>
         <maven.compiler.source>15</maven.compiler.source>
@@ -21,7 +29,7 @@
                 <configuration>
                     <archive>
                         <manifest>
-                            <mainClass>ColorBox.Start</mainClass>
+                            <mainClass>ColorBox.Stiart</mainClass>
                         </manifest>
                     </archive>
                 </configuration>

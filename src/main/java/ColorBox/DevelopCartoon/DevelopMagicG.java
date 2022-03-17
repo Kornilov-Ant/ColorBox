@@ -49,11 +49,12 @@ public class DevelopMagicG extends DevelopCap {
 
             aBack = Math.floor(number / back)+res;
             cartList = cartList + aBack;
-            That.list.add("На сторону " + slide + " требуется " + aBack + " л.");
+            That.list.add("На сторону " + slide +
+                    " требуется " + aBack + " л.");
         }
 
         for (Board slide: listTwo){
-            int number2 = number*2;
+            int number2 = number * 2;
             aX = lux.getX() / (slide.x+2);
             aY = lux.getY() / (slide.y+2);
             aXy=Math.floor(aX)*Math.floor(aY);
@@ -68,7 +69,7 @@ public class DevelopMagicG extends DevelopCap {
                 back=bXy;
             }
 
-            double res = (number/back)%1;
+            double res = (number/back) % 1;
 
             if (res==0.0){
                 res = 0.0;
@@ -83,11 +84,14 @@ public class DevelopMagicG extends DevelopCap {
             aBack = Math.floor((number2) / back)+res;
             cartList = cartList + aBack;
             //ниже идет добавление текста!!!
-            That.list.add("На сторону " + slide + " требуется " + String.format("%.1f", aBack) + " л.");
+            That.list.add("На сторону " + slide +
+                    " требуется " + String.format("%.1f", aBack) + " л.");
         }
 
-        That.list.add("Всего требуется " + String.format("%.1f", cartList)
-                + " л. картона на тираж" + System.lineSeparator());
+        That.list.add(
+                "Всего требуется " + String.format("%.1f", cartList)
+                + " л. картона на тираж" + System.lineSeparator()
+        );
 
         if (now){
             insideOne.add(new Board(box.getX(), box.getY()));

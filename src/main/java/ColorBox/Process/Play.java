@@ -20,8 +20,9 @@ public class Play {
         }
     }
 
-    public void Play(BoxTwoCapLite box, int number){
-
+    public void Play(BoxTwoCapLite box, int number, boolean now){
+        DevelopTwoCapLite twoCapLite = new DevelopTwoCapLite();
+        twoCapLite.DevelopTwoCap(box, number, now);
     }
 
     public void Play(BoxTwoCap box, int number){

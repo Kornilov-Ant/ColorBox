@@ -390,7 +390,7 @@ public class Panel extends JPanel {
                     boolean cNumber=CheckXYZGNumber(inputNumber,textNumber,10,5000);
                     boolean now = (flag.isSelected()) ? true : false;
                     if (cX && cY && cZ && cF && cNumber){
-                        new That().Cap(
+                        new That().TwoCapLite(
                                 Integer.parseInt(inputX.getText()),
                                 Integer.parseInt(inputY.getText()),
                                 Integer.parseInt(inputZ.getText()),
