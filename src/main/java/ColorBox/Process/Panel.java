@@ -94,9 +94,9 @@ public class Panel extends JPanel {
                 public void actionPerformed(ActionEvent e) {
                     boolean cX = CheckXYZGNumber(inputX, textX, 30, 990);
                     boolean cY = CheckXYZGNumber(inputY, textY, 30, 690);
-                    boolean cZ = CheckXYZGNumber(inputZ, textZ, 20, 350);
+                    boolean cZ = CheckXYZGNumber(inputZ, textZ, 15, 350);
                     boolean cF = CheckF(inputF, inputZ, textF, 15, 350);
-                    boolean cNumber=CheckXYZGNumber(inputNumber,textNumber,10,5000);
+                    boolean cNumber=CheckXYZGNumber(inputNumber,textNumber,5,5000);
                     boolean now = (flag.isSelected()) ? true : false;
                     if (cX && cY && cZ && cF && cNumber){
                         new That().Cap(
@@ -190,7 +190,7 @@ public class Panel extends JPanel {
                     boolean cX = CheckXYZGNumber(inputX, textX, 30, 450);
                     boolean cY = CheckXYZGNumber(inputY, textY, 30, 450);
                     boolean cZ = CheckXYZGNumber(inputZ, textZ, 30, 350);
-                    boolean cNumber=CheckXYZGNumber(inputNumber,textNumber,10,5000);
+                    boolean cNumber=CheckXYZGNumber(inputNumber,textNumber,5,5000);
                     boolean now = (flag.isSelected()) ? true : false;
                     if (cX && cY && cZ && cNumber){
                         new That().MagicG(
@@ -283,7 +283,7 @@ public class Panel extends JPanel {
                     boolean cX = CheckXYZGNumber(inputX, textX, 30, 450);
                     boolean cY = CheckXYZGNumber(inputY, textY, 30, 450);
                     boolean cZ = CheckXYZGNumber(inputZ, textZ, 30, 350);
-                    boolean cNumber = CheckXYZGNumber(inputNumber, textNumber, 10, 5000);
+                    boolean cNumber = CheckXYZGNumber(inputNumber, textNumber, 5, 5000);
                     boolean now = (flag.isSelected()) ? true : false;
                     if (cX && cY && cZ && cNumber) {
                         new That().MagicV(
@@ -386,8 +386,8 @@ public class Panel extends JPanel {
                     boolean cX = CheckXYZGNumber(inputX, textX, 30, 450);
                     boolean cY = CheckXYZGNumber(inputY, textY, 30, 450);
                     boolean cZ = CheckXYZGNumber(inputZ, textZ, 30, 350);
-                    boolean cF = CheckF(inputF, inputZ, textF, 2, 350);
-                    boolean cNumber=CheckXYZGNumber(inputNumber,textNumber,10,5000);
+                    boolean cF = CheckF(inputF, inputZ, textF, 0, 350);
+                    boolean cNumber=CheckXYZGNumber(inputNumber,textNumber,5,5000);
                     boolean now = (flag.isSelected()) ? true : false;
                     if (cX && cY && cZ && cF && cNumber){
                         new That().TwoCapLite(
