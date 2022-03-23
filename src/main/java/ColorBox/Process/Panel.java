@@ -26,7 +26,7 @@ public class Panel extends JPanel {
             JLabel labX = new JLabel("Длина коробки Х:");
             labX.setBounds(29, 10, 200, 54);
             add(labX);
-            JTextField inputX = new JTextField("0", 20);
+            JTextField inputX = new JTextField("", 20);
             inputX.setBounds(25, 48, 100, 30);
             add(inputX);
             JLabel textX = new JLabel();
@@ -36,7 +36,7 @@ public class Panel extends JPanel {
             JLabel labY = new JLabel("Ширина коробки Y:");
             labY.setBounds(29, 61, 200, 54);
             add(labY);
-            JTextField inputY = new JTextField("0", 20);
+            JTextField inputY = new JTextField("", 20);
             inputY.setBounds(25, 99, 100, 30);
             add(inputY);
             JLabel textY = new JLabel();
@@ -46,7 +46,7 @@ public class Panel extends JPanel {
             JLabel labZ = new JLabel("Высота коробки Z:");
             labZ.setBounds(29, 112, 200, 54);
             add(labZ);
-            JTextField inputZ = new JTextField("0", 20);
+            JTextField inputZ = new JTextField("", 20);
             inputZ.setBounds(25, 150, 100, 30);
             add(inputZ);
             JLabel textZ = new JLabel();
@@ -56,7 +56,7 @@ public class Panel extends JPanel {
             JLabel labF = new JLabel("Высота крышки F:");
             labF.setBounds(29, 163, 200, 54);
             add(labF);
-            JTextField inputF = new JTextField("0", 20);
+            JTextField inputF = new JTextField("", 20);
             inputF.setBounds(25, 201, 100, 30);
             add(inputF);
             JLabel textF = new JLabel();
@@ -66,7 +66,7 @@ public class Panel extends JPanel {
             JLabel labNumber = new JLabel("Тираж:");
             labNumber.setBounds(29, 265, 200, 54);
             add(labNumber);
-            JTextField inputNumber = new JTextField("0", 20);
+            JTextField inputNumber = new JTextField("", 20);
             inputNumber.setBounds(25, 303, 100, 30);
             add(inputNumber);
             JLabel textNumber = new JLabel();
@@ -130,7 +130,7 @@ public class Panel extends JPanel {
             JLabel labX = new JLabel("Длина коробки Х:");
             labX.setBounds(29, 10, 200, 54);
             add(labX);
-            JTextField inputX = new JTextField("0", 20);
+            JTextField inputX = new JTextField("", 20);
             inputX.setBounds(25, 48, 100, 30);
             add(inputX);
             JLabel textX = new JLabel();
@@ -140,7 +140,7 @@ public class Panel extends JPanel {
             JLabel labY = new JLabel("Ширина коробки Y:");
             labY.setBounds(29, 61, 200, 54);
             add(labY);
-            JTextField inputY = new JTextField("0", 20);
+            JTextField inputY = new JTextField("", 20);
             inputY.setBounds(25, 99, 100, 30);
             add(inputY);
             JLabel textY = new JLabel();
@@ -150,7 +150,7 @@ public class Panel extends JPanel {
             JLabel labZ = new JLabel("Высота коробки Z:");
             labZ.setBounds(29, 112, 200, 54);
             add(labZ);
-            JTextField inputZ = new JTextField("0", 20);
+            JTextField inputZ = new JTextField("", 20);
             inputZ.setBounds(25, 150, 100, 30);
             add(inputZ);
             JLabel textZ = new JLabel();
@@ -160,7 +160,7 @@ public class Panel extends JPanel {
             JLabel labNumber = new JLabel("Тираж:");
             labNumber.setBounds(29, 265, 200, 54);
             add(labNumber);
-            JTextField inputNumber = new JTextField("0", 20);
+            JTextField inputNumber = new JTextField("", 20);
             inputNumber.setBounds(25, 303, 100, 30);
             add(inputNumber);
             JLabel textNumber = new JLabel();
@@ -223,7 +223,7 @@ public class Panel extends JPanel {
             JLabel labX = new JLabel("Длина коробки Х:");
             labX.setBounds(29, 10, 200, 54);
             add(labX);
-            JTextField inputX = new JTextField("0", 20);
+            JTextField inputX = new JTextField("", 20);
             inputX.setBounds(25, 48, 100, 30);
             add(inputX);
             JLabel textX = new JLabel();
@@ -233,7 +233,7 @@ public class Panel extends JPanel {
             JLabel labY = new JLabel("Ширина коробки Y:");
             labY.setBounds(29, 61, 200, 54);
             add(labY);
-            JTextField inputY = new JTextField("0", 20);
+            JTextField inputY = new JTextField("", 20);
             inputY.setBounds(25, 99, 100, 30);
             add(inputY);
             JLabel textY = new JLabel();
@@ -243,7 +243,7 @@ public class Panel extends JPanel {
             JLabel labZ = new JLabel("Высота коробки Z:");
             labZ.setBounds(29, 112, 200, 54);
             add(labZ);
-            JTextField inputZ = new JTextField("0", 20);
+            JTextField inputZ = new JTextField("", 20);
             inputZ.setBounds(25, 150, 100, 30);
             add(inputZ);
             JLabel textZ = new JLabel();
@@ -253,7 +253,7 @@ public class Panel extends JPanel {
             JLabel labNumber = new JLabel("Тираж:");
             labNumber.setBounds(29, 265, 200, 54);
             add(labNumber);
-            JTextField inputNumber = new JTextField("0", 20);
+            JTextField inputNumber = new JTextField("", 20);
             inputNumber.setBounds(25, 303, 100, 30);
             add(inputNumber);
             JLabel textNumber = new JLabel();
@@ -315,7 +315,7 @@ public class Panel extends JPanel {
             JLabel labX = new JLabel("Длина коробки Х:");
             labX.setBounds(29, 10, 200, 54);
             add(labX);
-            JTextField inputX = new JTextField("0", 20);
+            JTextField inputX = new JTextField("", 20);
             inputX.setBounds(25, 48, 100, 30);
             add(inputX);
             JLabel textX = new JLabel();
@@ -325,7 +325,7 @@ public class Panel extends JPanel {
             JLabel labY = new JLabel("Ширина коробки Y:");
             labY.setBounds(29, 61, 200, 54);
             add(labY);
-            JTextField inputY = new JTextField("0", 20);
+            JTextField inputY = new JTextField("", 20);
             inputY.setBounds(25, 99, 100, 30);
             add(inputY);
             JLabel textY = new JLabel();
@@ -335,7 +335,7 @@ public class Panel extends JPanel {
             JLabel labZ = new JLabel("Высота коробки Z:");
             labZ.setBounds(29, 112, 200, 54);
             add(labZ);
-            JTextField inputZ = new JTextField("0", 20);
+            JTextField inputZ = new JTextField("", 20);
             inputZ.setBounds(25, 150, 100, 30);
             add(inputZ);
             JLabel textZ = new JLabel();
@@ -345,7 +345,7 @@ public class Panel extends JPanel {
             JLabel labF = new JLabel("Ширина боковой линии F:");
             labF.setBounds(29, 163, 200, 54);
             add(labF);
-            JTextField inputF = new JTextField("0", 20);
+            JTextField inputF = new JTextField("", 20);
             inputF.setBounds(25, 201, 100, 30);
             add(inputF);
             JLabel textF = new JLabel();
@@ -355,7 +355,7 @@ public class Panel extends JPanel {
             JLabel labNumber = new JLabel("Тираж:");
             labNumber.setBounds(29, 265, 200, 54);
             add(labNumber);
-            JTextField inputNumber = new JTextField("0", 20);
+            JTextField inputNumber = new JTextField("", 20);
             inputNumber.setBounds(25, 303, 100, 30);
             add(inputNumber);
             JLabel textNumber = new JLabel();
