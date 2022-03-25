@@ -16,7 +16,7 @@ public class DevelopCap {
     protected double aX, aY, aXy, bX, bY, bXy, back, aBack;
     protected Lux lux = new Lux();
 
-    public void DevelopCap(BoxCap box, int number, boolean now){
+    public void DevelopCap(BoxCap box, int number, boolean now, boolean bigPlastic){
         listOne.add(new Board(box.getX()+4, box.getY()+4));
         listTwo.add(new Board(box.getX()+4, box.getZ()));
         listTwo.add(new Board(box.getY(), box.getZ()));
@@ -94,12 +94,16 @@ public class DevelopCap {
         //ниже идет добавление текста!!!
         That.list.add("Всего требуется " + String.format("%.1f", cartList)
                 + " л. картона на тираж" + System.lineSeparator());
+
         if (now){
-            Inside inside = new Inside();
-            That.list.add(inside.Roll(listOne, listTwo, number));
+            now = bigPlastic ? false : true;
+            if (now) {
+                Inside inside = new Inside();
+                That.list.add(inside.Roll(listOne, listTwo, number));
+            }
         }
         PlasticCap plasticCap = new PlasticCap();
         //ниже идет добавление текста!!!
-        That.list.add(plasticCap.Roll(box, number));
+        That.list.add(plasticCap.Roll(box, number, bigPlastic));
     }
 }

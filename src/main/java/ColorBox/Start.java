@@ -10,7 +10,7 @@ public class Start {
     public Start(){
          window = new JFrame("ColorBox (Си-Би)");
          window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-         window.setSize(700, 500);
+         window.setSize(700, 550);
 
          window.add(new Panel());
          window.setLocationRelativeTo(null);

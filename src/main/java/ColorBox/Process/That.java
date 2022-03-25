@@ -10,10 +10,10 @@ public class That {
     public static String ou = "";
     public static ArrayList<String> list = new ArrayList<>();
 
-    public void Cap(int x, int y, int z, int f, int number, boolean now) {
+    public void Cap(int x, int y, int z, int f, int number, boolean now, boolean bigPlastic) {
         BoxCap boxOne = new BoxCap(x, y, z, f);
         Play cap = new Play();
-        cap.Play(boxOne, number, now);
+        cap.Play(boxOne, number, now, bigPlastic);
 
         for (String str : list) {
             ou = ou + System.lineSeparator() + str;

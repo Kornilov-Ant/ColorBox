@@ -83,8 +83,18 @@ public class Panel extends JPanel {
             flag.setBounds(90, 358,30,30);
             add(flag);
 
+            JLabel flagText3 = new JLabel("Белая");
+            flagText3.setBounds(29, 385, 200, 54);
+            add(flagText3);
+            JLabel flagText4 = new JLabel("1,37 м.");
+            flagText4.setBounds(29, 403, 200, 54);
+            add(flagText4);
+            JCheckBox flagTwo = new JCheckBox();
+            flagTwo.setBounds(90, 408,30,30);
+            add(flagTwo);
+
             JButton b1 = new JButton("Посчитать!");
-            b1.setBounds(135,345,125,58);
+            b1.setBounds(135,395,125,58);
             add(b1);
 
             JTextArea output = new JTextArea(5, 20);
@@ -98,7 +108,8 @@ public class Panel extends JPanel {
                     boolean cZ = CheckXYZGNumber(inputZ, textZ, 15, 350);
                     boolean cF = CheckF(inputF, inputZ, textF, 15, 350);
                     boolean cNumber=CheckXYZGNumber(inputNumber, textNumber,5,5000);
-                    boolean now = (flag.isSelected()) ? true : false;
+                    boolean now = flag.isSelected() ? true : false;
+                    boolean bigPlastic = flagTwo.isSelected() ? true : false;
                     if (cX && cY && cZ && cF && cNumber){
                         That.ou = "";
                         That.list = new ArrayList<>();
@@ -108,7 +119,8 @@ public class Panel extends JPanel {
                                 Integer.parseInt(inputZ.getText()),
                                 Integer.parseInt(inputF.getText()),
                                 Integer.parseInt(inputNumber.getText()),
-                                now
+                                now,
+                                bigPlastic
                         );
                         output.setText(That.ou);
                     } else {
@@ -119,8 +131,8 @@ public class Panel extends JPanel {
 
             add(output);
             JScrollPane scrollPane = new JScrollPane(output);
-            scrollPane.setBounds(275, 25, 375,375);
-            scrollPane.setPreferredSize(new Dimension(375,375));
+            scrollPane.setBounds(275, 25, 375,425);
+            scrollPane.setPreferredSize(new Dimension(375,425));
             add(scrollPane);
         }
     }
@@ -178,7 +190,7 @@ public class Panel extends JPanel {
             add(flag);
 
             JButton b1 = new JButton("Посчитать!");
-            b1.setBounds(135,345,125,58);
+            b1.setBounds(135,395,125,58);
             add(b1);
 
             JTextArea output = new JTextArea(5, 20);
@@ -212,8 +224,8 @@ public class Panel extends JPanel {
 
             add(output);
             JScrollPane scrollPane = new JScrollPane(output);
-            scrollPane.setBounds(275, 25, 375,375);
-            scrollPane.setPreferredSize(new Dimension(375,375));
+            scrollPane.setBounds(275, 25, 375,425);
+            scrollPane.setPreferredSize(new Dimension(375,425));
             add(scrollPane);
         }
     }
@@ -271,7 +283,7 @@ public class Panel extends JPanel {
             add(flag);
 
             JButton b1 = new JButton("Посчитать!");
-            b1.setBounds(135, 345, 125, 58);
+            b1.setBounds(135,395,125,58);
             add(b1);
 
             JTextArea output = new JTextArea(5, 20);
@@ -304,8 +316,8 @@ public class Panel extends JPanel {
 
             add(output);
             JScrollPane scrollPane = new JScrollPane(output);
-            scrollPane.setBounds(275, 25, 375,375);
-            scrollPane.setPreferredSize(new Dimension(375,375));
+            scrollPane.setBounds(275, 25, 375,425);
+            scrollPane.setPreferredSize(new Dimension(375,425));
             add(scrollPane);
         }
     }
@@ -373,7 +385,7 @@ public class Panel extends JPanel {
             add(flag);
 
             JButton b1 = new JButton("Посчитать!");
-            b1.setBounds(135,345,125,58);
+            b1.setBounds(135,395,125,58);
             add(b1);
 
             JTextArea output = new JTextArea(5, 20);
@@ -408,8 +420,8 @@ public class Panel extends JPanel {
 
             add(output);
             JScrollPane scrollPane = new JScrollPane(output);
-            scrollPane.setBounds(275, 25, 375,375);
-            scrollPane.setPreferredSize(new Dimension(375,375));
+            scrollPane.setBounds(275, 25, 375,425);
+            scrollPane.setPreferredSize(new Dimension(375,425));
             add(scrollPane);
 
         }
