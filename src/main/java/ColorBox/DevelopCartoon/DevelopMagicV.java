@@ -94,7 +94,7 @@ public class DevelopMagicV extends DevelopCap {
             insideTwo.add(new Board(box.getX()+4, box.getZ()+2));
             insideTwo.add(new Board(box.getY(), box.getZ()+2));
             Inside inside = new Inside();
-            That.list.add(inside.Roll(insideOne, insideTwo, number));
+            That.list.add(inside.roll(insideOne, insideTwo, number));
         }
 
         PlasticMagicV magicV = new PlasticMagicV();

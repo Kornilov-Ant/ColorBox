@@ -5,9 +5,9 @@ import ColorBox.DevelopCartoon.*;
 
 public class Play {
 
-    public void Play(BoxCap box, int number, boolean now, boolean bigPlastic){
+    public void Play(BoxCap box, int number, int now, int plasticSelected){
         DevelopCap cap = new DevelopCap();
-        cap.DevelopCap(box, number, now, bigPlastic);
+        cap.DevelopCap(box, number, now, plasticSelected);
     }
 
     public void Play(BoxMagic box, int number, int dir, boolean now){

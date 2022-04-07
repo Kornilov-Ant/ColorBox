@@ -9,42 +9,107 @@ public class PlasticCap {
     protected OracalBig oracalBig = new OracalBig();
     protected OracalSmall oracalSmall = new OracalSmall();
     protected Dlc dlc = new Dlc();
+    protected DlcPlus dlcPlus = new DlcPlus();
     protected double rollOne, rollTwo, rollDown, rollUp, aD, aU, bD, bU;
     protected double small = 1.00;
     protected double big = 1.26;
 
-    public String Roll(BoxCap box, int number, boolean bigPlastic){
+    public String Roll(BoxCap box, int number, int plasticSelected) {
         Film filmDown = new Film(box.getX() + 38 + (box.getZ() * 2),
-                box.getY() + 38 + (box.getZ()*2));
-        Film filmUp = new Film(box.getX() + 43 + (box.getF()*2),
-                box.getY() + 43 + (box.getF()*2));
+                box.getY() + 38 + (box.getZ() * 2));
+        Film filmUp = new Film(box.getX() + 43 + (box.getF() * 2),
+                box.getY() + 43 + (box.getF() * 2));
 
         That.list.add("Оклейка снаружи:");
 
-        if (bigPlastic) {
-            Dlc(filmDown, filmUp, number);
-        } else {
-            Oracal(filmDown, filmUp, number);
+        switch (plasticSelected) {
+            case -1:
+                Oracal(filmDown, filmUp, number);
+                break;
+            case 0:
+                Dlc(filmDown, filmUp, number);
+                break;
+            case 1:
+                DlcPlus(filmDown, filmUp, number);
+                break;
         }
 
         return "" + System.lineSeparator() + "________________________________";
     }
 
-    private void Dlc(Film filmDown, Film filmUp, int number){
-        aD = Math.floor(oracalSmall.getZ() / filmDown.x);
-        aU = Math.floor(oracalSmall.getX() / filmDown.y); // CONST
+    private void DlcPlus(Film filmDown, Film filmUp, int number) {
+        aD = Math.floor(dlcPlus.getZ() / filmDown.x);
+        aU = Math.floor(dlcPlus.getX() / filmDown.y); // CONST
 
-        bD = Math.floor(oracalSmall.getZ() / filmDown.y);
-        bU = Math.floor(oracalSmall.getX() / filmDown.x); // CONST
+        bD = Math.floor(dlcPlus.getZ() / filmDown.y);
+        bU = Math.floor(dlcPlus.getX() / filmDown.x); // CONST
 
         rollUp = aD * aU;
         rollDown = bD * bU;
 
-        if (rollUp>=rollDown){
-            aD = number / Math.floor(oracalSmall.getX() / filmDown.y);
+        if (rollUp >= rollDown) {
+            aD = number / Math.floor(dlcPlus.getX() / filmDown.y);
             rollOne = aD * filmDown.x;
         } else {
-            bU = number / Math.floor(oracalSmall.getX() / filmDown.x);
+            bU = number / Math.floor(dlcPlus.getX() / filmDown.x);
+            rollOne = bU * filmDown.y;
+        }
+
+        That.list.add("На часть " + filmDown + " получится:");
+        That.list.add("- рулон 1,5 м. шириной -> "
+                + String.format("%.0f", rollOne) + " м2"
+        );
+
+        String resultOne = String.format("%.2f", (rollOne / 1000));
+        //ниже идет добавление текста!!!
+        That.list.add("Рекомендуется - 1,5х"
+                + resultOne + " м. пленки" + System.lineSeparator() + ""
+        );
+
+        aD = Math.floor(dlcPlus.getZ() / filmUp.x);
+        aU = Math.floor(dlcPlus.getX() / filmUp.y); // CONST
+
+        bD = Math.floor(dlcPlus.getZ() / filmUp.y);
+        bU = Math.floor(dlcPlus.getX() / filmUp.x); // CONST
+
+        rollUp = aD * aU;
+        rollDown = bD * bU;
+
+        if (rollUp >= rollDown) {
+            aD = number / Math.floor(dlcPlus.getX() / filmUp.y);
+            rollOne = aD * filmDown.x;
+        } else {
+            bU = number / Math.floor(dlcPlus.getX() / filmUp.x);
+            rollOne = bU * filmDown.y;
+        }
+
+        That.list.add("На часть " + filmUp + " получится:");
+        That.list.add("- рулон 1,5 м. шириной -> "
+                + String.format("%.0f", rollOne) + " м2"
+        );
+
+        String resultTwo = String.format("%.2f", (rollOne / 1000));
+        //ниже идет добавление текста!!!
+        That.list.add("Рекомендуется - 1,5х"
+                + resultTwo + " м. пленки" + System.lineSeparator() + ""
+        );
+    }
+
+    private void Dlc(Film filmDown, Film filmUp, int number) {
+        aD = Math.floor(dlc.getZ() / filmDown.x);
+        aU = Math.floor(dlc.getX() / filmDown.y); // CONST
+
+        bD = Math.floor(dlc.getZ() / filmDown.y);
+        bU = Math.floor(dlc.getX() / filmDown.x); // CONST
+
+        rollUp = aD * aU;
+        rollDown = bD * bU;
+
+        if (rollUp >= rollDown) {
+            aD = number / Math.floor(dlc.getX() / filmDown.y);
+            rollOne = aD * filmDown.x;
+        } else {
+            bU = number / Math.floor(dlc.getX() / filmDown.x);
             rollOne = bU * filmDown.y;
         }
 
@@ -59,20 +124,20 @@ public class PlasticCap {
                 + resultOne + " м. пленки" + System.lineSeparator() + ""
         );
 
-        aD = Math.floor(oracalSmall.getZ() / filmUp.x);
-        aU = Math.floor(oracalSmall.getX() / filmUp.y); // CONST
+        aD = Math.floor(dlc.getZ() / filmUp.x);
+        aU = Math.floor(dlc.getX() / filmUp.y); // CONST
 
-        bD = Math.floor(oracalSmall.getZ() / filmUp.y);
-        bU = Math.floor(oracalSmall.getX() / filmUp.x); // CONST
+        bD = Math.floor(dlc.getZ() / filmUp.y);
+        bU = Math.floor(dlc.getX() / filmUp.x); // CONST
 
         rollUp = aD * aU;
         rollDown = bD * bU;
 
-        if (rollUp>=rollDown){
-            aD = number / Math.floor(oracalSmall.getX() / filmUp.y);
+        if (rollUp >= rollDown) {
+            aD = number / Math.floor(dlc.getX() / filmUp.y);
             rollOne = aD * filmDown.x;
         } else {
-            bU = number / Math.floor(oracalSmall.getX() / filmUp.x);
+            bU = number / Math.floor(dlc.getX() / filmUp.x);
             rollOne = bU * filmDown.y;
         }
 
@@ -82,21 +147,20 @@ public class PlasticCap {
         );
 
         String resultTwo = String.format("%.2f", (rollOne / 1000));
-        //ниже идет добавление текста!!!
         That.list.add("Рекомендуется - 1,37х"
                 + resultTwo + " м. пленки" + System.lineSeparator() + ""
         );
     }
 
-    private void Oracal(Film filmDown, Film filmUp, int number){
+    private void Oracal(Film filmDown, Film filmUp, int number) {
         Plastic(filmDown, number);    //дно
         Plastic(filmUp, number);          // крышка
 
-        oracalBig.setY(Math.round(oracalBig.getY()*100)/100D);
-        oracalSmall.setY(Math.round(oracalSmall.getY()*100)/100D);
+        oracalBig.setY(Math.round(oracalBig.getY() * 100) / 100D);
+        oracalSmall.setY(Math.round(oracalSmall.getY() * 100) / 100D);
     }
 
-    private void Plastic(Film film, int number){
+    private void Plastic(Film film, int number) {
         aD = Math.floor(oracalSmall.getZ() / film.x);
         aU = Math.floor(oracalSmall.getX() / film.y); // CONST
 
@@ -106,7 +170,7 @@ public class PlasticCap {
         rollUp = aD * aU;
         rollDown = bD * bU;
 
-        if (rollUp>=rollDown){
+        if (rollUp >= rollDown) {
             aD = number / Math.floor(oracalSmall.getX() / film.y);
             rollOne = aD * film.x;
         } else {
@@ -123,7 +187,7 @@ public class PlasticCap {
         rollUp = aD * aU;
         rollDown = bD * bU;
 
-        if (rollUp>=rollDown){
+        if (rollUp >= rollDown) {
             aD = number / Math.floor(oracalBig.getX() / film.y);
             rollTwo = aD * film.x;
         } else {
@@ -145,7 +209,7 @@ public class PlasticCap {
         );
 
 
-        if (m21<=m22) {
+        if (m21 <= m22) {
             String result = String.format("%.2f", (rollOne / 1000));
             //ниже идет добавление текста!!!
             That.list.add("Рекомендуется на часть " + film +

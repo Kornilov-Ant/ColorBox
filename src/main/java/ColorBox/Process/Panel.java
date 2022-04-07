@@ -8,7 +8,7 @@ import java.util.ArrayList;
 
 public class Panel extends JPanel {
 
-    public Panel(){
+    public Panel() {
         setLayout(new GridLayout());
 
         JTabbedPane jTabbedPane = new JTabbedPane(JTabbedPane.TOP);
@@ -20,8 +20,8 @@ public class Panel extends JPanel {
         add(jTabbedPane);
     }
 
-    class pane1 extends JPanel{
-        public pane1(){
+    class pane1 extends JPanel {
+        public pane1() {
             setLayout(null);
             JLabel labX = new JLabel("Длина коробки Х:");
             labX.setBounds(29, 10, 200, 54);
@@ -30,7 +30,7 @@ public class Panel extends JPanel {
             inputX.setBounds(25, 48, 100, 30);
             add(inputX);
             JLabel textX = new JLabel();
-            textX.setBounds(125, 48, 100,30);
+            textX.setBounds(125, 48, 100, 30);
             add(textX);
 
             JLabel labY = new JLabel("Ширина коробки Y:");
@@ -40,7 +40,7 @@ public class Panel extends JPanel {
             inputY.setBounds(25, 99, 100, 30);
             add(inputY);
             JLabel textY = new JLabel();
-            textY.setBounds(125, 99, 100,30);
+            textY.setBounds(125, 99, 100, 30);
             add(textY);
 
             JLabel labZ = new JLabel("Высота коробки Z:");
@@ -50,7 +50,7 @@ public class Panel extends JPanel {
             inputZ.setBounds(25, 150, 100, 30);
             add(inputZ);
             JLabel textZ = new JLabel();
-            textZ.setBounds(125, 150, 100,30);
+            textZ.setBounds(125, 150, 100, 30);
             add(textZ);
 
             JLabel labF = new JLabel("Высота крышки F:");
@@ -60,7 +60,7 @@ public class Panel extends JPanel {
             inputF.setBounds(25, 201, 100, 30);
             add(inputF);
             JLabel textF = new JLabel();
-            textF.setBounds(125, 201, 100,30);
+            textF.setBounds(125, 201, 100, 30);
             add(textF);
 
             JLabel labNumber = new JLabel("Тираж:");
@@ -70,31 +70,34 @@ public class Panel extends JPanel {
             inputNumber.setBounds(25, 303, 100, 30);
             add(inputNumber);
             JLabel textNumber = new JLabel();
-            textNumber.setBounds(125, 303, 100,30);
+            textNumber.setBounds(125, 303, 100, 30);
             add(textNumber);
 
-            JLabel flagText1 = new JLabel("Оклейка");
-            flagText1.setBounds(29, 335, 200, 54);
+            JLabel flagText1 = new JLabel("Внутр. пленка");
+            flagText1.setBounds(29, 333, 200, 54);
             add(flagText1);
-            JLabel flagText2 = new JLabel("внутри");
-            flagText2.setBounds(29, 353, 200, 54);
-            add(flagText2);
-            JCheckBox flag = new JCheckBox();
-            flag.setBounds(90, 358,30,30);
-            add(flag);
 
-            JLabel flagText3 = new JLabel("Белая");
-            flagText3.setBounds(29, 385, 200, 54);
-            add(flagText3);
-            JLabel flagText4 = new JLabel("1,37 м.");
-            flagText4.setBounds(29, 403, 200, 54);
-            add(flagText4);
-            JCheckBox flagTwo = new JCheckBox();
-            flagTwo.setBounds(90, 408,30,30);
-            add(flagTwo);
+            JComboBox<String> jComboBoxInside = new JComboBox<>();
+            jComboBoxInside.setBounds(23, 358, 105, 54);
+            jComboBoxInside.addItem("Нет");
+            jComboBoxInside.addItem("1/1,26");
+            jComboBoxInside.addItem("DLC");
+            jComboBoxInside.addItem("1,5");
+            add(jComboBoxInside);
+
+            JLabel flagText2 = new JLabel("Наруж. пленка");
+            flagText2.setBounds(29, 388, 200, 54);
+            add(flagText2);
+
+            JComboBox<String> jComboBoxPlastic = new JComboBox<>();
+            jComboBoxPlastic.setBounds(23, 413, 105, 54);
+            jComboBoxPlastic.addItem("1/1,26");
+            jComboBoxPlastic.addItem("DLC");
+            jComboBoxPlastic.addItem("1,5");
+            add(jComboBoxPlastic);
 
             JButton b1 = new JButton("Посчитать!");
-            b1.setBounds(135,395,125,58);
+            b1.setBounds(135, 395, 125, 58);
             add(b1);
 
             JTextArea output = new JTextArea(5, 20);
@@ -107,10 +110,35 @@ public class Panel extends JPanel {
                     boolean cY = CheckXYZGNumber(inputY, textY, 30, 690);
                     boolean cZ = CheckXYZGNumber(inputZ, textZ, 15, 350);
                     boolean cF = CheckF(inputF, inputZ, textF, 15, 350);
-                    boolean cNumber=CheckXYZGNumber(inputNumber, textNumber,5,5000);
-                    boolean now = flag.isSelected() ? true : false;
-                    boolean bigPlastic = flagTwo.isSelected() ? true : false;
-                    if (cX && cY && cZ && cF && cNumber){
+                    boolean cNumber = CheckXYZGNumber(inputNumber, textNumber, 5, 5000);
+                    int now = 0;
+                    switch ((String) jComboBoxInside.getSelectedItem()) {
+                        case "Нет":
+                            now = 0;
+                            break;
+                        case "1/1,26":
+                            now = 1;
+                            break;
+                        case "DLC":
+                            now = 2;
+                            break;
+                        case "1,5":
+                            now = 3;
+                            break;
+                    }
+                    int plasticSelected = -1;
+                    switch ((String) jComboBoxPlastic.getSelectedItem()) {
+                        case "1/1,26":
+                            plasticSelected = -1;
+                            break;
+                        case "DLC":
+                            plasticSelected = 0;
+                            break;
+                        case "1,5":
+                            plasticSelected = 1;
+                            break;
+                    }
+                    if (cX && cY && cZ && cF && cNumber) {
                         That.ou = "";
                         That.list = new ArrayList<>();
                         new That().Cap(
@@ -120,24 +148,25 @@ public class Panel extends JPanel {
                                 Integer.parseInt(inputF.getText()),
                                 Integer.parseInt(inputNumber.getText()),
                                 now,
-                                bigPlastic
+                                plasticSelected
                         );
                         output.setText(That.ou);
                     } else {
-                    output.setText("Ошибка ввода данных!");
+                        output.setText("Ошибка ввода данных!");
                     }
                 }
             });
 
             add(output);
             JScrollPane scrollPane = new JScrollPane(output);
-            scrollPane.setBounds(275, 25, 375,425);
-            scrollPane.setPreferredSize(new Dimension(375,425));
+            scrollPane.setBounds(275, 25, 375, 425);
+            scrollPane.setPreferredSize(new Dimension(375, 425));
             add(scrollPane);
         }
     }
-    class pane2 extends JPanel{
-        public pane2(){
+
+    class pane2 extends JPanel {
+        public pane2() {
             setLayout(null);
             JLabel labX = new JLabel("Длина коробки Х:");
             labX.setBounds(29, 10, 200, 54);
@@ -146,7 +175,7 @@ public class Panel extends JPanel {
             inputX.setBounds(25, 48, 100, 30);
             add(inputX);
             JLabel textX = new JLabel();
-            textX.setBounds(125, 48, 100,30);
+            textX.setBounds(125, 48, 100, 30);
             add(textX);
 
             JLabel labY = new JLabel("Ширина коробки Y:");
@@ -156,7 +185,7 @@ public class Panel extends JPanel {
             inputY.setBounds(25, 99, 100, 30);
             add(inputY);
             JLabel textY = new JLabel();
-            textY.setBounds(125, 99, 100,30);
+            textY.setBounds(125, 99, 100, 30);
             add(textY);
 
             JLabel labZ = new JLabel("Высота коробки Z:");
@@ -166,7 +195,7 @@ public class Panel extends JPanel {
             inputZ.setBounds(25, 150, 100, 30);
             add(inputZ);
             JLabel textZ = new JLabel();
-            textZ.setBounds(125, 150, 100,30);
+            textZ.setBounds(125, 150, 100, 30);
             add(textZ);
 
             JLabel labNumber = new JLabel("Тираж:");
@@ -176,7 +205,7 @@ public class Panel extends JPanel {
             inputNumber.setBounds(25, 303, 100, 30);
             add(inputNumber);
             JLabel textNumber = new JLabel();
-            textNumber.setBounds(125, 303, 100,30);
+            textNumber.setBounds(125, 303, 100, 30);
             add(textNumber);
 
             JLabel flagText1 = new JLabel("Оклейка");
@@ -186,11 +215,19 @@ public class Panel extends JPanel {
             flagText2.setBounds(29, 353, 200, 54);
             add(flagText2);
             JCheckBox flag = new JCheckBox();
-            flag.setBounds(90, 358,30,30);
+            flag.setBounds(90, 358, 30, 30);
             add(flag);
 
+//            JComboBox<String> jComboBox = new JComboBox<>();
+//            jComboBox.setBounds(25, 398, 100, 54);
+//            jComboBox.addItem("1/1,26");
+//            jComboBox.addItem("DLC");
+//            jComboBox.addItem("1,5");
+//            add(jComboBox);
+
+
             JButton b1 = new JButton("Посчитать!");
-            b1.setBounds(135,395,125,58);
+            b1.setBounds(135, 395, 125, 58);
             add(b1);
 
             JTextArea output = new JTextArea(5, 20);
@@ -202,9 +239,9 @@ public class Panel extends JPanel {
                     boolean cX = CheckXYZGNumber(inputX, textX, 30, 450);
                     boolean cY = CheckXYZGNumber(inputY, textY, 30, 450);
                     boolean cZ = CheckXYZGNumber(inputZ, textZ, 30, 350);
-                    boolean cNumber=CheckXYZGNumber(inputNumber,textNumber,5,5000);
+                    boolean cNumber = CheckXYZGNumber(inputNumber, textNumber, 5, 5000);
                     boolean now = (flag.isSelected()) ? true : false;
-                    if (cX && cY && cZ && cNumber){
+                    if (cX && cY && cZ && cNumber) {
                         That.ou = "";
                         That.list = new ArrayList<>();
                         new That().MagicG(
@@ -217,19 +254,20 @@ public class Panel extends JPanel {
                         output.setText(That.ou);
 
                     } else {
-                    output.setText("Ошибка ввода данных!");
+                        output.setText("Ошибка ввода данных!");
                     }
                 }
             });
 
             add(output);
             JScrollPane scrollPane = new JScrollPane(output);
-            scrollPane.setBounds(275, 25, 375,425);
-            scrollPane.setPreferredSize(new Dimension(375,425));
+            scrollPane.setBounds(275, 25, 375, 425);
+            scrollPane.setPreferredSize(new Dimension(375, 425));
             add(scrollPane);
         }
     }
-    class pane3 extends JPanel{
+
+    class pane3 extends JPanel {
         public pane3() {
             setLayout(null);
             JLabel labX = new JLabel("Длина коробки Х:");
@@ -279,11 +317,11 @@ public class Panel extends JPanel {
             flagText2.setBounds(29, 353, 200, 54);
             add(flagText2);
             JCheckBox flag = new JCheckBox();
-            flag.setBounds(90, 358,30,30);
+            flag.setBounds(90, 358, 30, 30);
             add(flag);
 
             JButton b1 = new JButton("Посчитать!");
-            b1.setBounds(135,395,125,58);
+            b1.setBounds(135, 395, 125, 58);
             add(b1);
 
             JTextArea output = new JTextArea(5, 20);
@@ -316,13 +354,14 @@ public class Panel extends JPanel {
 
             add(output);
             JScrollPane scrollPane = new JScrollPane(output);
-            scrollPane.setBounds(275, 25, 375,425);
-            scrollPane.setPreferredSize(new Dimension(375,425));
+            scrollPane.setBounds(275, 25, 375, 425);
+            scrollPane.setPreferredSize(new Dimension(375, 425));
             add(scrollPane);
         }
     }
-    class pane4 extends JPanel{
-        public pane4(){
+
+    class pane4 extends JPanel {
+        public pane4() {
             setLayout(null);
             JLabel labX = new JLabel("Длина коробки Х:");
             labX.setBounds(29, 10, 200, 54);
@@ -331,7 +370,7 @@ public class Panel extends JPanel {
             inputX.setBounds(25, 48, 100, 30);
             add(inputX);
             JLabel textX = new JLabel();
-            textX.setBounds(125, 48, 100,30);
+            textX.setBounds(125, 48, 100, 30);
             add(textX);
 
             JLabel labY = new JLabel("Ширина коробки Y:");
@@ -341,7 +380,7 @@ public class Panel extends JPanel {
             inputY.setBounds(25, 99, 100, 30);
             add(inputY);
             JLabel textY = new JLabel();
-            textY.setBounds(125, 99, 100,30);
+            textY.setBounds(125, 99, 100, 30);
             add(textY);
 
             JLabel labZ = new JLabel("Высота коробки Z:");
@@ -351,7 +390,7 @@ public class Panel extends JPanel {
             inputZ.setBounds(25, 150, 100, 30);
             add(inputZ);
             JLabel textZ = new JLabel();
-            textZ.setBounds(125, 150, 100,30);
+            textZ.setBounds(125, 150, 100, 30);
             add(textZ);
 
             JLabel labF = new JLabel("Ширина боковой линии F:");
@@ -361,7 +400,7 @@ public class Panel extends JPanel {
             inputF.setBounds(25, 201, 100, 30);
             add(inputF);
             JLabel textF = new JLabel();
-            textF.setBounds(125, 201, 100,30);
+            textF.setBounds(125, 201, 100, 30);
             add(textF);
 
             JLabel labNumber = new JLabel("Тираж:");
@@ -371,7 +410,7 @@ public class Panel extends JPanel {
             inputNumber.setBounds(25, 303, 100, 30);
             add(inputNumber);
             JLabel textNumber = new JLabel();
-            textNumber.setBounds(125, 303, 100,30);
+            textNumber.setBounds(125, 303, 100, 30);
             add(textNumber);
 
             JLabel flagText1 = new JLabel("Оклейка");
@@ -381,11 +420,11 @@ public class Panel extends JPanel {
             flagText2.setBounds(29, 353, 200, 54);
             add(flagText2);
             JCheckBox flag = new JCheckBox();
-            flag.setBounds(90, 358,30,30);
+            flag.setBounds(90, 358, 30, 30);
             add(flag);
 
             JButton b1 = new JButton("Посчитать!");
-            b1.setBounds(135,395,125,58);
+            b1.setBounds(135, 395, 125, 58);
             add(b1);
 
             JTextArea output = new JTextArea(5, 20);
@@ -398,9 +437,9 @@ public class Panel extends JPanel {
                     boolean cY = CheckXYZGNumber(inputY, textY, 30, 450);
                     boolean cZ = CheckXYZGNumber(inputZ, textZ, 30, 350);
                     boolean cF = CheckF(inputF, inputZ, textF, 0, 350);
-                    boolean cNumber=CheckXYZGNumber(inputNumber,textNumber,5,5000);
+                    boolean cNumber = CheckXYZGNumber(inputNumber, textNumber, 5, 5000);
                     boolean now = (flag.isSelected()) ? true : false;
-                    if (cX && cY && cZ && cF && cNumber){
+                    if (cX && cY && cZ && cF && cNumber) {
                         That.ou = "";
                         That.list = new ArrayList<>();
                         new That().TwoCapLite(
@@ -420,44 +459,45 @@ public class Panel extends JPanel {
 
             add(output);
             JScrollPane scrollPane = new JScrollPane(output);
-            scrollPane.setBounds(275, 25, 375,425);
-            scrollPane.setPreferredSize(new Dimension(375,425));
+            scrollPane.setBounds(275, 25, 375, 425);
+            scrollPane.setPreferredSize(new Dimension(375, 425));
             add(scrollPane);
 
         }
     }
-    class pane5 extends JPanel{
-        public pane5(){
+
+    class pane5 extends JPanel {
+        public pane5() {
         }
     }
 
-        public boolean CheckXYZGNumber(JTextField text, JLabel o, int one, int two){
-            try {
-                if (Integer.parseInt(text.getText()) >= one && Integer.parseInt(text.getText()) <= two) {
-                    o.setText("ok");
-                    return true;
-                } else {
-                    throw new Exception();
-                }
-            } catch (Exception exception) {
-                o.setText("от "+one+" до "+two);
-                return false;
+    public boolean CheckXYZGNumber(JTextField text, JLabel o, int one, int two) {
+        try {
+            if (Integer.parseInt(text.getText()) >= one && Integer.parseInt(text.getText()) <= two) {
+                o.setText("ok");
+                return true;
+            } else {
+                throw new Exception();
             }
+        } catch (Exception exception) {
+            o.setText("от " + one + " до " + two);
+            return false;
         }
+    }
 
-        public boolean CheckF(JTextField text, JTextField text2, JLabel o, int one, int two){
-            try {
-                if (Integer.parseInt(text.getText()) >= one
-                        && Integer.parseInt(text.getText()) <= two
-                        && Integer.parseInt(text.getText()) <= Integer.parseInt(text2.getText()+2)) {
-                    o.setText("ok");
-                    return true;
-                } else {
-                    throw new Exception();
-                }
-            } catch (Exception exception) {
-                o.setText("от "+one+" до "+two);
-                return false;
+    public boolean CheckF(JTextField text, JTextField text2, JLabel o, int one, int two) {
+        try {
+            if (Integer.parseInt(text.getText()) >= one
+                    && Integer.parseInt(text.getText()) <= two
+                    && Integer.parseInt(text.getText()) <= Integer.parseInt(text2.getText() + 2)) {
+                o.setText("ok");
+                return true;
+            } else {
+                throw new Exception();
             }
+        } catch (Exception exception) {
+            o.setText("от " + one + " до " + two);
+            return false;
         }
+    }
 }
