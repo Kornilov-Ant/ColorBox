@@ -12,16 +12,16 @@ public class Panel extends JPanel {
         setLayout(new GridLayout());
 
         JTabbedPane jTabbedPane = new JTabbedPane(JTabbedPane.TOP);
-        jTabbedPane.addTab("Крышка-дно", new pane1());
-        jTabbedPane.addTab("Шкатулка гор.", new pane2());
-        jTabbedPane.addTab("Шкатулка вер.", new pane3());
-        jTabbedPane.addTab("Двойное дно", new pane4());
-        jTabbedPane.addTab("Двойное дно (разный борт)", new pane5());
+        jTabbedPane.addTab("Крышка-дно", new Pane1());
+        jTabbedPane.addTab("Шкатулка гор.", new Pane2());
+        jTabbedPane.addTab("Шкатулка вер.", new Pane3());
+        jTabbedPane.addTab("Двойное дно", new Pane4());
+        jTabbedPane.addTab("Двойное дно (разный борт)", new Pane5());
         add(jTabbedPane);
     }
 
-    class pane1 extends JPanel {
-        public pane1() {
+    class Pane1 extends JPanel {
+        public Pane1() {
             setLayout(null);
             JLabel labX = new JLabel("Длина коробки Х:");
             labX.setBounds(29, 10, 200, 54);
@@ -106,38 +106,13 @@ public class Panel extends JPanel {
             b1.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
-                    boolean cX = CheckXYZGNumber(inputX, textX, 30, 990);
-                    boolean cY = CheckXYZGNumber(inputY, textY, 30, 690);
-                    boolean cZ = CheckXYZGNumber(inputZ, textZ, 15, 350);
-                    boolean cF = CheckF(inputF, inputZ, textF, 15, 350);
-                    boolean cNumber = CheckXYZGNumber(inputNumber, textNumber, 5, 5000);
-                    int now = 0;
-                    switch ((String) jComboBoxInside.getSelectedItem()) {
-                        case "Нет":
-                            now = 0;
-                            break;
-                        case "1/1,26":
-                            now = 1;
-                            break;
-                        case "DLC":
-                            now = 2;
-                            break;
-                        case "1,5":
-                            now = 3;
-                            break;
-                    }
-                    int plasticSelected = -1;
-                    switch ((String) jComboBoxPlastic.getSelectedItem()) {
-                        case "1/1,26":
-                            plasticSelected = -1;
-                            break;
-                        case "DLC":
-                            plasticSelected = 0;
-                            break;
-                        case "1,5":
-                            plasticSelected = 1;
-                            break;
-                    }
+                    boolean cX = checkXYZGNumber(inputX, textX, 30, 990);
+                    boolean cY = checkXYZGNumber(inputY, textY, 30, 690);
+                    boolean cZ = checkXYZGNumber(inputZ, textZ, 15, 350);
+                    boolean cF = checkF(inputF, inputZ, textF, 15, 350);
+                    boolean cNumber = checkXYZGNumber(inputNumber, textNumber, 5, 5000);
+                    int now = selectedInside((String) jComboBoxInside.getSelectedItem());
+                    int plasticSelected = selectedOutside((String) jComboBoxPlastic.getSelectedItem());
                     if (cX && cY && cZ && cF && cNumber) {
                         That.ou = "";
                         That.list = new ArrayList<>();
@@ -165,8 +140,8 @@ public class Panel extends JPanel {
         }
     }
 
-    class pane2 extends JPanel {
-        public pane2() {
+    class Pane2 extends JPanel {
+        public Pane2() {
             setLayout(null);
             JLabel labX = new JLabel("Длина коробки Х:");
             labX.setBounds(29, 10, 200, 54);
@@ -236,10 +211,10 @@ public class Panel extends JPanel {
             b1.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
-                    boolean cX = CheckXYZGNumber(inputX, textX, 30, 450);
-                    boolean cY = CheckXYZGNumber(inputY, textY, 30, 450);
-                    boolean cZ = CheckXYZGNumber(inputZ, textZ, 30, 350);
-                    boolean cNumber = CheckXYZGNumber(inputNumber, textNumber, 5, 5000);
+                    boolean cX = checkXYZGNumber(inputX, textX, 30, 450);
+                    boolean cY = checkXYZGNumber(inputY, textY, 30, 450);
+                    boolean cZ = checkXYZGNumber(inputZ, textZ, 30, 350);
+                    boolean cNumber = checkXYZGNumber(inputNumber, textNumber, 5, 5000);
                     boolean now = (flag.isSelected()) ? true : false;
                     if (cX && cY && cZ && cNumber) {
                         That.ou = "";
@@ -267,8 +242,8 @@ public class Panel extends JPanel {
         }
     }
 
-    class pane3 extends JPanel {
-        public pane3() {
+    class Pane3 extends JPanel {
+        public Pane3() {
             setLayout(null);
             JLabel labX = new JLabel("Длина коробки Х:");
             labX.setBounds(29, 10, 200, 54);
@@ -330,10 +305,10 @@ public class Panel extends JPanel {
             b1.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
-                    boolean cX = CheckXYZGNumber(inputX, textX, 30, 450);
-                    boolean cY = CheckXYZGNumber(inputY, textY, 30, 450);
-                    boolean cZ = CheckXYZGNumber(inputZ, textZ, 30, 350);
-                    boolean cNumber = CheckXYZGNumber(inputNumber, textNumber, 5, 5000);
+                    boolean cX = checkXYZGNumber(inputX, textX, 30, 450);
+                    boolean cY = checkXYZGNumber(inputY, textY, 30, 450);
+                    boolean cZ = checkXYZGNumber(inputZ, textZ, 30, 350);
+                    boolean cNumber = checkXYZGNumber(inputNumber, textNumber, 5, 5000);
                     boolean now = (flag.isSelected()) ? true : false;
                     if (cX && cY && cZ && cNumber) {
                         That.ou = "";
@@ -360,8 +335,8 @@ public class Panel extends JPanel {
         }
     }
 
-    class pane4 extends JPanel {
-        public pane4() {
+    class Pane4 extends JPanel {
+        public Pane4() {
             setLayout(null);
             JLabel labX = new JLabel("Длина коробки Х:");
             labX.setBounds(29, 10, 200, 54);
@@ -433,11 +408,11 @@ public class Panel extends JPanel {
             b1.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
-                    boolean cX = CheckXYZGNumber(inputX, textX, 30, 450);
-                    boolean cY = CheckXYZGNumber(inputY, textY, 30, 450);
-                    boolean cZ = CheckXYZGNumber(inputZ, textZ, 30, 350);
-                    boolean cF = CheckF(inputF, inputZ, textF, 0, 350);
-                    boolean cNumber = CheckXYZGNumber(inputNumber, textNumber, 5, 5000);
+                    boolean cX = checkXYZGNumber(inputX, textX, 30, 450);
+                    boolean cY = checkXYZGNumber(inputY, textY, 30, 450);
+                    boolean cZ = checkXYZGNumber(inputZ, textZ, 30, 350);
+                    boolean cF = checkF(inputF, inputZ, textF, 0, 350);
+                    boolean cNumber = checkXYZGNumber(inputNumber, textNumber, 5, 5000);
                     boolean now = (flag.isSelected()) ? true : false;
                     if (cX && cY && cZ && cF && cNumber) {
                         That.ou = "";
@@ -466,12 +441,12 @@ public class Panel extends JPanel {
         }
     }
 
-    class pane5 extends JPanel {
-        public pane5() {
+    class Pane5 extends JPanel {
+        public Pane5() {
         }
     }
 
-    public boolean CheckXYZGNumber(JTextField text, JLabel o, int one, int two) {
+    private boolean checkXYZGNumber(JTextField text, JLabel o, int one, int two) {
         try {
             if (Integer.parseInt(text.getText()) >= one && Integer.parseInt(text.getText()) <= two) {
                 o.setText("ok");
@@ -485,7 +460,7 @@ public class Panel extends JPanel {
         }
     }
 
-    public boolean CheckF(JTextField text, JTextField text2, JLabel o, int one, int two) {
+    private boolean checkF(JTextField text, JTextField text2, JLabel o, int one, int two) {
         try {
             if (Integer.parseInt(text.getText()) >= one
                     && Integer.parseInt(text.getText()) <= two
@@ -498,6 +473,30 @@ public class Panel extends JPanel {
         } catch (Exception exception) {
             o.setText("от " + one + " до " + two);
             return false;
+        }
+    }
+
+    private int selectedInside(String line) {
+        switch (line) {
+            case "1/1,26":
+                return 1;
+            case "DLC":
+                return 2;
+            case "1,5":
+                return 3;
+            default:
+                return 0;
+        }
+    }
+
+    private int selectedOutside(String line) {
+        switch (line) {
+            case "DLC":
+                return 0;
+            case "1,5":
+                return 1;
+            default:
+                return -1;
         }
     }
 }
