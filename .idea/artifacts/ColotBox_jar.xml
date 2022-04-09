@@ -2,7 +2,7 @@
   <artifact type="jar" name="ColotBox:jar">
     <output-path>$PROJECT_DIR$/out/artifacts/ColotBox_jar</output-path>
     <root id="archive" name="ColotBox.jar">
-      <element id="module-output" name="ColotBox" />
+      <element id="module-output" name="ColorBox" />
       <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/jetbrains/annotations/23.0.0/annotations-23.0.0.jar" path-in-jar="/" />
     </root>
   </artifact>

@@ -58,7 +58,7 @@ public class Panel extends JPanel {
             add(flagText1);
 
             JComboBox<String> jComboBoxInside = new JComboBox<>();
-            jComboBoxInside.setBounds(23, 358, 105, 54);
+            jComboBoxInside.setBounds(23, 370, 105, 30);
             jComboBoxInside.addItem("Нет");
             jComboBoxInside.addItem("1/1,26");
             jComboBoxInside.addItem("DLC");
@@ -70,7 +70,7 @@ public class Panel extends JPanel {
             add(flagText2);
 
             JComboBox<String> jComboBoxPlastic = new JComboBox<>();
-            jComboBoxPlastic.setBounds(23, 413, 105, 54);
+            jComboBoxPlastic.setBounds(23, 425, 105, 30);
             jComboBoxPlastic.addItem("1/1,26");
             jComboBoxPlastic.addItem("DLC");
             jComboBoxPlastic.addItem("1,5");
@@ -88,8 +88,8 @@ public class Panel extends JPanel {
                 public void actionPerformed(ActionEvent e) {
                     boolean cX = checkXYZGNumber(xyzNumber.getInputX(), xyzNumber.getTextX(), 30, 990);
                     boolean cY = checkXYZGNumber(xyzNumber.getInputY(), xyzNumber.getTextY(), 30, 690);
-                    boolean cZ = checkXYZGNumber(xyzNumber.getInputZ(), xyzNumber.getTextZ(), 15, 350);
-                    boolean cF = checkF(inputF, xyzNumber.getInputZ(), textF, 15, 350);
+                    boolean cZ = checkXYZGNumber(xyzNumber.getInputZ(), xyzNumber.getTextZ(), 15, 450);
+                    boolean cF = checkF(inputF, xyzNumber.getInputZ(), textF, 15, 450);
                     boolean cNumber = checkXYZGNumber(xyzNumber.getInputNumber(), xyzNumber.getTextNumber(), 5, 5000);
                     int now = selectedInside((String) jComboBoxInside.getSelectedItem());
                     int plasticSelected = selectedOutside((String) jComboBoxPlastic.getSelectedItem());
