@@ -2,22 +2,22 @@ package ColorBox.Process.BlockPanel;
 
 import javax.swing.*;
 
-public class XYZNumber extends JPanel {
-    protected JLabel labX = new JLabel("Длина коробки Х:");
-    protected JTextField inputX = new JTextField("", 20);
-    protected JLabel textX = new JLabel();
+public class XYZFNumber extends JPanel {
+    private JLabel labX = new JLabel("Длина коробки Х:");
+    private JTextField inputX = new JTextField("", 20);
+    private JLabel textX = new JLabel();
 
-    protected JLabel labY = new JLabel("Ширина коробки Y:");
-    protected JTextField inputY = new JTextField("", 20);
-    protected JLabel textY = new JLabel();
+    private JLabel labY = new JLabel("Ширина коробки Y:");
+    private JTextField inputY = new JTextField("", 20);
+    private JLabel textY = new JLabel();
 
-    protected JLabel labZ = new JLabel("Высота коробки Z:");
-    protected JTextField inputZ = new JTextField("", 20);
-    protected JLabel textZ = new JLabel();
+    private JLabel labZ = new JLabel("Высота коробки Z:");
+    private JTextField inputZ = new JTextField("", 20);
+    private JLabel textZ = new JLabel();
 
-    protected JLabel labNumber = new JLabel("Тираж:");
-    protected JTextField inputNumber = new JTextField("", 20);
-    protected JLabel textNumber = new JLabel();
+    private JLabel labNumber = new JLabel("Тираж:");
+    private JTextField inputNumber = new JTextField("", 20);
+    private JLabel textNumber = new JLabel();
 
     public JLabel getLabNumber() {
         labNumber.setBounds(29, 265, 200, 54);

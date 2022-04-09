@@ -20,8 +20,8 @@ public class That {
         }
     }
 
-    public void MagicG(int x, int y, int z, int number, boolean now) {
-        BoxMagic box = new BoxMagic(x, y, z);
+    public void MagicG(int x, int y, int z, int f, int number, boolean now) {
+        BoxMagic box = new BoxMagic(x, y, z, f);
         Play cap = new Play();
         cap.Play(box, number, 0, now);
 
@@ -30,8 +30,8 @@ public class That {
         }
     }
 
-    public void MagicV(int x, int y, int z, int number, boolean now) {
-        BoxMagic box = new BoxMagic(x, y, z);
+    public void MagicV(int x, int y, int z, int f, int number, boolean now) {
+        BoxMagic box = new BoxMagic(x, y, z, f);
         Play cap = new Play();
         cap.Play(box, number, 1, now);
 

@@ -17,7 +17,7 @@ public class DevelopMagicV extends DevelopCap {
         listTwo.add(new Board(box.getY() + 4, box.getZ() + 2));
         listTwo.add(new Board(box.getX(), box.getZ() + 2));
         listTwo.add(new Board(box.getY() + 10, box.getY() + 7));
-        listOne.add(new Board(box.getY() + 10, box.getZ() + 2));
+        listOne.add(new Board(box.getY() + 10, box.getF()));
         listOne.add(new Board(box.getY() + 10, box.getZ() + 6));
 
         for (Board slide : listOne) {

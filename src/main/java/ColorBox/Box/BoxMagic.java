@@ -5,11 +5,13 @@ public class BoxMagic {
     private int x;
     private int y;
     private int z;
+    private int f;
 
-    public BoxMagic(int x, int y, int z) {
+    public BoxMagic(int x, int y, int z, int f) {
         this.x = x;
         this.y = y;
         this.z = z;
+        this.f = f;
     }
 
     public int getX() {
@@ -22,5 +24,9 @@ public class BoxMagic {
 
     public int getZ() {
         return z;
+    }
+
+    public int getF() {
+        return f;
     }
 }
