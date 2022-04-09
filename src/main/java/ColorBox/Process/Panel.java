@@ -1,5 +1,7 @@
 package ColorBox.Process;
 
+import ColorBox.Process.BlockPanel.XYZNumber;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -23,35 +25,19 @@ public class Panel extends JPanel {
     class Pane1 extends JPanel {
         public Pane1() {
             setLayout(null);
-            JLabel labX = new JLabel("Длина коробки Х:");
-            labX.setBounds(29, 10, 200, 54);
-            add(labX);
-            JTextField inputX = new JTextField("", 20);
-            inputX.setBounds(25, 48, 100, 30);
-            add(inputX);
-            JLabel textX = new JLabel();
-            textX.setBounds(125, 48, 100, 30);
-            add(textX);
+            XYZNumber xyzNumber = new XYZNumber();
 
-            JLabel labY = new JLabel("Ширина коробки Y:");
-            labY.setBounds(29, 61, 200, 54);
-            add(labY);
-            JTextField inputY = new JTextField("", 20);
-            inputY.setBounds(25, 99, 100, 30);
-            add(inputY);
-            JLabel textY = new JLabel();
-            textY.setBounds(125, 99, 100, 30);
-            add(textY);
+            add(xyzNumber.getLabX());
+            add(xyzNumber.getInputX());
+            add(xyzNumber.getTextX());
 
-            JLabel labZ = new JLabel("Высота коробки Z:");
-            labZ.setBounds(29, 112, 200, 54);
-            add(labZ);
-            JTextField inputZ = new JTextField("", 20);
-            inputZ.setBounds(25, 150, 100, 30);
-            add(inputZ);
-            JLabel textZ = new JLabel();
-            textZ.setBounds(125, 150, 100, 30);
-            add(textZ);
+            add(xyzNumber.getLabY());
+            add(xyzNumber.getInputY());
+            add(xyzNumber.getTextY());
+
+            add(xyzNumber.getLabZ());
+            add(xyzNumber.getInputZ());
+            add(xyzNumber.getTextZ());
 
             JLabel labF = new JLabel("Высота крышки F:");
             labF.setBounds(29, 163, 200, 54);
@@ -63,15 +49,9 @@ public class Panel extends JPanel {
             textF.setBounds(125, 201, 100, 30);
             add(textF);
 
-            JLabel labNumber = new JLabel("Тираж:");
-            labNumber.setBounds(29, 265, 200, 54);
-            add(labNumber);
-            JTextField inputNumber = new JTextField("", 20);
-            inputNumber.setBounds(25, 303, 100, 30);
-            add(inputNumber);
-            JLabel textNumber = new JLabel();
-            textNumber.setBounds(125, 303, 100, 30);
-            add(textNumber);
+            add(xyzNumber.getLabNumber());
+            add(xyzNumber.getInputNumber());
+            add(xyzNumber.getTextNumber());
 
             JLabel flagText1 = new JLabel("Внутр. пленка");
             flagText1.setBounds(29, 333, 200, 54);
@@ -106,22 +86,22 @@ public class Panel extends JPanel {
             b1.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
-                    boolean cX = checkXYZGNumber(inputX, textX, 30, 990);
-                    boolean cY = checkXYZGNumber(inputY, textY, 30, 690);
-                    boolean cZ = checkXYZGNumber(inputZ, textZ, 15, 350);
-                    boolean cF = checkF(inputF, inputZ, textF, 15, 350);
-                    boolean cNumber = checkXYZGNumber(inputNumber, textNumber, 5, 5000);
+                    boolean cX = checkXYZGNumber(xyzNumber.getInputX(), xyzNumber.getTextX(), 30, 990);
+                    boolean cY = checkXYZGNumber(xyzNumber.getInputY(), xyzNumber.getTextY(), 30, 690);
+                    boolean cZ = checkXYZGNumber(xyzNumber.getInputZ(), xyzNumber.getTextZ(), 15, 350);
+                    boolean cF = checkF(inputF, xyzNumber.getInputZ(), textF, 15, 350);
+                    boolean cNumber = checkXYZGNumber(xyzNumber.getInputNumber(), xyzNumber.getTextNumber(), 5, 5000);
                     int now = selectedInside((String) jComboBoxInside.getSelectedItem());
                     int plasticSelected = selectedOutside((String) jComboBoxPlastic.getSelectedItem());
                     if (cX && cY && cZ && cF && cNumber) {
                         That.ou = "";
                         That.list = new ArrayList<>();
                         new That().Cap(
-                                Integer.parseInt(inputX.getText()),
-                                Integer.parseInt(inputY.getText()),
-                                Integer.parseInt(inputZ.getText()),
+                                Integer.parseInt(xyzNumber.getInputX().getText()),
+                                Integer.parseInt(xyzNumber.getInputY().getText()),
+                                Integer.parseInt(xyzNumber.getInputZ().getText()),
                                 Integer.parseInt(inputF.getText()),
-                                Integer.parseInt(inputNumber.getText()),
+                                Integer.parseInt(xyzNumber.getInputNumber().getText()),
                                 now,
                                 plasticSelected
                         );
@@ -143,45 +123,23 @@ public class Panel extends JPanel {
     class Pane2 extends JPanel {
         public Pane2() {
             setLayout(null);
-            JLabel labX = new JLabel("Длина коробки Х:");
-            labX.setBounds(29, 10, 200, 54);
-            add(labX);
-            JTextField inputX = new JTextField("", 20);
-            inputX.setBounds(25, 48, 100, 30);
-            add(inputX);
-            JLabel textX = new JLabel();
-            textX.setBounds(125, 48, 100, 30);
-            add(textX);
+            XYZNumber xyzNumber = new XYZNumber();
 
-            JLabel labY = new JLabel("Ширина коробки Y:");
-            labY.setBounds(29, 61, 200, 54);
-            add(labY);
-            JTextField inputY = new JTextField("", 20);
-            inputY.setBounds(25, 99, 100, 30);
-            add(inputY);
-            JLabel textY = new JLabel();
-            textY.setBounds(125, 99, 100, 30);
-            add(textY);
+            add(xyzNumber.getLabX());
+            add(xyzNumber.getInputX());
+            add(xyzNumber.getTextX());
 
-            JLabel labZ = new JLabel("Высота коробки Z:");
-            labZ.setBounds(29, 112, 200, 54);
-            add(labZ);
-            JTextField inputZ = new JTextField("", 20);
-            inputZ.setBounds(25, 150, 100, 30);
-            add(inputZ);
-            JLabel textZ = new JLabel();
-            textZ.setBounds(125, 150, 100, 30);
-            add(textZ);
+            add(xyzNumber.getLabY());
+            add(xyzNumber.getInputY());
+            add(xyzNumber.getTextY());
 
-            JLabel labNumber = new JLabel("Тираж:");
-            labNumber.setBounds(29, 265, 200, 54);
-            add(labNumber);
-            JTextField inputNumber = new JTextField("", 20);
-            inputNumber.setBounds(25, 303, 100, 30);
-            add(inputNumber);
-            JLabel textNumber = new JLabel();
-            textNumber.setBounds(125, 303, 100, 30);
-            add(textNumber);
+            add(xyzNumber.getLabZ());
+            add(xyzNumber.getInputZ());
+            add(xyzNumber.getTextZ());
+
+            add(xyzNumber.getLabNumber());
+            add(xyzNumber.getInputNumber());
+            add(xyzNumber.getTextNumber());
 
             JLabel flagText1 = new JLabel("Оклейка");
             flagText1.setBounds(29, 335, 200, 54);
@@ -193,14 +151,6 @@ public class Panel extends JPanel {
             flag.setBounds(90, 358, 30, 30);
             add(flag);
 
-//            JComboBox<String> jComboBox = new JComboBox<>();
-//            jComboBox.setBounds(25, 398, 100, 54);
-//            jComboBox.addItem("1/1,26");
-//            jComboBox.addItem("DLC");
-//            jComboBox.addItem("1,5");
-//            add(jComboBox);
-
-
             JButton b1 = new JButton("Посчитать!");
             b1.setBounds(135, 395, 125, 58);
             add(b1);
@@ -211,19 +161,19 @@ public class Panel extends JPanel {
             b1.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
-                    boolean cX = checkXYZGNumber(inputX, textX, 30, 450);
-                    boolean cY = checkXYZGNumber(inputY, textY, 30, 450);
-                    boolean cZ = checkXYZGNumber(inputZ, textZ, 30, 350);
-                    boolean cNumber = checkXYZGNumber(inputNumber, textNumber, 5, 5000);
+                    boolean cX = checkXYZGNumber(xyzNumber.getInputX(), xyzNumber.getTextX(), 30, 450);
+                    boolean cY = checkXYZGNumber(xyzNumber.getInputY(), xyzNumber.getTextY(), 30, 450);
+                    boolean cZ = checkXYZGNumber(xyzNumber.getInputZ(), xyzNumber.getTextZ(), 30, 350);
+                    boolean cNumber = checkXYZGNumber(xyzNumber.getInputNumber(), xyzNumber.getTextNumber(), 5, 5000);
                     boolean now = (flag.isSelected()) ? true : false;
                     if (cX && cY && cZ && cNumber) {
                         That.ou = "";
                         That.list = new ArrayList<>();
                         new That().MagicG(
-                                Integer.parseInt(inputX.getText()),
-                                Integer.parseInt(inputY.getText()),
-                                Integer.parseInt(inputZ.getText()),
-                                Integer.parseInt(inputNumber.getText()),
+                                Integer.parseInt(xyzNumber.getInputX().getText()),
+                                Integer.parseInt(xyzNumber.getInputY().getText()),
+                                Integer.parseInt(xyzNumber.getInputZ().getText()),
+                                Integer.parseInt(xyzNumber.getInputNumber().getText()),
                                 now
                         );
                         output.setText(That.ou);
@@ -245,45 +195,23 @@ public class Panel extends JPanel {
     class Pane3 extends JPanel {
         public Pane3() {
             setLayout(null);
-            JLabel labX = new JLabel("Длина коробки Х:");
-            labX.setBounds(29, 10, 200, 54);
-            add(labX);
-            JTextField inputX = new JTextField("", 20);
-            inputX.setBounds(25, 48, 100, 30);
-            add(inputX);
-            JLabel textX = new JLabel();
-            textX.setBounds(125, 48, 100, 30);
-            add(textX);
+            XYZNumber xyzNumber = new XYZNumber();
 
-            JLabel labY = new JLabel("Ширина коробки Y:");
-            labY.setBounds(29, 61, 200, 54);
-            add(labY);
-            JTextField inputY = new JTextField("", 20);
-            inputY.setBounds(25, 99, 100, 30);
-            add(inputY);
-            JLabel textY = new JLabel();
-            textY.setBounds(125, 99, 100, 30);
-            add(textY);
+            add(xyzNumber.getLabX());
+            add(xyzNumber.getInputX());
+            add(xyzNumber.getTextX());
 
-            JLabel labZ = new JLabel("Высота коробки Z:");
-            labZ.setBounds(29, 112, 200, 54);
-            add(labZ);
-            JTextField inputZ = new JTextField("", 20);
-            inputZ.setBounds(25, 150, 100, 30);
-            add(inputZ);
-            JLabel textZ = new JLabel();
-            textZ.setBounds(125, 150, 100, 30);
-            add(textZ);
+            add(xyzNumber.getLabY());
+            add(xyzNumber.getInputY());
+            add(xyzNumber.getTextY());
 
-            JLabel labNumber = new JLabel("Тираж:");
-            labNumber.setBounds(29, 265, 200, 54);
-            add(labNumber);
-            JTextField inputNumber = new JTextField("", 20);
-            inputNumber.setBounds(25, 303, 100, 30);
-            add(inputNumber);
-            JLabel textNumber = new JLabel();
-            textNumber.setBounds(125, 303, 100, 30);
-            add(textNumber);
+            add(xyzNumber.getLabZ());
+            add(xyzNumber.getInputZ());
+            add(xyzNumber.getTextZ());
+
+            add(xyzNumber.getLabNumber());
+            add(xyzNumber.getInputNumber());
+            add(xyzNumber.getTextNumber());
 
             JLabel flagText1 = new JLabel("Оклейка");
             flagText1.setBounds(29, 335, 200, 54);
@@ -305,19 +233,19 @@ public class Panel extends JPanel {
             b1.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
-                    boolean cX = checkXYZGNumber(inputX, textX, 30, 450);
-                    boolean cY = checkXYZGNumber(inputY, textY, 30, 450);
-                    boolean cZ = checkXYZGNumber(inputZ, textZ, 30, 350);
-                    boolean cNumber = checkXYZGNumber(inputNumber, textNumber, 5, 5000);
+                    boolean cX = checkXYZGNumber(xyzNumber.getInputX(), xyzNumber.getTextX(), 30, 450);
+                    boolean cY = checkXYZGNumber(xyzNumber.getInputY(), xyzNumber.getTextY(), 30, 450);
+                    boolean cZ = checkXYZGNumber(xyzNumber.getInputZ(), xyzNumber.getTextZ(), 30, 350);
+                    boolean cNumber = checkXYZGNumber(xyzNumber.getInputNumber(), xyzNumber.getTextNumber(), 5, 5000);
                     boolean now = (flag.isSelected()) ? true : false;
                     if (cX && cY && cZ && cNumber) {
                         That.ou = "";
                         That.list = new ArrayList<>();
                         new That().MagicV(
-                                Integer.parseInt(inputX.getText()),
-                                Integer.parseInt(inputY.getText()),
-                                Integer.parseInt(inputZ.getText()),
-                                Integer.parseInt(inputNumber.getText()),
+                                Integer.parseInt(xyzNumber.getInputX().getText()),
+                                Integer.parseInt(xyzNumber.getInputY().getText()),
+                                Integer.parseInt(xyzNumber.getInputZ().getText()),
+                                Integer.parseInt(xyzNumber.getInputNumber().getText()),
                                 now
                         );
                         output.setText(That.ou);
@@ -338,35 +266,20 @@ public class Panel extends JPanel {
     class Pane4 extends JPanel {
         public Pane4() {
             setLayout(null);
-            JLabel labX = new JLabel("Длина коробки Х:");
-            labX.setBounds(29, 10, 200, 54);
-            add(labX);
-            JTextField inputX = new JTextField("", 20);
-            inputX.setBounds(25, 48, 100, 30);
-            add(inputX);
-            JLabel textX = new JLabel();
-            textX.setBounds(125, 48, 100, 30);
-            add(textX);
+            XYZNumber xyzNumber = new XYZNumber();
 
-            JLabel labY = new JLabel("Ширина коробки Y:");
-            labY.setBounds(29, 61, 200, 54);
-            add(labY);
-            JTextField inputY = new JTextField("", 20);
-            inputY.setBounds(25, 99, 100, 30);
-            add(inputY);
-            JLabel textY = new JLabel();
-            textY.setBounds(125, 99, 100, 30);
-            add(textY);
+            add(xyzNumber.getLabX());
+            add(xyzNumber.getInputX());
+            add(xyzNumber.getTextX());
 
-            JLabel labZ = new JLabel("Высота коробки Z:");
-            labZ.setBounds(29, 112, 200, 54);
-            add(labZ);
-            JTextField inputZ = new JTextField("", 20);
-            inputZ.setBounds(25, 150, 100, 30);
-            add(inputZ);
-            JLabel textZ = new JLabel();
-            textZ.setBounds(125, 150, 100, 30);
-            add(textZ);
+            add(xyzNumber.getLabY());
+            add(xyzNumber.getInputY());
+            add(xyzNumber.getTextY());
+
+
+            add(xyzNumber.getLabZ());
+            add(xyzNumber.getInputZ());
+            add(xyzNumber.getTextZ());
 
             JLabel labF = new JLabel("Ширина боковой линии F:");
             labF.setBounds(29, 163, 200, 54);
@@ -378,15 +291,9 @@ public class Panel extends JPanel {
             textF.setBounds(125, 201, 100, 30);
             add(textF);
 
-            JLabel labNumber = new JLabel("Тираж:");
-            labNumber.setBounds(29, 265, 200, 54);
-            add(labNumber);
-            JTextField inputNumber = new JTextField("", 20);
-            inputNumber.setBounds(25, 303, 100, 30);
-            add(inputNumber);
-            JLabel textNumber = new JLabel();
-            textNumber.setBounds(125, 303, 100, 30);
-            add(textNumber);
+            add(xyzNumber.getLabNumber());
+            add(xyzNumber.getInputNumber());
+            add(xyzNumber.getTextNumber());
 
             JLabel flagText1 = new JLabel("Оклейка");
             flagText1.setBounds(29, 335, 200, 54);
@@ -408,21 +315,21 @@ public class Panel extends JPanel {
             b1.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
-                    boolean cX = checkXYZGNumber(inputX, textX, 30, 450);
-                    boolean cY = checkXYZGNumber(inputY, textY, 30, 450);
-                    boolean cZ = checkXYZGNumber(inputZ, textZ, 30, 350);
-                    boolean cF = checkF(inputF, inputZ, textF, 0, 350);
-                    boolean cNumber = checkXYZGNumber(inputNumber, textNumber, 5, 5000);
+                    boolean cX = checkXYZGNumber(xyzNumber.getInputX(), xyzNumber.getTextX(), 30, 990);
+                    boolean cY = checkXYZGNumber(xyzNumber.getInputY(), xyzNumber.getTextY(), 30, 690);
+                    boolean cZ = checkXYZGNumber(xyzNumber.getInputZ(), xyzNumber.getTextZ(), 15, 350);
+                    boolean cF = checkF(inputF, xyzNumber.getInputZ(), textF, 0, 350);
+                    boolean cNumber = checkXYZGNumber(xyzNumber.getInputNumber(), xyzNumber.getTextNumber(), 5, 5000);
                     boolean now = (flag.isSelected()) ? true : false;
                     if (cX && cY && cZ && cF && cNumber) {
                         That.ou = "";
                         That.list = new ArrayList<>();
                         new That().TwoCapLite(
-                                Integer.parseInt(inputX.getText()),
-                                Integer.parseInt(inputY.getText()),
-                                Integer.parseInt(inputZ.getText()),
+                                Integer.parseInt(xyzNumber.getInputX().getText()),
+                                Integer.parseInt(xyzNumber.getInputY().getText()),
+                                Integer.parseInt(xyzNumber.getInputZ().getText()),
                                 Integer.parseInt(inputF.getText()),
-                                Integer.parseInt(inputNumber.getText()),
+                                Integer.parseInt(xyzNumber.getInputNumber().getText()),
                                 now
                         );
                         output.setText(That.ou);
