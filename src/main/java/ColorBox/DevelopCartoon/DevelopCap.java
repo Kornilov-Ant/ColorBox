@@ -98,7 +98,7 @@ public class DevelopCap {
 
         if (now > 0) {
             Inside inside = new Inside();
-            switch (now){
+            switch (now) {
                 case 1:
                     That.list.add(inside.roll(listOne, listTwo, number));
                     break;

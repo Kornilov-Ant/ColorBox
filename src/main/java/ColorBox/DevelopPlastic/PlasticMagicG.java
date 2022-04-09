@@ -20,13 +20,13 @@ public class PlasticMagicG extends PlasticCap {
         Plastic(filmUp, number);          // крышка
         Plastic(filmBack, number);      // вклейка внутри
 
-        oracalBig.setY(Math.round(oracalBig.getY()*100)/100D);
-        oracalSmall.setY(Math.round(oracalSmall.getY()*100)/100D);
+        oracalBig.setY(Math.round(oracalBig.getY() * 100) / 100D);
+        oracalSmall.setY(Math.round(oracalSmall.getY() * 100) / 100D);
 
         return "" + System.lineSeparator() + "________________________________";
     }
 
-    private void Plastic(Film filmDown, int number){
+    private void Plastic(Film filmDown, int number) {
         aD = Math.floor(oracalSmall.getZ() / filmDown.x);
         aU = Math.floor(oracalSmall.getX() / filmDown.y); // CONST
 
@@ -36,7 +36,7 @@ public class PlasticMagicG extends PlasticCap {
         rollUp = aD * aU;
         rollDown = bD * bU;
 
-        if (rollUp>=rollDown){
+        if (rollUp >= rollDown) {
             aD = number / Math.floor(oracalSmall.getX() / filmDown.y);
             rollOne = oracalSmall.getX() + (aD * filmDown.x);
         } else {
@@ -53,7 +53,7 @@ public class PlasticMagicG extends PlasticCap {
         rollUp = aD * aU;
         rollDown = bD * bU;
 
-        if (rollUp>=rollDown){
+        if (rollUp >= rollDown) {
             aD = number / Math.floor(oracalBig.getX() / filmDown.y);
             rollTwo = oracalBig.getX() + (aD * filmDown.x);
         } else {
@@ -61,14 +61,14 @@ public class PlasticMagicG extends PlasticCap {
             rollTwo = oracalBig.getX() + (bU * filmDown.y);
         }
 
-        Double m22 = rollTwo*big;
-        Double m21 = rollOne*small;
+        Double m22 = rollTwo * big;
+        Double m21 = rollOne * small;
 
         That.list.add("На часть " + filmDown + " получится:");
         That.list.add("- рулон 1 м. шириной -> " + String.format("%.0f", m21) + " м2");
         That.list.add("- рулон 1,26 м. шириной -> " + String.format("%.0f", m22) + " м2");
 
-        if (m21<=m22) {
+        if (m21 <= m22) {
             String result = String.format("%.2f", (rollOne / 1000));
             That.list.add("Рекомендуется на часть " + filmDown + " - 1х"
                     + result + " м. пленки");

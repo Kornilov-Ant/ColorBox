@@ -22,12 +22,13 @@ public class PlasticTwoCapLite extends PlasticCap {
         Plastic(filmDownAndUp, number);          // крышка 1
         Plastic(filmDownAndUp, number);          // крышка 2
 
-        oracalBig.setY(Math.round(oracalBig.getY()*100)/100D);
-        oracalSmall.setY(Math.round(oracalSmall.getY()*100)/100D);
+        oracalBig.setY(Math.round(oracalBig.getY() * 100) / 100D);
+        oracalSmall.setY(Math.round(oracalSmall.getY() * 100) / 100D);
 
         return "" + System.lineSeparator() + "________________________________";
     }
-    private void Plastic(Film film, int number){
+
+    private void Plastic(Film film, int number) {
         aD = Math.floor(oracalSmall.getZ() / film.x);
         aU = Math.floor(oracalSmall.getX() / film.y); // CONST
 
@@ -37,7 +38,7 @@ public class PlasticTwoCapLite extends PlasticCap {
         rollUp = aD * aU;
         rollDown = bD * bU;
 
-        if (rollUp>=rollDown){
+        if (rollUp >= rollDown) {
             aD = number / Math.floor(oracalSmall.getX() / film.y);
             rollOne = aD * film.x;
         } else {
@@ -54,7 +55,7 @@ public class PlasticTwoCapLite extends PlasticCap {
         rollUp = aD * aU;
         rollDown = bD * bU;
 
-        if (rollUp>=rollDown){
+        if (rollUp >= rollDown) {
             aD = number / Math.floor(oracalBig.getX() / film.y);
             rollTwo = aD * film.x;
         } else {
@@ -62,15 +63,15 @@ public class PlasticTwoCapLite extends PlasticCap {
             rollTwo = bU * film.y;
         }
 
-        Double m22 = rollTwo*big;
-        Double m21 = rollOne*small;
+        Double m22 = rollTwo * big;
+        Double m21 = rollOne * small;
 
         That.list.add("На часть " + film + " получится:");
         That.list.add("- рулон 1 м. шириной -> " + String.format("%.0f", m21) + " м2");
         That.list.add("- рулон 1,26 м. шириной -> " + String.format("%.0f", m22) + " м2");
 
 
-        if (m21<=m22) {
+        if (m21 <= m22) {
             String result = String.format("%.2f", (rollOne / 1000));
             //ниже идет добавление текста!!!
             That.list.add("Рекомендуется на часть " + film + " - 1х"
