@@ -1,14 +1,12 @@
 package ColorBox.Part;
 
+import lombok.Data;
+
+@Data
 public class Board {
 
     public final int x;
     public final int y;
-
-    public Board(int x, int y) {
-        this.x = x;
-        this.y = y;
-    }
 
     @Override
     public String toString() {

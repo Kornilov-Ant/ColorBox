@@ -12,7 +12,7 @@ public class DevelopMagicV extends DevelopCap {
     private ArrayList<Board> insideOne = new ArrayList<>();
     private ArrayList<Board> insideTwo = new ArrayList<>();
 
-    public void DevelopMagicV(BoxMagic box, int number, boolean now) {
+    public void DevelopMagicV(BoxMagic box, int number, int now, int plasticSelected) {
         listOne.add(new Board(box.getX(), box.getY()));
         listTwo.add(new Board(box.getY() + 4, box.getZ() + 2));
         listTwo.add(new Board(box.getX(), box.getZ() + 2));
@@ -89,15 +89,22 @@ public class DevelopMagicV extends DevelopCap {
         That.list.add("Всего требуется " + String.format("%.1f", cartList)
                 + " л. картона на тираж" + System.lineSeparator());
 
-        if (now) {
-            insideOne.add(new Board(box.getX(), box.getY()));
-            insideTwo.add(new Board(box.getX() + 4, box.getZ() + 2));
-            insideTwo.add(new Board(box.getY(), box.getZ() + 2));
+        if (now > 0) {
             Inside inside = new Inside();
-            That.list.add(inside.roll(insideOne, insideTwo, number));
+            switch (now) {
+                case 1:
+                    That.list.add(inside.roll(listOne, listTwo, number));
+                    break;
+                case 2:
+                    That.list.add(inside.rollDlc(listOne, listTwo, number));
+                    break;
+                case 3:
+                    That.list.add(inside.rollDlcPlus(listOne, listTwo, number));
+                    break;
+            }
         }
 
         PlasticMagicV magicV = new PlasticMagicV();
-        That.list.add(magicV.Roll(box, number));
+        That.list.add(magicV.Roll(box, number, plasticSelected));
     }
 }

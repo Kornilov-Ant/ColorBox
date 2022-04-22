@@ -1,6 +1,6 @@
 package ColorBox.Process;
 
-import ColorBox.Process.BlockPanel.XYZFNumber;
+import ColorBox.Process.BlockPanel.GapAndSelected;
 
 import javax.swing.*;
 import java.awt.*;
@@ -25,19 +25,19 @@ public class Panel extends JPanel {
     class Pane1 extends JPanel {
         public Pane1() {
             setLayout(null);
-            XYZFNumber XYZFNumber = new XYZFNumber();
+            GapAndSelected gas = new GapAndSelected();
 
-            add(XYZFNumber.getLabX());
-            add(XYZFNumber.getInputX());
-            add(XYZFNumber.getTextX());
+            add(gas.getLabX());
+            add(gas.getInputX());
+            add(gas.getTextX());
 
-            add(XYZFNumber.getLabY());
-            add(XYZFNumber.getInputY());
-            add(XYZFNumber.getTextY());
+            add(gas.getLabY());
+            add(gas.getInputY());
+            add(gas.getTextY());
 
-            add(XYZFNumber.getLabZ());
-            add(XYZFNumber.getInputZ());
-            add(XYZFNumber.getTextZ());
+            add(gas.getLabZ());
+            add(gas.getInputZ());
+            add(gas.getTextZ());
 
             JLabel labF = new JLabel("Высота крышки F:");
             labF.setBounds(29, 163, 200, 54);
@@ -49,27 +49,17 @@ public class Panel extends JPanel {
             textF.setBounds(125, 201, 100, 30);
             add(textF);
 
-            add(XYZFNumber.getLabNumber());
-            add(XYZFNumber.getInputNumber());
-            add(XYZFNumber.getTextNumber());
+            add(gas.getLabNumber());
+            add(gas.getInputNumber());
+            add(gas.getTextNumber());
 
-            JLabel flagText1 = new JLabel("Внутр. пленка");
-            flagText1.setBounds(29, 333, 200, 54);
-            add(flagText1);
+            add(gas.getFlagText1());
 
-            String[] arrayText1 = {"Нет", "1/1,26", "DLC", "1,5"};
-            JComboBox<String> jComboBoxInside = new JComboBox<>(arrayText1);
-            jComboBoxInside.setBounds(23, 370, 105, 30);
-            add(jComboBoxInside);
+            add(gas.getjComboBoxInside());
 
-            JLabel flagText2 = new JLabel("Наруж. пленка");
-            flagText2.setBounds(29, 388, 200, 54);
-            add(flagText2);
+            add(gas.getFlagText2());
 
-            String[] arrayText2 = {"1/1,26", "DLC", "1,5"};
-            JComboBox<String> jComboBoxPlastic = new JComboBox<>(arrayText2);
-            jComboBoxPlastic.setBounds(23, 425, 105, 30);
-            add(jComboBoxPlastic);
+            add(gas.getjComboBoxPlastic());
 
             JButton b1 = new JButton("Посчитать!");
             b1.setBounds(135, 395, 125, 58);
@@ -81,22 +71,22 @@ public class Panel extends JPanel {
             b1.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
-                    boolean cX = checkXYZGNumber(XYZFNumber.getInputX(), XYZFNumber.getTextX(), 30, 990);
-                    boolean cY = checkXYZGNumber(XYZFNumber.getInputY(), XYZFNumber.getTextY(), 30, 690);
-                    boolean cZ = checkXYZGNumber(XYZFNumber.getInputZ(), XYZFNumber.getTextZ(), 15, 450);
-                    boolean cF = checkF(inputF, XYZFNumber.getInputZ(), textF, 15, 450);
-                    boolean cNumber = checkXYZGNumber(XYZFNumber.getInputNumber(), XYZFNumber.getTextNumber(), 5, 5000);
-                    int now = selectedInside((String) jComboBoxInside.getSelectedItem());
-                    int plasticSelected = selectedOutside((String) jComboBoxPlastic.getSelectedItem());
+                    boolean cX = checkXYZGNumber(gas.getInputX(), gas.getTextX(), 30, 990);
+                    boolean cY = checkXYZGNumber(gas.getInputY(), gas.getTextY(), 30, 690);
+                    boolean cZ = checkXYZGNumber(gas.getInputZ(), gas.getTextZ(), 15, 450);
+                    boolean cF = checkF(inputF, gas.getInputZ(), textF, 15, 450);
+                    boolean cNumber = checkXYZGNumber(gas.getInputNumber(), gas.getTextNumber(), 5, 5000);
+                    int now = selectedInside((String) gas.getjComboBoxInside().getSelectedItem());
+                    int plasticSelected = selectedOutside((String) gas.getjComboBoxPlastic().getSelectedItem());
                     if (cX && cY && cZ && cF && cNumber) {
                         That.ou = "";
                         That.list = new ArrayList<>();
                         new That().Cap(
-                                Integer.parseInt(XYZFNumber.getInputX().getText()),
-                                Integer.parseInt(XYZFNumber.getInputY().getText()),
-                                Integer.parseInt(XYZFNumber.getInputZ().getText()),
+                                Integer.parseInt(gas.getInputX().getText()),
+                                Integer.parseInt(gas.getInputY().getText()),
+                                Integer.parseInt(gas.getInputZ().getText()),
                                 Integer.parseInt(inputF.getText()),
-                                Integer.parseInt(XYZFNumber.getInputNumber().getText()),
+                                Integer.parseInt(gas.getInputNumber().getText()),
                                 now,
                                 plasticSelected
                         );
@@ -118,23 +108,23 @@ public class Panel extends JPanel {
     class Pane2 extends JPanel {
         public Pane2() {
             setLayout(null);
-            XYZFNumber XYZFNumber = new XYZFNumber();
+            GapAndSelected gas = new GapAndSelected();
 
-            add(XYZFNumber.getLabX());
-            add(XYZFNumber.getInputX());
-            add(XYZFNumber.getTextX());
+            add(gas.getLabX());
+            add(gas.getInputX());
+            add(gas.getTextX());
 
-            add(XYZFNumber.getLabY());
-            add(XYZFNumber.getInputY());
-            add(XYZFNumber.getTextY());
+            add(gas.getLabY());
+            add(gas.getInputY());
+            add(gas.getTextY());
 
-            add(XYZFNumber.getLabZ());
-            add(XYZFNumber.getInputZ());
-            add(XYZFNumber.getTextZ());
+            add(gas.getLabZ());
+            add(gas.getInputZ());
+            add(gas.getTextZ());
 
-            add(XYZFNumber.getLabNumber());
-            add(XYZFNumber.getInputNumber());
-            add(XYZFNumber.getTextNumber());
+            add(gas.getLabNumber());
+            add(gas.getInputNumber());
+            add(gas.getTextNumber());
 
             JLabel labF = new JLabel("Высота клапана F:");
             labF.setBounds(29, 163, 200, 54);
@@ -146,15 +136,17 @@ public class Panel extends JPanel {
             textF.setBounds(125, 201, 100, 30);
             add(textF);
 
-            JLabel flagText1 = new JLabel("Оклейка");
-            flagText1.setBounds(29, 335, 200, 54);
-            add(flagText1);
-            JLabel flagText2 = new JLabel("внутри");
-            flagText2.setBounds(29, 353, 200, 54);
-            add(flagText2);
-            JCheckBox flag = new JCheckBox();
-            flag.setBounds(90, 358, 30, 30);
-            add(flag);
+            add(gas.getLabNumber());
+            add(gas.getInputNumber());
+            add(gas.getTextNumber());
+
+            add(gas.getFlagText1());
+
+            add(gas.getjComboBoxInside());
+
+            add(gas.getFlagText2());
+
+            add(gas.getjComboBoxPlastic());
 
             JButton b1 = new JButton("Посчитать!");
             b1.setBounds(135, 395, 125, 58);
@@ -166,22 +158,24 @@ public class Panel extends JPanel {
             b1.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
-                    boolean cX = checkXYZGNumber(XYZFNumber.getInputX(), XYZFNumber.getTextX(), 30, 450);
-                    boolean cY = checkXYZGNumber(XYZFNumber.getInputY(), XYZFNumber.getTextY(), 30, 450);
-                    boolean cZ = checkXYZGNumber(XYZFNumber.getInputZ(), XYZFNumber.getTextZ(), 30, 350);
-                    boolean cF = checkF(inputF, XYZFNumber.getInputZ(), textF, 15, 450);
-                    boolean cNumber = checkXYZGNumber(XYZFNumber.getInputNumber(), XYZFNumber.getTextNumber(), 5, 5000);
-                    boolean now = (flag.isSelected()) ? true : false;
+                    boolean cX = checkXYZGNumber(gas.getInputX(), gas.getTextX(), 30, 450);
+                    boolean cY = checkXYZGNumber(gas.getInputY(), gas.getTextY(), 30, 450);
+                    boolean cZ = checkXYZGNumber(gas.getInputZ(), gas.getTextZ(), 30, 350);
+                    boolean cF = checkF(inputF, gas.getInputZ(), textF, 15, 450);
+                    boolean cNumber = checkXYZGNumber(gas.getInputNumber(), gas.getTextNumber(), 5, 5000);
+                    int now = selectedInside((String) gas.getjComboBoxInside().getSelectedItem());
+                    int plasticSelected = selectedOutside((String) gas.getjComboBoxPlastic().getSelectedItem());
                     if (cX && cY && cZ && cF && cNumber) {
                         That.ou = "";
                         That.list = new ArrayList<>();
                         new That().MagicG(
-                                Integer.parseInt(XYZFNumber.getInputX().getText()),
-                                Integer.parseInt(XYZFNumber.getInputY().getText()),
-                                Integer.parseInt(XYZFNumber.getInputZ().getText()),
+                                Integer.parseInt(gas.getInputX().getText()),
+                                Integer.parseInt(gas.getInputY().getText()),
+                                Integer.parseInt(gas.getInputZ().getText()),
                                 Integer.parseInt(inputF.getText()),
-                                Integer.parseInt(XYZFNumber.getInputNumber().getText()),
-                                now
+                                Integer.parseInt(gas.getInputNumber().getText()),
+                                now,
+                                plasticSelected
                         );
                         output.setText(That.ou);
 
@@ -202,23 +196,23 @@ public class Panel extends JPanel {
     class Pane3 extends JPanel {
         public Pane3() {
             setLayout(null);
-            XYZFNumber XYZFNumber = new XYZFNumber();
+            GapAndSelected gas = new GapAndSelected();
 
-            add(XYZFNumber.getLabX());
-            add(XYZFNumber.getInputX());
-            add(XYZFNumber.getTextX());
+            add(gas.getLabX());
+            add(gas.getInputX());
+            add(gas.getTextX());
 
-            add(XYZFNumber.getLabY());
-            add(XYZFNumber.getInputY());
-            add(XYZFNumber.getTextY());
+            add(gas.getLabY());
+            add(gas.getInputY());
+            add(gas.getTextY());
 
-            add(XYZFNumber.getLabZ());
-            add(XYZFNumber.getInputZ());
-            add(XYZFNumber.getTextZ());
+            add(gas.getLabZ());
+            add(gas.getInputZ());
+            add(gas.getTextZ());
 
-            add(XYZFNumber.getLabNumber());
-            add(XYZFNumber.getInputNumber());
-            add(XYZFNumber.getTextNumber());
+            add(gas.getLabNumber());
+            add(gas.getInputNumber());
+            add(gas.getTextNumber());
 
             JLabel labF = new JLabel("Высота клапана F:");
             labF.setBounds(29, 163, 200, 54);
@@ -230,15 +224,17 @@ public class Panel extends JPanel {
             textF.setBounds(125, 201, 100, 30);
             add(textF);
 
-            JLabel flagText1 = new JLabel("Оклейка");
-            flagText1.setBounds(29, 335, 200, 54);
-            add(flagText1);
-            JLabel flagText2 = new JLabel("внутри");
-            flagText2.setBounds(29, 353, 200, 54);
-            add(flagText2);
-            JCheckBox flag = new JCheckBox();
-            flag.setBounds(90, 358, 30, 30);
-            add(flag);
+            add(gas.getLabNumber());
+            add(gas.getInputNumber());
+            add(gas.getTextNumber());
+
+            add(gas.getFlagText1());
+
+            add(gas.getjComboBoxInside());
+
+            add(gas.getFlagText2());
+
+            add(gas.getjComboBoxPlastic());
 
             JButton b1 = new JButton("Посчитать!");
             b1.setBounds(135, 395, 125, 58);
@@ -250,22 +246,24 @@ public class Panel extends JPanel {
             b1.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
-                    boolean cX = checkXYZGNumber(XYZFNumber.getInputX(), XYZFNumber.getTextX(), 30, 450);
-                    boolean cY = checkXYZGNumber(XYZFNumber.getInputY(), XYZFNumber.getTextY(), 30, 450);
-                    boolean cZ = checkXYZGNumber(XYZFNumber.getInputZ(), XYZFNumber.getTextZ(), 30, 350);
-                    boolean cF = checkF(inputF, XYZFNumber.getInputZ(), textF, 15, 450);
-                    boolean cNumber = checkXYZGNumber(XYZFNumber.getInputNumber(), XYZFNumber.getTextNumber(), 5, 5000);
-                    boolean now = (flag.isSelected()) ? true : false;
+                    boolean cX = checkXYZGNumber(gas.getInputX(), gas.getTextX(), 30, 450);
+                    boolean cY = checkXYZGNumber(gas.getInputY(), gas.getTextY(), 30, 450);
+                    boolean cZ = checkXYZGNumber(gas.getInputZ(), gas.getTextZ(), 30, 350);
+                    boolean cF = checkF(inputF, gas.getInputZ(), textF, 15, 450);
+                    boolean cNumber = checkXYZGNumber(gas.getInputNumber(), gas.getTextNumber(), 5, 5000);
+                    int now = selectedInside((String) gas.getjComboBoxInside().getSelectedItem());
+                    int plasticSelected = selectedOutside((String) gas.getjComboBoxPlastic().getSelectedItem());
                     if (cX && cY && cZ && cNumber) {
                         That.ou = "";
                         That.list = new ArrayList<>();
                         new That().MagicV(
-                                Integer.parseInt(XYZFNumber.getInputX().getText()),
-                                Integer.parseInt(XYZFNumber.getInputY().getText()),
-                                Integer.parseInt(XYZFNumber.getInputZ().getText()),
+                                Integer.parseInt(gas.getInputX().getText()),
+                                Integer.parseInt(gas.getInputY().getText()),
+                                Integer.parseInt(gas.getInputZ().getText()),
                                 Integer.parseInt(inputF.getText()),
-                                Integer.parseInt(XYZFNumber.getInputNumber().getText()),
-                                now
+                                Integer.parseInt(gas.getInputNumber().getText()),
+                                now,
+                                plasticSelected
                         );
                         output.setText(That.ou);
                     } else {
@@ -285,20 +283,20 @@ public class Panel extends JPanel {
     class Pane4 extends JPanel {
         public Pane4() {
             setLayout(null);
-            XYZFNumber XYZFNumber = new XYZFNumber();
+            GapAndSelected gas = new GapAndSelected();
 
-            add(XYZFNumber.getLabX());
-            add(XYZFNumber.getInputX());
-            add(XYZFNumber.getTextX());
+            add(gas.getLabX());
+            add(gas.getInputX());
+            add(gas.getTextX());
 
-            add(XYZFNumber.getLabY());
-            add(XYZFNumber.getInputY());
-            add(XYZFNumber.getTextY());
+            add(gas.getLabY());
+            add(gas.getInputY());
+            add(gas.getTextY());
 
 
-            add(XYZFNumber.getLabZ());
-            add(XYZFNumber.getInputZ());
-            add(XYZFNumber.getTextZ());
+            add(gas.getLabZ());
+            add(gas.getInputZ());
+            add(gas.getTextZ());
 
             JLabel labF = new JLabel("Ширина боковой линии F:");
             labF.setBounds(29, 163, 200, 54);
@@ -310,19 +308,21 @@ public class Panel extends JPanel {
             textF.setBounds(125, 201, 100, 30);
             add(textF);
 
-            add(XYZFNumber.getLabNumber());
-            add(XYZFNumber.getInputNumber());
-            add(XYZFNumber.getTextNumber());
+            add(gas.getLabNumber());
+            add(gas.getInputNumber());
+            add(gas.getTextNumber());
 
-            JLabel flagText1 = new JLabel("Оклейка");
-            flagText1.setBounds(29, 335, 200, 54);
-            add(flagText1);
-            JLabel flagText2 = new JLabel("внутри");
-            flagText2.setBounds(29, 353, 200, 54);
-            add(flagText2);
-            JCheckBox flag = new JCheckBox();
-            flag.setBounds(90, 358, 30, 30);
-            add(flag);
+            add(gas.getLabNumber());
+            add(gas.getInputNumber());
+            add(gas.getTextNumber());
+
+            add(gas.getFlagText1());
+
+            add(gas.getjComboBoxInside());
+
+            add(gas.getFlagText2());
+
+            add(gas.getjComboBoxPlastic());
 
             JButton b1 = new JButton("Посчитать!");
             b1.setBounds(135, 395, 125, 58);
@@ -334,22 +334,24 @@ public class Panel extends JPanel {
             b1.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
-                    boolean cX = checkXYZGNumber(XYZFNumber.getInputX(), XYZFNumber.getTextX(), 30, 990);
-                    boolean cY = checkXYZGNumber(XYZFNumber.getInputY(), XYZFNumber.getTextY(), 30, 690);
-                    boolean cZ = checkXYZGNumber(XYZFNumber.getInputZ(), XYZFNumber.getTextZ(), 15, 350);
-                    boolean cF = checkF(inputF, XYZFNumber.getInputZ(), textF, 0, 350);
-                    boolean cNumber = checkXYZGNumber(XYZFNumber.getInputNumber(), XYZFNumber.getTextNumber(), 5, 5000);
-                    boolean now = (flag.isSelected()) ? true : false;
+                    boolean cX = checkXYZGNumber(gas.getInputX(), gas.getTextX(), 30, 990);
+                    boolean cY = checkXYZGNumber(gas.getInputY(), gas.getTextY(), 30, 690);
+                    boolean cZ = checkXYZGNumber(gas.getInputZ(), gas.getTextZ(), 15, 350);
+                    boolean cF = checkF(inputF, gas.getInputZ(), textF, 0, 350);
+                    boolean cNumber = checkXYZGNumber(gas.getInputNumber(), gas.getTextNumber(), 5, 5000);
+                    int now = selectedInside((String) gas.getjComboBoxInside().getSelectedItem());
+                    int plasticSelected = selectedOutside((String) gas.getjComboBoxPlastic().getSelectedItem());
                     if (cX && cY && cZ && cF && cNumber) {
                         That.ou = "";
                         That.list = new ArrayList<>();
                         new That().TwoCapLite(
-                                Integer.parseInt(XYZFNumber.getInputX().getText()),
-                                Integer.parseInt(XYZFNumber.getInputY().getText()),
-                                Integer.parseInt(XYZFNumber.getInputZ().getText()),
+                                Integer.parseInt(gas.getInputX().getText()),
+                                Integer.parseInt(gas.getInputY().getText()),
+                                Integer.parseInt(gas.getInputZ().getText()),
                                 Integer.parseInt(inputF.getText()),
-                                Integer.parseInt(XYZFNumber.getInputNumber().getText()),
-                                now
+                                Integer.parseInt(gas.getInputNumber().getText()),
+                                now,
+                                plasticSelected
                         );
                         output.setText(That.ou);
                     } else {

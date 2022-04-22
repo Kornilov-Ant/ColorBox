@@ -2,7 +2,7 @@ package ColorBox.Process.BlockPanel;
 
 import javax.swing.*;
 
-public class XYZFNumber extends JPanel {
+public class GapAndSelected extends JPanel {
     private JLabel labX = new JLabel("Длина коробки Х:");
     private JTextField inputX = new JTextField("", 20);
     private JLabel textX = new JLabel();
@@ -18,6 +18,15 @@ public class XYZFNumber extends JPanel {
     private JLabel labNumber = new JLabel("Тираж:");
     private JTextField inputNumber = new JTextField("", 20);
     private JLabel textNumber = new JLabel();
+
+    private JLabel flagText1 = new JLabel("Внутр. пленка");
+
+    private JComboBox<String> jComboBoxInside = new JComboBox<>(new String[]{"Нет", "1/1,26", "DLC", "1,5"});
+
+    private JLabel flagText2 = new JLabel("Наруж. пленка");
+
+    private JComboBox<String> jComboBoxPlastic = new JComboBox<>(new String[]{"1/1,26", "DLC", "1,5"});
+
 
     public JLabel getLabNumber() {
         labNumber.setBounds(29, 265, 200, 54);
@@ -77,5 +86,25 @@ public class XYZFNumber extends JPanel {
     public JLabel getTextX() {
         textX.setBounds(125, 48, 100, 30);
         return textX;
+    }
+
+    public JLabel getFlagText1() {
+        flagText1.setBounds(29, 333, 200, 54);
+        return flagText1;
+    }
+
+    public JComboBox<String> getjComboBoxInside() {
+        jComboBoxInside.setBounds(23, 370, 105, 30);
+        return jComboBoxInside;
+    }
+
+    public JLabel getFlagText2() {
+        flagText2.setBounds(29, 388, 200, 54);
+        return flagText2;
+    }
+
+    public JComboBox<String> getjComboBoxPlastic() {
+        jComboBoxPlastic.setBounds(23, 425, 105, 30);
+        return jComboBoxPlastic;
     }
 }

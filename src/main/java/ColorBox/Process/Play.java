@@ -10,22 +10,22 @@ public class Play {
         cap.DevelopCap(box, number, now, plasticSelected);
     }
 
-    public void Play(BoxMagic box, int number, int dir, boolean now) {
+    public void Play(BoxMagic box, int number, int dir, int now, int plasticSelected) {
         if (dir == 0) {
             DevelopMagicG magicG = new DevelopMagicG();
-            magicG.DevelopMagicG(box, number, now);
+            magicG.DevelopMagicG(box, number, now, plasticSelected);
         } else if (dir == 1) {
             DevelopMagicV magicV = new DevelopMagicV();
-            magicV.DevelopMagicV(box, number, now);
+            magicV.DevelopMagicV(box, number, now, plasticSelected);
         }
     }
 
-    public void Play(BoxTwoCapLite box, int number, boolean now) {
+    public void Play(BoxTwoCapLite box, int number, int now, int plasticSelected) {
         DevelopTwoCapLite twoCapLite = new DevelopTwoCapLite();
-        twoCapLite.DevelopTwoCap(box, number, now);
+        twoCapLite.DevelopTwoCap(box, number, now, plasticSelected);
     }
 
-    public void Play(BoxTwoCap box, int number, boolean now) {
+    public void Play(BoxTwoCap box, int number, int now, int plasticSelected) {
 
     }
 

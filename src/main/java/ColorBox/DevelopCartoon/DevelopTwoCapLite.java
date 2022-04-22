@@ -13,7 +13,7 @@ import java.util.ArrayList;
 public class DevelopTwoCapLite extends DevelopCap {
     private ArrayList<Board> listThree = new ArrayList<>();
 
-    public void DevelopTwoCap(BoxTwoCapLite box, int number, boolean now) {
+    public void DevelopTwoCap(BoxTwoCapLite box, int number, int now, int plasticSelected) {
         int h = ((box.getZ() + 2) - box.getG()) / 2;
 
         listOne.add(new Board(box.getX(), box.getY()));
@@ -131,13 +131,23 @@ public class DevelopTwoCapLite extends DevelopCap {
                         + " л. картона на тираж" + System.lineSeparator()
         );
 
-        if (now) {
-            InsideTwoCap twoCap = new InsideTwoCap();
-            That.list.add(twoCap.Roll(box, number));
+        if (now > 0) {
+            Inside inside = new Inside();
+            switch (now) {
+                case 1:
+                    That.list.add(inside.roll(listOne, listTwo, number));
+                    break;
+                case 2:
+                    That.list.add(inside.rollDlc(listOne, listTwo, number));
+                    break;
+                case 3:
+                    That.list.add(inside.rollDlcPlus(listOne, listTwo, number));
+                    break;
+            }
         }
 
         PlasticTwoCapLite plasticTwoCapLite = new PlasticTwoCapLite();
         //ниже идет добавление текста!!!
-        That.list.add(plasticTwoCapLite.Roll(box, number));
+        That.list.add(plasticTwoCapLite.Roll(box, number, plasticSelected));
     }
 }

@@ -7,7 +7,7 @@
     <groupId>org.example</groupId>
     <artifactId>ColorBox</artifactId>
     <packaging>jar</packaging>
-    <version>0.8.8.6 ver.</version>
+    <version>0.8.9.0 ver.</version>
     <dependencies>
         <dependency>
             <groupId>org.projectlombok</groupId>

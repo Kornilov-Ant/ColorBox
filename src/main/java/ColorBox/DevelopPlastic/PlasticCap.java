@@ -77,10 +77,10 @@ public class PlasticCap {
 
         if (rollUp >= rollDown) {
             aD = number / Math.floor(dlcPlus.getX() / filmUp.y);
-            rollOne = aD * filmDown.x;
+            rollOne = aD * filmUp.x;
         } else {
             bU = number / Math.floor(dlcPlus.getX() / filmUp.x);
-            rollOne = bU * filmDown.y;
+            rollOne = bU * filmUp.y;
         }
 
         That.list.add("На часть " + filmUp + " получится:");
@@ -135,10 +135,10 @@ public class PlasticCap {
 
         if (rollUp >= rollDown) {
             aD = number / Math.floor(dlc.getX() / filmUp.y);
-            rollOne = aD * filmDown.x;
+            rollOne = aD * filmUp.x;
         } else {
             bU = number / Math.floor(dlc.getX() / filmUp.x);
-            rollOne = bU * filmDown.y;
+            rollOne = bU * filmUp.y;
         }
 
         That.list.add("На часть " + filmUp + " получится:");
@@ -160,7 +160,7 @@ public class PlasticCap {
         oracalSmall.setY(Math.round(oracalSmall.getY() * 100) / 100D);
     }
 
-    private void Plastic(Film film, int number) {
+    protected void Plastic(Film film, int number) {
         aD = Math.floor(oracalSmall.getZ() / film.x);
         aU = Math.floor(oracalSmall.getX() / film.y); // CONST
 
