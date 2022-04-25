@@ -26,7 +26,7 @@ public class Play {
     }
 
     public void Play(BoxTwoCap box, int number, int now, int plasticSelected) {
-
+        DevelopTwoCap twoCap = new DevelopTwoCap();
+        twoCap.DevelopTwoCap(box, number, now, plasticSelected);
     }
-
 }

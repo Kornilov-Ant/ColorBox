@@ -2,8 +2,6 @@ package ColorBox.DevelopCartoon;
 
 import ColorBox.Box.BoxTwoCapLite;
 import ColorBox.DevelopPlastic.Inside;
-import ColorBox.DevelopPlastic.InsideTwoCap;
-import ColorBox.DevelopPlastic.PlasticCap;
 import ColorBox.DevelopPlastic.PlasticTwoCapLite;
 import ColorBox.Part.Board;
 import ColorBox.Process.That;

@@ -371,35 +371,133 @@ public class Panel extends JPanel {
 
     class Pane5 extends JPanel {
         public Pane5() {
+            setLayout(null);
+            GapAndSelected gas = new GapAndSelected();
+
+            add(gas.getLabX());
+            add(gas.getInputX()); // ширина
+
+            add(gas.getLabY());
+            add(gas.getInputY()); // длина
+
+
+            add(gas.getLabZ());
+            add(gas.getInputZ()); // высота
+
+            JLabel labF = new JLabel("Высота внутреннего борта F:"); // высота части внутри
+            labF.setBounds(29, 163, 200, 54);
+            add(labF);
+            JTextField inputF = new JTextField("", 20);
+            inputF.setBounds(25, 201, 100, 30);
+            add(inputF);
+
+            JLabel labG = new JLabel("Борт низ G:"); // внешний нижний борт, высота
+            labG.setBounds(29, 214, 200, 54);
+            add(labG);
+            JTextField inputG = new JTextField("", 20);
+            inputG.setBounds(25, 252, 100, 30);
+            add(inputG);
+
+            JLabel labH = new JLabel("Ширина линии H:"); // требуемая ширина полосы между крышками
+            labH.setBounds(140, 214, 200, 54);
+            add(labH);
+            JTextField inputH = new JTextField("", 20);
+            inputH.setBounds(137, 252, 100, 30);
+            add(inputH);
+
+            add(gas.getLabNumber());
+            add(gas.getInputNumber());
+
+            add(gas.getLabNumber());
+            add(gas.getInputNumber());
+
+            add(gas.getFlagText1());
+
+            add(gas.getjComboBoxInside());
+
+            add(gas.getFlagText2());
+
+            add(gas.getjComboBoxPlastic());
+
+            JButton b1 = new JButton("Посчитать!");
+            b1.setBounds(135, 395, 125, 58);
+            add(b1);
+
+            JTextArea output = new JTextArea(5, 20);
+            output.setEditable(false);
+
+            b1.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    boolean cX = checkXYZGNumber(gas.getInputX(), gas.getTextX(), 30, 990);
+                    boolean cY = checkXYZGNumber(gas.getInputY(), gas.getTextY(), 30, 690);
+                    boolean cZ = checkXYZGNumber(gas.getInputZ(), gas.getTextZ(), 15, 350);
+
+                    boolean cF = checkFGH(inputF, gas.getInputZ(), 0, 350);
+                    boolean cG = checkFGH(inputG, inputF, 0, 350);
+                    boolean cH = checkFGH(inputH, gas.getInputZ(), 0, 350);
+
+                    boolean cNumber = checkXYZGNumber(gas.getInputNumber(), gas.getTextNumber(), 5, 5000);
+                    int now = selectedInside((String) gas.getjComboBoxInside().getSelectedItem());
+                    int plasticSelected = selectedOutside((String) gas.getjComboBoxPlastic().getSelectedItem());
+                    if (cX && cY && cZ && cF && cG && cH && cNumber) {
+                        That.ou = "";
+                        That.list = new ArrayList<>();
+                        new That().TwoCap(
+                                Integer.parseInt(gas.getInputX().getText()),
+                                Integer.parseInt(gas.getInputY().getText()),
+                                Integer.parseInt(gas.getInputZ().getText()),
+                                Integer.parseInt(inputF.getText()),
+                                Integer.parseInt(inputG.getText()),
+                                Integer.parseInt(inputH.getText()),
+                                Integer.parseInt(gas.getInputNumber().getText()),
+                                now,
+                                plasticSelected
+                        );
+                        output.setText(That.ou);
+                    } else {
+                        output.setText("Ошибка ввода данных!");
+                    }
+                }
+            });
+
+            add(output);
+            JScrollPane scrollPane = new JScrollPane(output);
+            scrollPane.setBounds(275, 25, 375, 425);
+            scrollPane.setPreferredSize(new Dimension(375, 425));
+            add(scrollPane);
+
         }
     }
 
     private boolean checkXYZGNumber(JTextField text, JLabel o, int one, int two) {
-        try {
-            if (Integer.parseInt(text.getText()) >= one && Integer.parseInt(text.getText()) <= two) {
-                o.setText("ok");
-                return true;
-            } else {
-                throw new Exception();
-            }
-        } catch (Exception exception) {
+        if (Integer.parseInt(text.getText()) >= one && Integer.parseInt(text.getText()) <= two) {
+            o.setText("ok");
+            return true;
+        } else {
             o.setText("от " + one + " до " + two);
             return false;
         }
     }
 
     private boolean checkF(JTextField text, JTextField text2, JLabel o, int one, int two) {
-        try {
-            if (Integer.parseInt(text.getText()) >= one
-                    && Integer.parseInt(text.getText()) <= two
-                    && Integer.parseInt(text.getText()) <= (Integer.parseInt(text2.getText()) + 2)) {
-                o.setText("ok");
-                return true;
-            } else {
-                throw new Exception();
-            }
-        } catch (Exception exception) {
+        if (Integer.parseInt(text.getText()) >= one
+                && Integer.parseInt(text.getText()) <= two
+                && Integer.parseInt(text.getText()) <= (Integer.parseInt(text2.getText()) + 2)) {
+            o.setText("ok");
+            return true;
+        } else {
             o.setText("от " + one + " до " + two);
+            return false;
+        }
+    }
+
+    private boolean checkFGH(JTextField text, JTextField text2, int one, int two) {
+        if (Integer.parseInt(text.getText()) >= one
+                && Integer.parseInt(text.getText()) <= two
+                && Integer.parseInt(text.getText()) <= (Integer.parseInt(text2.getText()) + 2)) {
+            return true;
+        } else {
             return false;
         }
     }

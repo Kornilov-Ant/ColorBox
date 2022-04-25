@@ -10,5 +10,6 @@ public class BoxTwoCap {
     private final int z;
     private final int f;
     private final int g;
+    private final int h;
 
 }

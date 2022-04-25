@@ -1,21 +1,25 @@
 package ColorBox.DevelopPlastic;
 
-import ColorBox.Box.BoxTwoCapLite;
+import ColorBox.Box.BoxCap;
+import ColorBox.Box.BoxTwoCap;
 import ColorBox.Part.Film;
 import ColorBox.Process.That;
 
-public class PlasticTwoCapLite extends PlasticCap {
+public class PlasticTwoCap extends PlasticCap {
 
-    public String Roll(BoxTwoCapLite box, int number, int plasticSelected) {
+    public String Roll(BoxTwoCap box, int number, int plasticSelected, int b) {
         Film filmMidle = new Film(
-                box.getX() + 38 + ((box.getZ() + 2) * 2),
-                box.getY() + 38 + ((box.getZ() + 2) * 2)
+                box.getX() + 38 + ((box.getF() + 2) * 2),
+                box.getY() + 38 + ((box.getF() + 2) * 2)
+        );
+        Film filmDown = new Film(
+                (box.getX() + 5) + 38 + (box.getG() * 2),
+                (box.getY() + 5) + 38 + (box.getG() * 2)
         );
         Film filmUp = new Film(
-                (box.getX() + 5) + 38 + ((box.getZ() - box.getG()) * 2),
-                (box.getY() + 5) + 38 + ((box.getZ() - box.getG()) * 2)
+                (box.getX() + 5) + 38 + (b * 2),
+                (box.getY() + 5) + 38 + (b * 2)
         );
-        Film filmDown = filmUp;
 
         That.list.add("Оклейка снаружи:");
 

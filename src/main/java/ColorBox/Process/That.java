@@ -2,6 +2,7 @@ package ColorBox.Process;
 
 import ColorBox.Box.BoxCap;
 import ColorBox.Box.BoxMagic;
+import ColorBox.Box.BoxTwoCap;
 import ColorBox.Box.BoxTwoCapLite;
 
 import java.util.ArrayList;
@@ -50,4 +51,13 @@ public class That {
         }
     }
 
+    public void TwoCap(int x, int y, int z, int f, int g, int h, int number, int now, int plasticSelected) {
+        BoxTwoCap boxTwoCap = new BoxTwoCap(x, y, z, f, g, h);
+        Play cap = new Play();
+        cap.Play(boxTwoCap, number, now, plasticSelected);
+
+        for (String str : list) {
+            ou = ou + System.lineSeparator() + str;
+        }
+    }
 }
