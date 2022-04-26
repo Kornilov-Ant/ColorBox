@@ -3,43 +3,49 @@ package ColorBox.Process.BlockPanel;
 import javax.swing.*;
 
 public class GapAndSelected extends JPanel {
-    private JLabel labX = new JLabel("Длина коробки Х:");
+    private JLabel labX = new JLabel("<html><b>Длина коробки Х:<b>");
     private JTextField inputX = new JTextField("", 20);
     private JLabel textX = new JLabel();
 
-    private JLabel labY = new JLabel("Ширина коробки Y:");
+    private JLabel labY = new JLabel("<html><b>Ширина коробки Y:<b>");
     private JTextField inputY = new JTextField("", 20);
     private JLabel textY = new JLabel();
 
-    private JLabel labZ = new JLabel("Высота коробки Z:");
+    private JLabel labZ = new JLabel("<html><b>Высота коробки Z:<b>");
     private JTextField inputZ = new JTextField("", 20);
     private JLabel textZ = new JLabel();
 
-    private JLabel labNumber = new JLabel("Тираж:");
+    private JLabel labNumber = new JLabel("<html><b>Тираж:<b>");
     private JTextField inputNumber = new JTextField("", 20);
     private JLabel textNumber = new JLabel();
 
-    private JLabel flagText1 = new JLabel("Внутр. пленка");
+    private JLabel flagText1 = new JLabel("<html><b>Внутр. пленка<b>");
 
     private JComboBox<String> jComboBoxInside = new JComboBox<>(new String[]{"Нет", "1/1,26", "DLC", "1,5"});
 
-    private JLabel flagText2 = new JLabel("Наруж. пленка");
+    private JLabel flagText2 = new JLabel("<html><b>Наруж. пленка<b>");
 
     private JComboBox<String> jComboBoxPlastic = new JComboBox<>(new String[]{"1/1,26", "DLC", "1,5"});
 
+    private JButton b1 = new JButton("<html><b>Посчитать!<b>");
+
+    public JButton getB1() {
+        b1.setBounds(145, 495, 115, 58);
+        return b1;
+    }
 
     public JLabel getLabNumber() {
-        labNumber.setBounds(29, 265, 200, 54);
+        labNumber.setBounds(29, 365, 200, 54);
         return labNumber;
     }
 
     public JTextField getInputNumber() {
-        inputNumber.setBounds(25, 303, 100, 30);
+        inputNumber.setBounds(25, 403, 100, 30);
         return inputNumber;
     }
 
     public JLabel getTextNumber() {
-        textNumber.setBounds(125, 303, 100, 30);
+        textNumber.setBounds(125, 403, 100, 30);
         return textNumber;
     }
 
@@ -89,22 +95,22 @@ public class GapAndSelected extends JPanel {
     }
 
     public JLabel getFlagText1() {
-        flagText1.setBounds(29, 333, 200, 54);
+        flagText1.setBounds(29, 433, 200, 54);
         return flagText1;
     }
 
     public JComboBox<String> getjComboBoxInside() {
-        jComboBoxInside.setBounds(23, 370, 105, 30);
+        jComboBoxInside.setBounds(23, 470, 105, 30);
         return jComboBoxInside;
     }
 
     public JLabel getFlagText2() {
-        flagText2.setBounds(29, 388, 200, 54);
+        flagText2.setBounds(29, 488, 200, 54);
         return flagText2;
     }
 
     public JComboBox<String> getjComboBoxPlastic() {
-        jComboBoxPlastic.setBounds(23, 425, 105, 30);
+        jComboBoxPlastic.setBounds(23, 525, 105, 30);
         return jComboBoxPlastic;
     }
 }

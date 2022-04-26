@@ -39,7 +39,7 @@ public class Panel extends JPanel {
             add(gas.getInputZ());
             add(gas.getTextZ());
 
-            JLabel labF = new JLabel("Высота крышки F:");
+            JLabel labF = new JLabel("<html><b>Высота крышки F:<b>");
             labF.setBounds(29, 163, 200, 54);
             add(labF);
             JTextField inputF = new JTextField("", 20);
@@ -61,14 +61,12 @@ public class Panel extends JPanel {
 
             add(gas.getjComboBoxPlastic());
 
-            JButton b1 = new JButton("Посчитать!");
-            b1.setBounds(135, 395, 125, 58);
-            add(b1);
+            add(gas.getB1()); // кнопка "посчитать"
 
             JTextArea output = new JTextArea(5, 20);
             output.setEditable(false);
 
-            b1.addActionListener(new ActionListener() {
+            gas.getB1().addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
                     boolean cX = checkXYZGNumber(gas.getInputX(), gas.getTextX(), 30, 990);
@@ -99,8 +97,8 @@ public class Panel extends JPanel {
 
             add(output);
             JScrollPane scrollPane = new JScrollPane(output);
-            scrollPane.setBounds(275, 25, 375, 425);
-            scrollPane.setPreferredSize(new Dimension(375, 425));
+            scrollPane.setBounds(275, 25, 375, 525);
+            scrollPane.setPreferredSize(new Dimension(375, 525));
             add(scrollPane);
         }
     }
@@ -126,7 +124,7 @@ public class Panel extends JPanel {
             add(gas.getInputNumber());
             add(gas.getTextNumber());
 
-            JLabel labF = new JLabel("Высота клапана F:");
+            JLabel labF = new JLabel("<html><b>Высота клапана F:<b>");
             labF.setBounds(29, 163, 200, 54);
             add(labF);
             JTextField inputF = new JTextField("", 20);
@@ -148,14 +146,12 @@ public class Panel extends JPanel {
 
             add(gas.getjComboBoxPlastic());
 
-            JButton b1 = new JButton("Посчитать!");
-            b1.setBounds(135, 395, 125, 58);
-            add(b1);
+            add(gas.getB1()); // кнопка "посчитать"
 
             JTextArea output = new JTextArea(5, 20);
             output.setEditable(false);
 
-            b1.addActionListener(new ActionListener() {
+            gas.getB1().addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
                     boolean cX = checkXYZGNumber(gas.getInputX(), gas.getTextX(), 30, 450);
@@ -187,8 +183,8 @@ public class Panel extends JPanel {
 
             add(output);
             JScrollPane scrollPane = new JScrollPane(output);
-            scrollPane.setBounds(275, 25, 375, 425);
-            scrollPane.setPreferredSize(new Dimension(375, 425));
+            scrollPane.setBounds(275, 25, 375, 525);
+            scrollPane.setPreferredSize(new Dimension(375, 525));
             add(scrollPane);
         }
     }
@@ -214,7 +210,7 @@ public class Panel extends JPanel {
             add(gas.getInputNumber());
             add(gas.getTextNumber());
 
-            JLabel labF = new JLabel("Высота клапана F:");
+            JLabel labF = new JLabel("<html><b>Высота клапана F:<b>");
             labF.setBounds(29, 163, 200, 54);
             add(labF);
             JTextField inputF = new JTextField("", 20);
@@ -236,14 +232,12 @@ public class Panel extends JPanel {
 
             add(gas.getjComboBoxPlastic());
 
-            JButton b1 = new JButton("Посчитать!");
-            b1.setBounds(135, 395, 125, 58);
-            add(b1);
+            add(gas.getB1()); // кнопка "посчитать"
 
             JTextArea output = new JTextArea(5, 20);
             output.setEditable(false);
 
-            b1.addActionListener(new ActionListener() {
+            gas.getB1().addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
                     boolean cX = checkXYZGNumber(gas.getInputX(), gas.getTextX(), 30, 450);
@@ -274,8 +268,8 @@ public class Panel extends JPanel {
 
             add(output);
             JScrollPane scrollPane = new JScrollPane(output);
-            scrollPane.setBounds(275, 25, 375, 425);
-            scrollPane.setPreferredSize(new Dimension(375, 425));
+            scrollPane.setBounds(275, 25, 375, 525);
+            scrollPane.setPreferredSize(new Dimension(375, 525));
             add(scrollPane);
         }
     }
@@ -298,7 +292,7 @@ public class Panel extends JPanel {
             add(gas.getInputZ());
             add(gas.getTextZ());
 
-            JLabel labF = new JLabel("Ширина боковой линии F:");
+            JLabel labF = new JLabel("<html><b>Ширина боковой линии F:<b>");
             labF.setBounds(29, 163, 200, 54);
             add(labF);
             JTextField inputF = new JTextField("", 20);
@@ -324,14 +318,12 @@ public class Panel extends JPanel {
 
             add(gas.getjComboBoxPlastic());
 
-            JButton b1 = new JButton("Посчитать!");
-            b1.setBounds(135, 395, 125, 58);
-            add(b1);
+            add(gas.getB1()); // кнопка "посчитать"
 
             JTextArea output = new JTextArea(5, 20);
             output.setEditable(false);
 
-            b1.addActionListener(new ActionListener() {
+            gas.getB1().addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
                     boolean cX = checkXYZGNumber(gas.getInputX(), gas.getTextX(), 30, 990);
@@ -362,8 +354,8 @@ public class Panel extends JPanel {
 
             add(output);
             JScrollPane scrollPane = new JScrollPane(output);
-            scrollPane.setBounds(275, 25, 375, 425);
-            scrollPane.setPreferredSize(new Dimension(375, 425));
+            scrollPane.setBounds(275, 25, 375, 525);
+            scrollPane.setPreferredSize(new Dimension(375, 525));
             add(scrollPane);
 
         }
@@ -375,38 +367,51 @@ public class Panel extends JPanel {
             GapAndSelected gas = new GapAndSelected();
 
             add(gas.getLabX());
-            add(gas.getInputX()); // ширина
+            add(gas.getInputX());
+            add(gas.getTextX());  // ширина
 
             add(gas.getLabY());
-            add(gas.getInputY()); // длина
+            add(gas.getInputY());
+            add(gas.getTextY());  // длина
 
 
             add(gas.getLabZ());
-            add(gas.getInputZ()); // высота
+            add(gas.getInputZ());
+            add(gas.getTextZ());  // высота
 
-            JLabel labF = new JLabel("Высота внутреннего борта F:"); // высота части внутри
+            JLabel labF = new JLabel("<html><b>Внутренний борт F:<b>"); // высота части внутри
             labF.setBounds(29, 163, 200, 54);
             add(labF);
             JTextField inputF = new JTextField("", 20);
             inputF.setBounds(25, 201, 100, 30);
             add(inputF);
+            JLabel textF = new JLabel();
+            textF.setBounds(125, 201, 100, 30);
+            add(textF);
 
-            JLabel labG = new JLabel("Борт низ G:"); // внешний нижний борт, высота
+            JLabel labG = new JLabel("<html><b>Борт низ G:<b>"); // внешний нижний борт, высота
             labG.setBounds(29, 214, 200, 54);
             add(labG);
             JTextField inputG = new JTextField("", 20);
             inputG.setBounds(25, 252, 100, 30);
             add(inputG);
+            JLabel textG = new JLabel();
+            textG.setBounds(125, 252, 100, 30);
+            add(textG);
 
-            JLabel labH = new JLabel("Ширина линии H:"); // требуемая ширина полосы между крышками
-            labH.setBounds(140, 214, 200, 54);
+            JLabel labH = new JLabel("<html><b>Ширина боковой линии H:<b>"); // требуемая ширина полосы между крышками
+            labH.setBounds(29, 265, 200, 54);
             add(labH);
             JTextField inputH = new JTextField("", 20);
-            inputH.setBounds(137, 252, 100, 30);
+            inputH.setBounds(25, 303, 100, 30);
             add(inputH);
+            JLabel textH = new JLabel();
+            textH.setBounds(125, 303, 100, 30);
+            add(textH);
 
             add(gas.getLabNumber());
             add(gas.getInputNumber());
+            add(gas.getTextNumber());
 
             add(gas.getLabNumber());
             add(gas.getInputNumber());
@@ -419,23 +424,21 @@ public class Panel extends JPanel {
 
             add(gas.getjComboBoxPlastic());
 
-            JButton b1 = new JButton("Посчитать!");
-            b1.setBounds(135, 395, 125, 58);
-            add(b1);
+            add(gas.getB1()); // кнопка "посчитать"
 
             JTextArea output = new JTextArea(5, 20);
             output.setEditable(false);
 
-            b1.addActionListener(new ActionListener() {
+            gas.getB1().addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
                     boolean cX = checkXYZGNumber(gas.getInputX(), gas.getTextX(), 30, 990);
                     boolean cY = checkXYZGNumber(gas.getInputY(), gas.getTextY(), 30, 690);
                     boolean cZ = checkXYZGNumber(gas.getInputZ(), gas.getTextZ(), 15, 350);
 
-                    boolean cF = checkFGH(inputF, gas.getInputZ(), 0, 350);
-                    boolean cG = checkFGH(inputG, inputF, 0, 350);
-                    boolean cH = checkFGH(inputH, gas.getInputZ(), 0, 350);
+                    boolean cF = checkF(inputF, gas.getInputZ(), textF, 0, 350);
+                    boolean cG = checkG(inputG, inputF, textG, 0, 350);
+                    boolean cH = checkH(inputH, gas.getInputZ(), inputG, textH, 0, 350);
 
                     boolean cNumber = checkXYZGNumber(gas.getInputNumber(), gas.getTextNumber(), 5, 5000);
                     int now = selectedInside((String) gas.getjComboBoxInside().getSelectedItem());
@@ -463,41 +466,77 @@ public class Panel extends JPanel {
 
             add(output);
             JScrollPane scrollPane = new JScrollPane(output);
-            scrollPane.setBounds(275, 25, 375, 425);
-            scrollPane.setPreferredSize(new Dimension(375, 425));
+            scrollPane.setBounds(275, 25, 375, 525);
+            scrollPane.setPreferredSize(new Dimension(375, 525));
             add(scrollPane);
 
         }
     }
 
     private boolean checkXYZGNumber(JTextField text, JLabel o, int one, int two) {
-        if (Integer.parseInt(text.getText()) >= one && Integer.parseInt(text.getText()) <= two) {
-            o.setText("ok");
-            return true;
-        } else {
+        try {
+            if (Integer.parseInt(text.getText()) >= one && Integer.parseInt(text.getText()) <= two) {
+                o.setText("ok");
+                return true;
+            } else {
+                throw new Exception();
+            }
+        } catch (Exception exc) {
             o.setText("от " + one + " до " + two);
             return false;
         }
     }
 
     private boolean checkF(JTextField text, JTextField text2, JLabel o, int one, int two) {
-        if (Integer.parseInt(text.getText()) >= one
-                && Integer.parseInt(text.getText()) <= two
-                && Integer.parseInt(text.getText()) <= (Integer.parseInt(text2.getText()) + 2)) {
-            o.setText("ok");
-            return true;
-        } else {
+        try {
+            if (Integer.parseInt(text.getText()) >= one
+                    && Integer.parseInt(text.getText()) <= two
+                    && Integer.parseInt(text.getText()) <= (Integer.parseInt(text2.getText()) + 2)) {
+                o.setText("ok");
+                return true;
+            } else {
+                throw new Exception();
+            }
+        } catch (Exception exc) {
+            if (Integer.parseInt(text.getText()) > (Integer.parseInt(text2.getText()) + 2)) {
+                o.setText("Всегда меньше Z: <" + Integer.parseInt(text2.getText()));
+                return false;
+            } else {
+                o.setText("от " + one + " до " + two);
+                return false;
+            }
+        }
+    }
+
+    private boolean checkG(JTextField text, JTextField text2, JLabel o, int one, int two) {
+        try {
+            if (Integer.parseInt(text.getText()) >= one
+                    && Integer.parseInt(text.getText()) <= two
+                    && Integer.parseInt(text.getText()) <= (Integer.parseInt(text2.getText()) + 2)) {
+                o.setText("ok");
+                return true;
+            } else {
+                throw new Exception();
+            }
+        } catch (Exception exc) {
             o.setText("от " + one + " до " + two);
             return false;
         }
     }
 
-    private boolean checkFGH(JTextField text, JTextField text2, int one, int two) {
-        if (Integer.parseInt(text.getText()) >= one
-                && Integer.parseInt(text.getText()) <= two
-                && Integer.parseInt(text.getText()) <= (Integer.parseInt(text2.getText()) + 2)) {
-            return true;
-        } else {
+    private boolean checkH(JTextField text, JTextField text2, JTextField text3, JLabel o, int one, int two) {
+        try {
+            if (Integer.parseInt(text.getText()) >= one
+                    && Integer.parseInt(text.getText()) <= two
+                    && Integer.parseInt(text.getText()) <= ((Integer.parseInt(text2.getText()) + 2)
+                    - Integer.parseInt(text3.getText()))) {
+                o.setText("ok");
+                return true;
+            } else {
+                throw new Exception();
+            }
+        } catch (Exception exc) {
+            o.setText("от " + one + " до " + two);
             return false;
         }
     }
