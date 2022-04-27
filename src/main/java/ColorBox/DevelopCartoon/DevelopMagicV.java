@@ -20,6 +20,8 @@ public class DevelopMagicV extends DevelopCap {
         listOne.add(new Board(box.getY() + 10, box.getF()));
         listOne.add(new Board(box.getY() + 10, box.getZ() + 6));
 
+        That.list.add("Коробка типа \"Шкатулка\"\n");
+
         for (Board slide : listOne) {
             aX = lux.getX() / (slide.x + 2);
             aY = lux.getY() / (slide.y + 2);
@@ -93,12 +95,15 @@ public class DevelopMagicV extends DevelopCap {
             Inside inside = new Inside();
             switch (now) {
                 case 1:
+                    That.list.add("Обкатка внутри, материал \"Oracal\"\n");
                     That.list.add(inside.roll(listOne, listTwo, number));
                     break;
                 case 2:
+                    That.list.add("Обкатка внутри, материал \"DLC 1.37 м.\"\n");
                     That.list.add(inside.rollDlc(listOne, listTwo, number));
                     break;
                 case 3:
+                    That.list.add("Обкатка внутри, материал \"DLC 1.5 м.\"\n");
                     That.list.add(inside.rollDlcPlus(listOne, listTwo, number));
                     break;
             }

@@ -18,12 +18,15 @@ public class PlasticMagicG extends PlasticCap {
 
         switch (plasticSelected) {
             case -1:
+                That.list.add("материал \"Oracal\"\n");
                 Oracal(filmDown, filmUp, filmBack, number);
                 break;
             case 0:
+                That.list.add("материал \"DLC 1.36 м.\"\n");
                 Dlc(filmDown, filmUp, filmBack, number);
                 break;
             case 1:
+                That.list.add("материал \"DLC 1.5 м.\"\n");
                 DlcPlus(filmDown, filmUp, filmBack, number);
                 break;
         }

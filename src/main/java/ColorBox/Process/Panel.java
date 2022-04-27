@@ -45,7 +45,7 @@ public class Panel extends JPanel {
             JTextField inputF = new JTextField("", 20);
             inputF.setBounds(25, 201, 100, 30);
             add(inputF);
-            JLabel textF = new JLabel();
+            JLabel textF = new JLabel("\u21e0");
             textF.setBounds(125, 201, 100, 30);
             add(textF);
 
@@ -130,7 +130,7 @@ public class Panel extends JPanel {
             JTextField inputF = new JTextField("", 20);
             inputF.setBounds(25, 201, 100, 30);
             add(inputF);
-            JLabel textF = new JLabel();
+            JLabel textF = new JLabel("\u21e0");
             textF.setBounds(125, 201, 100, 30);
             add(textF);
 
@@ -216,7 +216,7 @@ public class Panel extends JPanel {
             JTextField inputF = new JTextField("", 20);
             inputF.setBounds(25, 201, 100, 30);
             add(inputF);
-            JLabel textF = new JLabel();
+            JLabel textF = new JLabel("\u21e0");
             textF.setBounds(125, 201, 100, 30);
             add(textF);
 
@@ -298,7 +298,7 @@ public class Panel extends JPanel {
             JTextField inputF = new JTextField("", 20);
             inputF.setBounds(25, 201, 100, 30);
             add(inputF);
-            JLabel textF = new JLabel();
+            JLabel textF = new JLabel("\u21e0");
             textF.setBounds(125, 201, 100, 30);
             add(textF);
 
@@ -385,7 +385,7 @@ public class Panel extends JPanel {
             JTextField inputF = new JTextField("", 20);
             inputF.setBounds(25, 201, 100, 30);
             add(inputF);
-            JLabel textF = new JLabel();
+            JLabel textF = new JLabel("\u21e0");
             textF.setBounds(125, 201, 100, 30);
             add(textF);
 
@@ -395,7 +395,7 @@ public class Panel extends JPanel {
             JTextField inputG = new JTextField("", 20);
             inputG.setBounds(25, 252, 100, 30);
             add(inputG);
-            JLabel textG = new JLabel();
+            JLabel textG = new JLabel("\u21e0");
             textG.setBounds(125, 252, 100, 30);
             add(textG);
 
@@ -405,7 +405,7 @@ public class Panel extends JPanel {
             JTextField inputH = new JTextField("", 20);
             inputH.setBounds(25, 303, 100, 30);
             add(inputH);
-            JLabel textH = new JLabel();
+            JLabel textH = new JLabel("\u21e0");
             textH.setBounds(125, 303, 100, 30);
             add(textH);
 
@@ -476,7 +476,7 @@ public class Panel extends JPanel {
     private boolean checkXYZGNumber(JTextField text, JLabel o, int one, int two) {
         try {
             if (Integer.parseInt(text.getText()) >= one && Integer.parseInt(text.getText()) <= two) {
-                o.setText("ok");
+                o.setText("\u2714");
                 return true;
             } else {
                 throw new Exception();
@@ -492,19 +492,14 @@ public class Panel extends JPanel {
             if (Integer.parseInt(text.getText()) >= one
                     && Integer.parseInt(text.getText()) <= two
                     && Integer.parseInt(text.getText()) <= (Integer.parseInt(text2.getText()) + 2)) {
-                o.setText("ok");
+                o.setText("\u2714");
                 return true;
             } else {
                 throw new Exception();
             }
         } catch (Exception exc) {
-            if (Integer.parseInt(text.getText()) > (Integer.parseInt(text2.getText()) + 2)) {
-                o.setText("Всегда меньше Z: <" + Integer.parseInt(text2.getText()));
-                return false;
-            } else {
-                o.setText("от " + one + " до " + two);
-                return false;
-            }
+            o.setText("от " + one + " до " + two);
+            return false;
         }
     }
 
@@ -513,7 +508,7 @@ public class Panel extends JPanel {
             if (Integer.parseInt(text.getText()) >= one
                     && Integer.parseInt(text.getText()) <= two
                     && Integer.parseInt(text.getText()) <= (Integer.parseInt(text2.getText()) + 2)) {
-                o.setText("ok");
+                o.setText("\u2714");
                 return true;
             } else {
                 throw new Exception();
@@ -530,7 +525,7 @@ public class Panel extends JPanel {
                     && Integer.parseInt(text.getText()) <= two
                     && Integer.parseInt(text.getText()) <= ((Integer.parseInt(text2.getText()) + 2)
                     - Integer.parseInt(text3.getText()))) {
-                o.setText("ok");
+                o.setText("\u2714");
                 return true;
             } else {
                 throw new Exception();

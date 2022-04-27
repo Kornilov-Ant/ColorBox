@@ -5,19 +5,19 @@ import javax.swing.*;
 public class GapAndSelected extends JPanel {
     private JLabel labX = new JLabel("<html><b>Длина коробки Х:<b>");
     private JTextField inputX = new JTextField("", 20);
-    private JLabel textX = new JLabel();
+    private JLabel textX = new JLabel("\u21e0");
 
     private JLabel labY = new JLabel("<html><b>Ширина коробки Y:<b>");
     private JTextField inputY = new JTextField("", 20);
-    private JLabel textY = new JLabel();
+    private JLabel textY = new JLabel("\u21e0");
 
     private JLabel labZ = new JLabel("<html><b>Высота коробки Z:<b>");
     private JTextField inputZ = new JTextField("", 20);
-    private JLabel textZ = new JLabel();
+    private JLabel textZ = new JLabel("\u21e0");
 
     private JLabel labNumber = new JLabel("<html><b>Тираж:<b>");
     private JTextField inputNumber = new JTextField("", 20);
-    private JLabel textNumber = new JLabel();
+    private JLabel textNumber = new JLabel("\u21e0");
 
     private JLabel flagText1 = new JLabel("<html><b>Внутр. пленка<b>");
 

@@ -21,6 +21,8 @@ public class DevelopTwoCapLite extends DevelopCap {
         listThree.add(new Board(box.getX() + 9, h));
         listThree.add(new Board(box.getY() + 5, h));
 
+        That.list.add("Коробка типа \"Двойное дно\"\n");
+
         for (Board slide : listOne) {
             aX = lux.getX() / (slide.x + 2);
             aY = lux.getY() / (slide.y + 2);
@@ -133,12 +135,15 @@ public class DevelopTwoCapLite extends DevelopCap {
             Inside inside = new Inside();
             switch (now) {
                 case 1:
+                    That.list.add("Обкатка внутри, материал \"Oracal\"\n");
                     That.list.add(inside.roll(listOne, listTwo, number));
                     break;
                 case 2:
+                    That.list.add("Обкатка внутри, материал \"DLC 1.37 м.\"\n");
                     That.list.add(inside.rollDlc(listOne, listTwo, number));
                     break;
                 case 3:
+                    That.list.add("Обкатка внутри, материал \"DLC 1.5 м.\"\n");
                     That.list.add(inside.rollDlcPlus(listOne, listTwo, number));
                     break;
             }

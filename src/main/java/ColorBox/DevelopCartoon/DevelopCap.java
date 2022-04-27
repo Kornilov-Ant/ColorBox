@@ -24,6 +24,8 @@ public class DevelopCap {
         listTwo.add(new Board(box.getX() + 9, box.getF()));
         listTwo.add(new Board(box.getY() + 5, box.getF()));
 
+        That.list.add("Коробка типа \"Крышка-дно\"\n");
+
         for (Board slide : listOne) {                 //КРЫШКА
             aX = lux.getX() / (slide.x + 2);
             aY = lux.getY() / (slide.y + 2);
@@ -100,12 +102,15 @@ public class DevelopCap {
             Inside inside = new Inside();
             switch (now) {
                 case 1:
+                    That.list.add("Обкатка внутри, материал \"Oracal\"\n");
                     That.list.add(inside.roll(listOne, listTwo, number));
                     break;
                 case 2:
+                    That.list.add("Обкатка внутри, материал \"DLC 1.37 м.\"\n");
                     That.list.add(inside.rollDlc(listOne, listTwo, number));
                     break;
                 case 3:
+                    That.list.add("Обкатка внутри, материал \"DLC 1.5 м.\"\n");
                     That.list.add(inside.rollDlcPlus(listOne, listTwo, number));
                     break;
             }
