@@ -3,7 +3,7 @@ package ColorBox.DevelopPlastic;
 import ColorBox.Part.Board;
 import ColorBox.Part.Film;
 import ColorBox.Plastic.*;
-import ColorBox.Process.That;
+import ColorBox.Process.Play;
 
 import java.util.ArrayList;
 
@@ -21,7 +21,7 @@ public class Inside {
     protected int standart2;
 
     public String rollDlcPlus(ArrayList<Board> listOne, ArrayList<Board> listTwo, int number) {
-        That.list.add("Оклейка внутри:");
+        Play.list.add("Оклейка внутри:");
         for (Board a : listOne) {
             Film film = new Film(a.x, a.y);
             dlcPlusPlastic(film, number);
@@ -61,8 +61,8 @@ public class Inside {
             rollOne = bU * filmDown.y;
         }
 
-        That.list.add("На часть " + filmDown + " получится:");
-        That.list.add("- рулон 1,5 м. шириной -> " +
+        Play.list.add("На часть " + filmDown + " получится:");
+        Play.list.add("- рулон 1,5 м. шириной -> " +
                 String.format("%.0f", (rollOne * dlcPlusD))
                 + " м2 (по " + standart1 + " шт. в ряд)");
 
@@ -71,7 +71,7 @@ public class Inside {
     }
 
     public String rollDlc(ArrayList<Board> listOne, ArrayList<Board> listTwo, int number) {
-        That.list.add("Оклейка внутри:");
+        Play.list.add("Оклейка внутри:");
         for (Board a : listOne) {
             Film film = new Film(a.x, a.y);
             dlcPlastic(film, number);
@@ -111,8 +111,8 @@ public class Inside {
             rollOne = bU * filmDown.y;
         }
 
-        That.list.add("На часть " + filmDown + " получится:");
-        That.list.add("- рулон 1,37 м. шириной -> " +
+        Play.list.add("На часть " + filmDown + " получится:");
+        Play.list.add("- рулон 1,37 м. шириной -> " +
                 String.format("%.0f", (rollOne * dlcD))
                 + " м2 (по " + standart1 + " шт. в ряд)");
 
@@ -121,7 +121,7 @@ public class Inside {
     }
 
     public String roll(ArrayList<Board> listOne, ArrayList<Board> listTwo, int number) {
-        That.list.add("Оклейка внутри:");
+        Play.list.add("Оклейка внутри:");
         for (Board a : listOne) {
             Film film = new Film(a.x, a.y);
             smallPlastic(film, number);
@@ -189,10 +189,10 @@ public class Inside {
         Double m22 = rollTwo * big;
         Double m21 = rollOne * small;
 
-        That.list.add("На часть " + filmDown + " получится:");
-        That.list.add("- рулон 1 м. шириной -> " + String.format("%.0f", m21)
+        Play.list.add("На часть " + filmDown + " получится:");
+        Play.list.add("- рулон 1 м. шириной -> " + String.format("%.0f", m21)
                 + " м2 (по " + standart1 + " шт. в ряд)");
-        That.list.add("- рулон 1,26 м. шириной -> " + String.format("%.0f", m22)
+        Play.list.add("- рулон 1,26 м. шириной -> " + String.format("%.0f", m22)
                 + " м2 (по " + standart2 + " шт. в ряд)");
 
         if (m21 <= m22) {

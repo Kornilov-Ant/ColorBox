@@ -4,7 +4,7 @@ import ColorBox.Box.BoxMagic;
 import ColorBox.DevelopPlastic.Inside;
 import ColorBox.DevelopPlastic.PlasticMagicV;
 import ColorBox.Part.Board;
-import ColorBox.Process.That;
+import ColorBox.Process.Play;
 
 import java.util.ArrayList;
 
@@ -12,7 +12,7 @@ public class DevelopMagicV extends DevelopCap {
     private ArrayList<Board> insideOne = new ArrayList<>();
     private ArrayList<Board> insideTwo = new ArrayList<>();
 
-    public void DevelopMagicV(BoxMagic box, int number, int now, int plasticSelected) {
+    public void developMagicV(BoxMagic box, int number, int now, int plasticSelected) {
         listOne.add(new Board(box.getX(), box.getY()));
         listTwo.add(new Board(box.getY() + 4, box.getZ() + 2));
         listTwo.add(new Board(box.getX(), box.getZ() + 2));
@@ -20,7 +20,7 @@ public class DevelopMagicV extends DevelopCap {
         listOne.add(new Board(box.getY() + 10, box.getF()));
         listOne.add(new Board(box.getY() + 10, box.getZ() + 6));
 
-        That.list.add("Коробка типа \"Шкатулка\"\n");
+        Play.list.add("Коробка типа \"Шкатулка вертикальная\"\n");
 
         for (Board slide : listOne) {
             aX = lux.getX() / (slide.x + 2);
@@ -51,7 +51,7 @@ public class DevelopMagicV extends DevelopCap {
 
             aBack = Math.floor(number / back) + res;
             cartList = cartList + aBack;
-            That.list.add("На сторону " + slide + " требуется " + aBack + " л.");
+            Play.list.add("На сторону " + slide + " требуется " + aBack + " л.");
         }
 
         for (Board slide : listTwo) {
@@ -85,31 +85,31 @@ public class DevelopMagicV extends DevelopCap {
             aBack = Math.floor((number2) / back) + res;
             cartList = cartList + aBack;
             //ниже идет добавление текста!!!
-            That.list.add("На сторону " + slide + " требуется " + String.format("%.1f", aBack) + " л.");
+            Play.list.add("На сторону " + slide + " требуется " + String.format("%.1f", aBack) + " л.");
         }
 
-        That.list.add("Всего требуется " + String.format("%.1f", cartList)
+        Play.list.add("Всего требуется " + String.format("%.1f", cartList)
                 + " л. картона на тираж" + System.lineSeparator());
 
         if (now > 0) {
             Inside inside = new Inside();
             switch (now) {
                 case 1:
-                    That.list.add("Обкатка внутри, материал \"Oracal\"\n");
-                    That.list.add(inside.roll(listOne, listTwo, number));
+                    Play.list.add("Обкатка внутри, материал \"Oracal\"\n");
+                    Play.list.add(inside.roll(listOne, listTwo, number));
                     break;
                 case 2:
-                    That.list.add("Обкатка внутри, материал \"DLC 1.37 м.\"\n");
-                    That.list.add(inside.rollDlc(listOne, listTwo, number));
+                    Play.list.add("Обкатка внутри, материал \"DLC 1.37 м.\"\n");
+                    Play.list.add(inside.rollDlc(listOne, listTwo, number));
                     break;
                 case 3:
-                    That.list.add("Обкатка внутри, материал \"DLC 1.5 м.\"\n");
-                    That.list.add(inside.rollDlcPlus(listOne, listTwo, number));
+                    Play.list.add("Обкатка внутри, материал \"DLC 1.5 м.\"\n");
+                    Play.list.add(inside.rollDlcPlus(listOne, listTwo, number));
                     break;
             }
         }
 
         PlasticMagicV magicV = new PlasticMagicV();
-        That.list.add(magicV.Roll(box, number, plasticSelected));
+        Play.list.add(magicV.roll(box, number, plasticSelected));
     }
 }

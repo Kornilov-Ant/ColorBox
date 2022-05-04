@@ -1,32 +1,64 @@
 package ColorBox.Process;
 
-import ColorBox.Box.*;
+import ColorBox.Box.BoxCap;
+import ColorBox.Box.BoxMagic;
+import ColorBox.Box.BoxTwoCap;
+import ColorBox.Box.BoxTwoCapLite;
 import ColorBox.DevelopCartoon.*;
 
+import java.util.ArrayList;
+
 public class Play {
+    public static String report = "";
+    public static ArrayList<String> list = new ArrayList<>();
 
-    public void Play(BoxCap box, int number, int now, int plasticSelected) {
+    public void cap(int x, int y, int z, int f, int number, int now, int plasticSelected) {
+        BoxCap boxOne = new BoxCap(x, y, z, f);
         DevelopCap cap = new DevelopCap();
-        cap.DevelopCap(box, number, now, plasticSelected);
-    }
+        cap.developCap(boxOne, number, now, plasticSelected);
 
-    public void Play(BoxMagic box, int number, int dir, int now, int plasticSelected) {
-        if (dir == 0) {
-            DevelopMagicG magicG = new DevelopMagicG();
-            magicG.DevelopMagicG(box, number, now, plasticSelected);
-        } else if (dir == 1) {
-            DevelopMagicV magicV = new DevelopMagicV();
-            magicV.DevelopMagicV(box, number, now, plasticSelected);
+        for (String str : list) {
+            report = report + System.lineSeparator() + str;
         }
     }
 
-    public void Play(BoxTwoCapLite box, int number, int now, int plasticSelected) {
-        DevelopTwoCapLite twoCapLite = new DevelopTwoCapLite();
-        twoCapLite.DevelopTwoCap(box, number, now, plasticSelected);
+    public void magicG(int x, int y, int z, int f, int number, int now, int plasticSelected) {
+        BoxMagic box = new BoxMagic(x, y, z, f);
+        DevelopMagicG magicG = new DevelopMagicG();
+        magicG.developMagicG(box, number, now, plasticSelected);
+
+        for (String str : list) {
+            report = report + System.lineSeparator() + str;
+        }
     }
 
-    public void Play(BoxTwoCap box, int number, int now, int plasticSelected) {
+    public void magicV(int x, int y, int z, int f, int number, int now, int plasticSelected) {
+        BoxMagic box = new BoxMagic(x, y, z, f);
+        DevelopMagicV magicV = new DevelopMagicV();
+        magicV.developMagicV(box, number, now, plasticSelected);
+
+        for (String str : list) {
+            report = report + System.lineSeparator() + str;
+        }
+    }
+
+    public void twoCapLite(int x, int y, int z, int f, int number, int now, int plasticSelected) {
+        BoxTwoCapLite boxTwoCapLite = new BoxTwoCapLite(x, y, z, f);
+        DevelopTwoCapLite twoCapLite = new DevelopTwoCapLite();
+        twoCapLite.developTwoCap(boxTwoCapLite, number, now, plasticSelected);
+
+        for (String str : list) {
+            report = report + System.lineSeparator() + str;
+        }
+    }
+
+    public void twoCap(int x, int y, int z, int f, int g, int h, int number, int now, int plasticSelected) {
+        BoxTwoCap boxTwoCap = new BoxTwoCap(x, y, z, f, g, h);
         DevelopTwoCap twoCap = new DevelopTwoCap();
-        twoCap.DevelopTwoCap(box, number, now, plasticSelected);
+        twoCap.developTwoCap(boxTwoCap, number, now, plasticSelected);
+
+        for (String str : list) {
+            report = report + System.lineSeparator() + str;
+        }
     }
 }

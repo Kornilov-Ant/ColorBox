@@ -16,7 +16,7 @@ public class DevelopCap {
     protected double aX, aY, aXy, bX, bY, bXy, back, aBack;
     protected Lux lux = new Lux();
 
-    public void DevelopCap(BoxCap box, int number, int now, int plasticSelected) {
+    public void developCap(BoxCap box, int number, int now, int plasticSelected) {
         listOne.add(new Board(box.getX() + 4, box.getY() + 4));
         listTwo.add(new Board(box.getX() + 4, box.getZ()));
         listTwo.add(new Board(box.getY(), box.getZ()));
@@ -24,7 +24,7 @@ public class DevelopCap {
         listTwo.add(new Board(box.getX() + 9, box.getF()));
         listTwo.add(new Board(box.getY() + 5, box.getF()));
 
-        That.list.add("Коробка типа \"Крышка-дно\"\n");
+        Play.list.add("Коробка типа \"Крышка-дно\"\n");
 
         for (Board slide : listOne) {                 //КРЫШКА
             aX = lux.getX() / (slide.x + 2);
@@ -56,7 +56,7 @@ public class DevelopCap {
             aBack = Math.floor(number / back) + res;
             cartList = cartList + aBack;
             //ниже идет добавление текста!!!
-            That.list.add("На сторону " + slide + " требуется " + String.format("%.1f", aBack) + " л.");
+            Play.list.add("На сторону " + slide + " требуется " + String.format("%.1f", aBack) + " л.");
         }
 
         for (Board slide : listTwo) {                  //БОРТ
@@ -90,11 +90,11 @@ public class DevelopCap {
             aBack = Math.floor((number2) / back) + res;
             cartList = cartList + aBack;
             //ниже идет добавление текста!!!
-            That.list.add("На сторону " + slide + " требуется " + String.format("%.1f", aBack) + " л.");
+            Play.list.add("На сторону " + slide + " требуется " + String.format("%.1f", aBack) + " л.");
         }
 
         //ниже идет добавление текста!!!
-        That.list.add("Всего требуется " + String.format("%.1f", cartList)
+        Play.list.add("Всего требуется " + String.format("%.1f", cartList)
                 + " л. картона на тираж" + System.lineSeparator());
 
 
@@ -102,22 +102,22 @@ public class DevelopCap {
             Inside inside = new Inside();
             switch (now) {
                 case 1:
-                    That.list.add("Обкатка внутри, материал \"Oracal\"\n");
-                    That.list.add(inside.roll(listOne, listTwo, number));
+                    Play.list.add("Обкатка внутри, материал \"Oracal\"\n");
+                    Play.list.add(inside.roll(listOne, listTwo, number));
                     break;
                 case 2:
-                    That.list.add("Обкатка внутри, материал \"DLC 1.37 м.\"\n");
-                    That.list.add(inside.rollDlc(listOne, listTwo, number));
+                    Play.list.add("Обкатка внутри, материал \"DLC 1.37 м.\"\n");
+                    Play.list.add(inside.rollDlc(listOne, listTwo, number));
                     break;
                 case 3:
-                    That.list.add("Обкатка внутри, материал \"DLC 1.5 м.\"\n");
-                    That.list.add(inside.rollDlcPlus(listOne, listTwo, number));
+                    Play.list.add("Обкатка внутри, материал \"DLC 1.5 м.\"\n");
+                    Play.list.add(inside.rollDlcPlus(listOne, listTwo, number));
                     break;
             }
         }
 
         PlasticCap plasticCap = new PlasticCap();
         //ниже идет добавление текста!!!
-        That.list.add(plasticCap.Roll(box, number, plasticSelected));
+        Play.list.add(plasticCap.roll(box, number, plasticSelected));
     }
 }

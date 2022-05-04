@@ -3,7 +3,7 @@ package ColorBox.DevelopPlastic;
 import ColorBox.Box.BoxTwoCapLite;
 import ColorBox.Part.Board;
 import ColorBox.Part.Film;
-import ColorBox.Process.That;
+import ColorBox.Process.Play;
 
 import java.util.ArrayList;
 
@@ -11,7 +11,7 @@ public class InsideTwoCap extends Inside {
     private ArrayList<Board> listOne = new ArrayList<>();
     private ArrayList<Board> listTwo = new ArrayList<>();
 
-    public String Roll(BoxTwoCapLite box, int number) {
+    public String roll(BoxTwoCapLite box, int number) {
         int h = ((box.getZ() + 2) - box.getG()) / 2;
 
         listOne.add(new Board(box.getX(), box.getY()));
@@ -21,7 +21,7 @@ public class InsideTwoCap extends Inside {
         listTwo.add(new Board(box.getX() + 9, h));
         listTwo.add(new Board(box.getY() + 5, h));
 
-        That.list.add("Оклейка внутри:");
+        Play.list.add("Оклейка внутри:");
         for (Board a : listOne) {
             Film film = new Film(a.x, a.y);
             smallPlastic(film, number);
@@ -89,10 +89,10 @@ public class InsideTwoCap extends Inside {
         Double m22 = rollTwo * big;
         Double m21 = rollOne * small;
 
-        That.list.add("На часть " + filmDown + " получится:");
-        That.list.add("- рулон 1 м. шириной -> " + String.format("%.0f", m21)
+        Play.list.add("На часть " + filmDown + " получится:");
+        Play.list.add("- рулон 1 м. шириной -> " + String.format("%.0f", m21)
                 + " м2 (по " + standart1 + " шт. в ряд)");
-        That.list.add("- рулон 1,26 м. шириной -> " + String.format("%.0f", m22)
+        Play.list.add("- рулон 1,26 м. шириной -> " + String.format("%.0f", m22)
                 + " м2 (по " + standart2 + " шт. в ряд)");
 
         if (m21 <= m22) {

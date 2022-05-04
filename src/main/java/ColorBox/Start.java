@@ -2,7 +2,11 @@ package ColorBox;
 
 import javax.swing.*;
 
+import ColorBox.Menu.UpMenuBar;
 import ColorBox.Process.*;
+import ColorBox.Process.Panel;
+
+import java.awt.*;
 
 public class Start {
 
@@ -10,9 +14,8 @@ public class Start {
 
     public Start() {
         window = new JFrame("ColorBox (Си-Би)");
+        window.setSize(700, 670);
         window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        window.setSize(700, 650);
-
         window.add(new Panel());
         window.setLocationRelativeTo(null);
         window.setResizable(false);

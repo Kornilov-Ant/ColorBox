@@ -1,5 +1,6 @@
 package ColorBox.Process;
 
+import ColorBox.Menu.UpMenuBar;
 import ColorBox.Process.BlockPanel.GapAndSelected;
 
 import javax.swing.*;
@@ -11,7 +12,18 @@ import java.util.ArrayList;
 public class Panel extends JPanel {
 
     public Panel() {
-        setLayout(new GridLayout());
+        setLayout(new GridBagLayout());
+
+        GridBagConstraints constraints = new GridBagConstraints();
+        constraints.fill = GridBagConstraints.HORIZONTAL;
+        constraints.weightx = 1;
+        constraints.gridy = 0;
+
+        add(new UpMenuBar().getBar(), constraints);
+
+        constraints.gridy = 1;
+        constraints.weighty = 325;
+        constraints.ipady = 600;
 
         JTabbedPane jTabbedPane = new JTabbedPane(JTabbedPane.TOP);
         jTabbedPane.addTab("Крышка-дно", new Pane1());
@@ -19,7 +31,8 @@ public class Panel extends JPanel {
         jTabbedPane.addTab("Шкатулка вер.", new Pane3());
         jTabbedPane.addTab("Двойное дно", new Pane4());
         jTabbedPane.addTab("Двойное дно (разный борт)", new Pane5());
-        add(jTabbedPane);
+
+        add(jTabbedPane, constraints);
     }
 
     class Pane1 extends JPanel {
@@ -77,9 +90,9 @@ public class Panel extends JPanel {
                     int now = selectedInside((String) gas.getjComboBoxInside().getSelectedItem());
                     int plasticSelected = selectedOutside((String) gas.getjComboBoxPlastic().getSelectedItem());
                     if (cX && cY && cZ && cF && cNumber) {
-                        That.ou = "";
-                        That.list = new ArrayList<>();
-                        new That().Cap(
+                        Play.report = "";
+                        Play.list = new ArrayList<>();
+                        new Play().cap(
                                 Integer.parseInt(gas.getInputX().getText()),
                                 Integer.parseInt(gas.getInputY().getText()),
                                 Integer.parseInt(gas.getInputZ().getText()),
@@ -88,7 +101,7 @@ public class Panel extends JPanel {
                                 now,
                                 plasticSelected
                         );
-                        output.setText(That.ou);
+                        output.setText(Play.report);
                     } else {
                         output.setText("Ошибка ввода данных!");
                     }
@@ -162,9 +175,9 @@ public class Panel extends JPanel {
                     int now = selectedInside((String) gas.getjComboBoxInside().getSelectedItem());
                     int plasticSelected = selectedOutside((String) gas.getjComboBoxPlastic().getSelectedItem());
                     if (cX && cY && cZ && cF && cNumber) {
-                        That.ou = "";
-                        That.list = new ArrayList<>();
-                        new That().MagicG(
+                        Play.report = "";
+                        Play.list = new ArrayList<>();
+                        new Play().magicG(
                                 Integer.parseInt(gas.getInputX().getText()),
                                 Integer.parseInt(gas.getInputY().getText()),
                                 Integer.parseInt(gas.getInputZ().getText()),
@@ -173,7 +186,7 @@ public class Panel extends JPanel {
                                 now,
                                 plasticSelected
                         );
-                        output.setText(That.ou);
+                        output.setText(Play.report);
 
                     } else {
                         output.setText("Ошибка ввода данных!");
@@ -248,9 +261,9 @@ public class Panel extends JPanel {
                     int now = selectedInside((String) gas.getjComboBoxInside().getSelectedItem());
                     int plasticSelected = selectedOutside((String) gas.getjComboBoxPlastic().getSelectedItem());
                     if (cX && cY && cZ && cNumber) {
-                        That.ou = "";
-                        That.list = new ArrayList<>();
-                        new That().MagicV(
+                        Play.report = "";
+                        Play.list = new ArrayList<>();
+                        new Play().magicV(
                                 Integer.parseInt(gas.getInputX().getText()),
                                 Integer.parseInt(gas.getInputY().getText()),
                                 Integer.parseInt(gas.getInputZ().getText()),
@@ -259,7 +272,7 @@ public class Panel extends JPanel {
                                 now,
                                 plasticSelected
                         );
-                        output.setText(That.ou);
+                        output.setText(Play.report);
                     } else {
                         output.setText("Ошибка ввода данных!");
                     }
@@ -334,9 +347,9 @@ public class Panel extends JPanel {
                     int now = selectedInside((String) gas.getjComboBoxInside().getSelectedItem());
                     int plasticSelected = selectedOutside((String) gas.getjComboBoxPlastic().getSelectedItem());
                     if (cX && cY && cZ && cF && cNumber) {
-                        That.ou = "";
-                        That.list = new ArrayList<>();
-                        new That().TwoCapLite(
+                        Play.report = "";
+                        Play.list = new ArrayList<>();
+                        new Play().twoCapLite(
                                 Integer.parseInt(gas.getInputX().getText()),
                                 Integer.parseInt(gas.getInputY().getText()),
                                 Integer.parseInt(gas.getInputZ().getText()),
@@ -345,7 +358,7 @@ public class Panel extends JPanel {
                                 now,
                                 plasticSelected
                         );
-                        output.setText(That.ou);
+                        output.setText(Play.report);
                     } else {
                         output.setText("Ошибка ввода данных!");
                     }
@@ -444,9 +457,9 @@ public class Panel extends JPanel {
                     int now = selectedInside((String) gas.getjComboBoxInside().getSelectedItem());
                     int plasticSelected = selectedOutside((String) gas.getjComboBoxPlastic().getSelectedItem());
                     if (cX && cY && cZ && cF && cG && cH && cNumber) {
-                        That.ou = "";
-                        That.list = new ArrayList<>();
-                        new That().TwoCap(
+                        Play.report = "";
+                        Play.list = new ArrayList<>();
+                        new Play().twoCap(
                                 Integer.parseInt(gas.getInputX().getText()),
                                 Integer.parseInt(gas.getInputY().getText()),
                                 Integer.parseInt(gas.getInputZ().getText()),
@@ -457,7 +470,7 @@ public class Panel extends JPanel {
                                 now,
                                 plasticSelected
                         );
-                        output.setText(That.ou);
+                        output.setText(Play.report);
                     } else {
                         output.setText("Ошибка ввода данных!");
                     }

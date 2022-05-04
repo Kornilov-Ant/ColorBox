@@ -2,11 +2,11 @@ package ColorBox.DevelopPlastic;
 
 import ColorBox.Box.BoxMagic;
 import ColorBox.Part.Film;
-import ColorBox.Process.That;
+import ColorBox.Process.Play;
 
 public class PlasticMagicV extends PlasticCap {
 
-    public String Roll(BoxMagic box, int number, int plasticSelected) {
+    public String roll(BoxMagic box, int number, int plasticSelected) {
         Film filmDown = new Film(box.getX() + 40 + (box.getZ() * 2),
                 box.getY() + 40 + (box.getZ() * 2));
         Film filmUp = new Film(box.getY() + 40,
@@ -14,27 +14,27 @@ public class PlasticMagicV extends PlasticCap {
         Film filmBack = new Film(box.getY(),
                 box.getF() + 6 + box.getX() + 7 + 40);
 
-        That.list.add("Оклейка снаружи:");
+        Play.list.add("Оклейка снаружи:");
 
         switch (plasticSelected) {
             case -1:
-                That.list.add("материал \"Oracal\"\n");
-                Oracal(filmDown, filmUp, filmBack, number);
+                Play.list.add("материал \"Oracal\"\n");
+                oracal(filmDown, filmUp, filmBack, number);
                 break;
             case 0:
-                That.list.add("материал \"DLC 1.36 м.\"\n");
-                Dlc(filmDown, filmUp, filmBack, number);
+                Play.list.add("материал \"DLC 1.36 м.\"\n");
+                dlc(filmDown, filmUp, filmBack, number);
                 break;
             case 1:
-                That.list.add("материал \"DLC 1.5 м.\"\n");
-                DlcPlus(filmDown, filmUp, filmBack, number);
+                Play.list.add("материал \"DLC 1.5 м.\"\n");
+                dlcPlus(filmDown, filmUp, filmBack, number);
                 break;
         }
 
         return "" + System.lineSeparator() + "________________________________";
     }
 
-    private void DlcPlus(Film filmDown, Film filmUp, Film filmBack, int number) {
+    private void dlcPlus(Film filmDown, Film filmUp, Film filmBack, int number) {
         aD = Math.floor(dlcPlus.getZ() / filmDown.x);
         aU = Math.floor(dlcPlus.getX() / filmDown.y); // CONST
 
@@ -52,14 +52,14 @@ public class PlasticMagicV extends PlasticCap {
             rollOne = bU * filmDown.y;
         }
 
-        That.list.add("На часть " + filmDown + " получится:");
-        That.list.add("- рулон 1,5 м. шириной -> "
+        Play.list.add("На часть " + filmDown + " получится:");
+        Play.list.add("- рулон 1,5 м. шириной -> "
                 + String.format("%.0f", rollOne) + " м2"
         );
 
         String resultOne = String.format("%.2f", (rollOne / 1000));
         //ниже идет добавление текста!!!
-        That.list.add("Рекомендуется - 1,5х"
+        Play.list.add("Рекомендуется - 1,5х"
                 + resultOne + " м. пленки" + System.lineSeparator() + ""
         );
 
@@ -80,14 +80,14 @@ public class PlasticMagicV extends PlasticCap {
             rollOne = bU * filmUp.y;
         }
 
-        That.list.add("На часть " + filmUp + " получится:");
-        That.list.add("- рулон 1,5 м. шириной -> "
+        Play.list.add("На часть " + filmUp + " получится:");
+        Play.list.add("- рулон 1,5 м. шириной -> "
                 + String.format("%.0f", rollOne) + " м2"
         );
 
         String resultTwo = String.format("%.2f", (rollOne / 1000));
         //ниже идет добавление текста!!!
-        That.list.add("Рекомендуется - 1,5х"
+        Play.list.add("Рекомендуется - 1,5х"
                 + resultTwo + " м. пленки" + System.lineSeparator() + ""
         );
 
@@ -108,19 +108,19 @@ public class PlasticMagicV extends PlasticCap {
             rollOne = bU * filmBack.y;
         }
 
-        That.list.add("На часть " + filmBack + " получится:");
-        That.list.add("- рулон 1,5 м. шириной -> "
+        Play.list.add("На часть " + filmBack + " получится:");
+        Play.list.add("- рулон 1,5 м. шириной -> "
                 + String.format("%.0f", rollOne) + " м2"
         );
 
         String resultThree = String.format("%.2f", (rollOne / 1000));
         //ниже идет добавление текста!!!
-        That.list.add("Рекомендуется - 1,5х"
+        Play.list.add("Рекомендуется - 1,5х"
                 + resultOne + " м. пленки" + System.lineSeparator() + ""
         );
     }
 
-    private void Dlc(Film filmDown, Film filmUp, Film filmBack, int number) {
+    private void dlc(Film filmDown, Film filmUp, Film filmBack, int number) {
         aD = Math.floor(dlc.getZ() / filmDown.x);
         aU = Math.floor(dlc.getX() / filmDown.y); // CONST
 
@@ -138,14 +138,14 @@ public class PlasticMagicV extends PlasticCap {
             rollOne = bU * filmDown.y;
         }
 
-        That.list.add("На часть " + filmDown + " получится:");
-        That.list.add("- рулон 1,37 м. шириной -> "
+        Play.list.add("На часть " + filmDown + " получится:");
+        Play.list.add("- рулон 1,37 м. шириной -> "
                 + String.format("%.0f", rollOne) + " м2"
         );
 
         String resultOne = String.format("%.2f", (rollOne / 1000));
         //ниже идет добавление текста!!!
-        That.list.add("Рекомендуется - 1,37х"
+        Play.list.add("Рекомендуется - 1,37х"
                 + resultOne + " м. пленки" + System.lineSeparator() + ""
         );
 
@@ -166,13 +166,13 @@ public class PlasticMagicV extends PlasticCap {
             rollOne = bU * filmUp.y;
         }
 
-        That.list.add("На часть " + filmUp + " получится:");
-        That.list.add("- рулон 1,37 м. шириной -> "
+        Play.list.add("На часть " + filmUp + " получится:");
+        Play.list.add("- рулон 1,37 м. шириной -> "
                 + String.format("%.0f", rollOne) + " м2"
         );
 
         String resultTwo = String.format("%.2f", (rollOne / 1000));
-        That.list.add("Рекомендуется - 1,37х"
+        Play.list.add("Рекомендуется - 1,37х"
                 + resultTwo + " м. пленки" + System.lineSeparator() + ""
         );
 
@@ -193,27 +193,27 @@ public class PlasticMagicV extends PlasticCap {
             rollOne = bU * filmBack.y;
         }
 
-        That.list.add("На часть " + filmBack + " получится:");
-        That.list.add("- рулон 1,37 м. шириной -> "
+        Play.list.add("На часть " + filmBack + " получится:");
+        Play.list.add("- рулон 1,37 м. шириной -> "
                 + String.format("%.0f", rollOne) + " м2"
         );
 
         String resultThree = String.format("%.2f", (rollOne / 1000));
-        That.list.add("Рекомендуется - 1,37х"
+        Play.list.add("Рекомендуется - 1,37х"
                 + resultTwo + " м. пленки" + System.lineSeparator() + ""
         );
     }
 
-    private void Oracal(Film filmDown, Film filmUp, Film filmBack, int number) {
-        Plastic(filmDown, number);    //дно
-        Plastic(filmUp, number);      // крышка
-        Plastic(filmBack, number);    // вклейка внутри
+    private void oracal(Film filmDown, Film filmUp, Film filmBack, int number) {
+        plastic(filmDown, number);    //дно
+        plastic(filmUp, number);      // крышка
+        plastic(filmBack, number);    // вклейка внутри
 
         oracalBig.setY(Math.round(oracalBig.getY() * 100) / 100D);
         oracalSmall.setY(Math.round(oracalSmall.getY() * 100) / 100D);
     }
     @Override
-    protected void Plastic(Film film, int number) {
-        super.Plastic(film, number);
+    protected void plastic(Film film, int number) {
+        super.plastic(film, number);
     }
 }

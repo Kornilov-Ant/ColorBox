@@ -3,6 +3,7 @@ package ColorBox.Process.BlockPanel;
 import javax.swing.*;
 
 public class GapAndSelected extends JPanel {
+
     private JLabel labX = new JLabel("<html><b>Длина коробки Х:<b>");
     private JTextField inputX = new JTextField("", 20);
     private JLabel textX = new JLabel("\u21e0");
