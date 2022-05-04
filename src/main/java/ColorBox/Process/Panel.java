@@ -7,6 +7,8 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.ArrayList;
 
 public class Panel extends JPanel {
@@ -90,7 +92,11 @@ public class Panel extends JPanel {
                     int now = selectedInside((String) gas.getjComboBoxInside().getSelectedItem());
                     int plasticSelected = selectedOutside((String) gas.getjComboBoxPlastic().getSelectedItem());
                     if (cX && cY && cZ && cF && cNumber) {
-                        Play.report = "";
+                        String timeAndData =
+                                LocalDate.now() + " "
+                                + LocalTime.now().getHour() + ":"
+                                + LocalTime.now().getMinute();
+                        Play.report = timeAndData;
                         Play.list = new ArrayList<>();
                         new Play().cap(
                                 Integer.parseInt(gas.getInputX().getText()),

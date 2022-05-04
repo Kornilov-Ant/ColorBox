@@ -7,13 +7,14 @@ public class NameRandom {
     private String line;
 
     private String letterRandom() {
+        String letters = "";
         while (true) {
             int back = new Random().nextInt(122);
             if (back > 64 && back < 91 || back > 96 && back < 123) {
-                if (line.length() < 4) {
-                    line += (char) back;
+                if (letters.length() < 4) {
+                    letters += (char) back;
                 } else {
-                    return line;
+                    return letters;
                 }
             }
         }
@@ -30,6 +31,8 @@ public class NameRandom {
             line = "_Two_Cap_#";
         } else if (report.contains("Двойное дно, разные борта")) {
             line = "_Two_Cap_Lite_#";
+        } else {
+            throw new IllegalArgumentException();
         }
         line += letterRandom();
         return line;
