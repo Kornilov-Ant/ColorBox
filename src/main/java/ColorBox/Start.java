@@ -2,11 +2,7 @@ package ColorBox;
 
 import javax.swing.*;
 
-import ColorBox.Menu.UpMenuBar;
-import ColorBox.Process.*;
-import ColorBox.Process.Panel;
-
-import java.awt.*;
+import ColorBox.Frontend.Panel;
 
 public class Start {
 
