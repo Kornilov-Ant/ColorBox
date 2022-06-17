@@ -32,9 +32,9 @@ public class PaneMagicG extends Pane {
         gas.getB1().addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                boolean cX = CheckXYZGNumber.check(gas.getInputX(), gas.getTextX(), 30, 450);
-                boolean cY = CheckXYZGNumber.check(gas.getInputY(), gas.getTextY(), 30, 450);
-                boolean cZ = CheckXYZGNumber.check(gas.getInputZ(), gas.getTextZ(), 30, 350);
+                boolean cX = CheckXYZGNumber.check(gas.getInputX(), gas.getTextX(), 30, 980);
+                boolean cY = CheckXYZGNumber.check(gas.getInputY(), gas.getTextY(), 30, 680);
+                boolean cZ = CheckXYZGNumber.check(gas.getInputZ(), gas.getTextZ(), 30, 450);
                 boolean cF = CheckFG.check(inputF, gas.getInputZ(), textF, 15, 450);
                 boolean cNumber = CheckXYZGNumber.check(gas.getInputNumber(), gas.getTextNumber(), 5, 5000);
                 int now = SelectedInside.check((String) gas.getjComboBoxInside().getSelectedItem());
