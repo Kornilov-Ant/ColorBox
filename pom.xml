@@ -7,7 +7,7 @@
     <groupId>org.example</groupId>
     <artifactId>ColorBox</artifactId>
     <packaging>jar</packaging>
-    <version>0.9.3 ver.</version>
+    <version>1.0.3 ver.</version>
     <dependencies>
         <dependency>
             <groupId>org.projectlombok</groupId>
@@ -20,6 +20,12 @@
             <artifactId>annotations</artifactId>
             <version>RELEASE</version>
             <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-engine</artifactId>
+            <version>5.9.1</version>
+            <scope>test</scope>
         </dependency>
     </dependencies>
 
@@ -40,6 +46,18 @@
                         </manifest>
                     </archive>
                 </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>3.1.2</version>
+                <dependencies>
+                    <dependency>
+                        <groupId>org.junit.jupiter</groupId>
+                        <artifactId>junit-jupiter-engine</artifactId>
+                        <version>5.9.1</version>
+                    </dependency>
+                </dependencies>
             </plugin>
         </plugins>
     </build>

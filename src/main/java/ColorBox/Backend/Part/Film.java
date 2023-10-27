@@ -2,6 +2,9 @@ package ColorBox.Backend.Part;
 
 import lombok.Data;
 
+/**
+ * Модель материла "Plastic" прямоугольник
+ */
 @Data
 public class Film {
 

@@ -4,21 +4,31 @@ import ColorBox.Backend.Box.BoxTwoCapLite;
 import ColorBox.Backend.Part.Film;
 import ColorBox.Frontend.Play;
 
+/**
+ * Класс, реализующий тех. логику просчета материала Plastic,
+ * для сборки упаковки "Двойное дно с разными бортами"
+ */
 public class PlasticTwoCapLite extends PlasticTwoCap {
 
     public String roll(BoxTwoCapLite box, int number, int plasticSelected) {
+        // Задаются размеры для Plastic внутренний каркас
         Film filmMidle = new Film(
                 box.getX() + 38 + ((box.getZ() + 2) * 2),
                 box.getY() + 38 + ((box.getZ() + 2) * 2)
         );
+        // Задаются размеры для Plastic крышка
         Film filmUp = new Film(
                 (box.getX() + 5) + 38 + ((box.getZ() - box.getG()) * 2),
                 (box.getY() + 5) + 38 + ((box.getZ() - box.getG()) * 2)
         );
+        // Задаются размеры для Plastic дно
         Film filmDown = filmUp;
 
+        // Добавление текста в статическую коллекцию
         Play.list.add("Оклейка снаружи:");
 
+        // В зависимости от выбранного пункта пользователем
+        // в блоке case вызывается метод соответствующий материалу
         switch (plasticSelected) {
             case -1:
                 Play.list.add("материал \"DLC 1.5 м.\"\n");

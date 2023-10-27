@@ -1,11 +1,16 @@
-package ColorBox.Frontend.Menu.Service;
+package ColorBox.Backend.CheckService;
 
 import java.util.Random;
 
+/**
+ * Класс создает "Рандомное" значение для переменной "line"
+ */
 public class NameRandom {
 
     private String line;
 
+    // Метод добавляет к строке четырехзначное
+    // "рандомное" символьное значение
     private String letterRandom() {
         String letters = "";
         while (true) {
@@ -20,6 +25,8 @@ public class NameRandom {
         }
     }
 
+    // Метод добавляет к строке тип упаковки латиницей
+    // на основе входного параметра
     public String nameRandom(String report) {
         if (report.contains("Крышка-дно")) {
             line = "_Simple_box_#";

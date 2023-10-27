@@ -5,18 +5,28 @@ import ColorBox.Backend.CreateService.CreatePlastic;
 import ColorBox.Backend.Part.Film;
 import ColorBox.Frontend.Play;
 
+/**
+ * Класс, реализующий тех. логику просчета материала Plastic,
+ * для сборки упаковки "Шкатулка вертикальная"
+ */
 public class PlasticMagicV extends PlasticMagicG {
 
     public String roll(BoxMagic box, int number, int plasticSelected) {
+        // Задаются размеры для Plastic дно
         Film filmDown = new Film(box.getX() + 40 + (box.getZ() * 2),
                 box.getY() + 40 + (box.getZ() * 2));
+        // Задаются размеры для Plastic крышка
         Film filmUp = new Film(box.getY() + 40,
                 ((box.getX() + 7) * 2) + (box.getF()) + (box.getZ() + 6) + 30);
+        // Задаются размеры для Plastic внутренний каркас
         Film filmBack = new Film(box.getY(),
                 box.getF() + 6 + box.getX() + 7 + 40);
 
+        // Добавление текста в статическую коллекцию
         Play.list.add("Оклейка снаружи:");
 
+        // В зависимости от выбранного пункта пользователем
+        // в блоке case вызывается метод соответствующий материалу
         switch (plasticSelected) {
             case -1:
                 Play.list.add("материал \"Oracal\"\n");
@@ -44,9 +54,12 @@ public class PlasticMagicV extends PlasticMagicG {
     }
 
     private void oracal(Film filmDown, Film filmUp, Film filmBack, int number) {
-        plastic(filmDown, number);    //дно
-        plastic(filmUp, number);      // крышка
-        plastic(filmBack, number);    // вклейка внутри
+        // дно
+        plastic(filmDown, number);
+        // крышка
+        plastic(filmUp, number);
+        // вклейка внутри
+        plastic(filmBack, number);
 
         oracalBig.setY(Math.round(oracalBig.getY() * 100) / 100D);
         oracalSmall.setY(Math.round(oracalSmall.getY() * 100) / 100D);

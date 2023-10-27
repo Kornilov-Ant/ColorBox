@@ -2,6 +2,9 @@ package ColorBox.Backend.Part;
 
 import lombok.Data;
 
+/**
+ * Модель материла "Cartoon" прямоугольник
+ */
 @Data
 public class Board {
 
