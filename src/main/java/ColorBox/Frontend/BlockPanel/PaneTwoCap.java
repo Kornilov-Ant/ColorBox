@@ -1,7 +1,8 @@
 package ColorBox.Frontend.BlockPanel;
 
-import ColorBox.Backend.CheckService.ControlValues.*;
-import ColorBox.Frontend.Play;
+
+import ColorBox.Backend.Service.CheckService.ControlValues.*;
+import ColorBox.Frontend.Menu.UpMenuBar;
 
 import javax.swing.*;
 import java.awt.*;
@@ -63,55 +64,84 @@ public class PaneTwoCap extends Pane {
         gas.getB1().addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                // Проверки корректности введенных данных согласно условиям
-                boolean cX = CheckXYZGNumber.check(gas.getInputX(), gas.getTextX(), 30, 990);
-                boolean cY = CheckXYZGNumber.check(gas.getInputY(), gas.getTextY(), 30, 690);
-                boolean cZ = CheckXYZGNumber.check(gas.getInputZ(), gas.getTextZ(), 15, 350);
+                String line = "Двойное дно (разный борт)" + "&" +
+                        gas.getInputX().getText() + "&" +
+                        gas.getInputY().getText() + "&" +
+                        gas.getInputZ().getText() + "&" +
+                        inputF.getText() + "&" +
+                        inputG.getText() + "&" +
+                        inputH.getText() + "&" +
+                        gas.getInputNumber().getText() + "&" +
+                        gas.getJComboBoxInside().getSelectedItem().toString() + "&" +
+                        gas.getJComboBoxPlastic().getSelectedItem().toString() + "&" +
+                        LocalDate.now() + " " +
+                        LocalTime.now().getHour() + ":" +
+                        LocalTime.now().getMinute();
 
-                // Проверки корректности введенных данных согласно условиям
-                boolean cF = CheckFG.check(inputF, gas.getInputZ(), textF, 0, 350);
-                boolean cG = CheckFG.check(inputG, inputF, textG, 0, 350);
-                boolean cH = CheckH.check(inputH, gas.getInputZ(), inputG, textH, 0, 350);
-
-                // Проверки корректности введенных данных согласно условиям
-                boolean cNumber = CheckXYZGNumber.check(gas.getInputNumber(), gas.getTextNumber(), 5, 5000);
-
-                // Считываются числове коды выбора материала покрытия
-                int now = SelectedInside.check((String) gas.getJComboBoxInside().getSelectedItem());
-                int plasticSelected = SelectedOutside.check((String) gas.getJComboBoxPlastic().getSelectedItem());
-
-                // Далее идет блок, вполняется если все данные прошли проверку
-                // иначе пользователю сообщают, что данные введены с ошибкой
-                if (cX && cY && cZ && cF && cG && cH && cNumber) {
-
-                    // Сохраняется текущее время и дата
-                    String timeAndData =
-                            LocalDate.now() + " "
-                                    + LocalTime.now().getHour() + ":"
-                                    + LocalTime.now().getMinute();
-
-                    // Время и дата помещаются в глобальную переменную "report"
-                    Play.report = timeAndData;
-                    Play.list = new ArrayList<>();
-
-                    // Все данные передаются в метод "twoCap" статического класса "Play"
-                    new Play().twoCap(
-                            Integer.parseInt(gas.getInputX().getText()),
-                            Integer.parseInt(gas.getInputY().getText()),
-                            Integer.parseInt(gas.getInputZ().getText()),
-                            Integer.parseInt(inputF.getText()),
-                            Integer.parseInt(inputG.getText()),
-                            Integer.parseInt(inputH.getText()),
-                            Integer.parseInt(gas.getInputNumber().getText()),
-                            now,
-                            plasticSelected
-                    );
-
-                    // Результат работы метода сохраненный в "report" передается в объект вывода текста
-                    output.setText(Play.report);
+                String[] arr = controller.rest(line).split("&");
+                if (!arr[0].equals("ERROR")) {
+                    gas.getTextX().setText(arr[0]);
+                    gas.getTextY().setText(arr[1]);
+                    gas.getTextZ().setText(arr[2]);
+                    textF.setText(arr[3]);
+                    textG.setText(arr[4]);
+                    textH.setText(arr[5]);
+                    gas.getTextNumber().setText(arr[6]);
+                    output.setText(arr[7]);
+                    UpMenuBar.setReport(arr[7]);
                 } else {
-                    output.setText("Ошибка ввода данных!");
+                    output.setText(arr[0]);
                 }
+
+//                // Проверки корректности введенных данных согласно условиям
+//                boolean cX = CheckXYZGNumber.check(gas.getInputX(), gas.getTextX(), 30, 990);
+//                boolean cY = CheckXYZGNumber.check(gas.getInputY(), gas.getTextY(), 30, 690);
+//                boolean cZ = CheckXYZGNumber.check(gas.getInputZ(), gas.getTextZ(), 15, 350);
+//
+//                // Проверки корректности введенных данных согласно условиям
+//                boolean cF = CheckFG.check(inputF, gas.getInputZ(), textF, 0, 350);
+//                boolean cG = CheckFG.check(inputG, inputF, textG, 0, 350);
+//                boolean cH = CheckH.check(inputH, gas.getInputZ(), inputG, textH, 0, 350);
+//
+//                // Проверки корректности введенных данных согласно условиям
+//                boolean cNumber = CheckXYZGNumber.check(gas.getInputNumber(), gas.getTextNumber(), 5, 5000);
+//
+//                // Считываются числове коды выбора материала покрытия
+//                int now = SelectedInside.check((String) gas.getJComboBoxInside().getSelectedItem());
+//                int plasticSelected = SelectedOutside.check((String) gas.getJComboBoxPlastic().getSelectedItem());
+//
+//                // Далее идет блок, вполняется если все данные прошли проверку
+//                // иначе пользователю сообщают, что данные введены с ошибкой
+//                if (cX && cY && cZ && cF && cG && cH && cNumber) {
+//
+//                    // Сохраняется текущее время и дата
+//                    String timeAndData =
+//                            LocalDate.now() + " "
+//                                    + LocalTime.now().getHour() + ":"
+//                                    + LocalTime.now().getMinute();
+//
+//                    // Время и дата помещаются в глобальную переменную "report"
+//                    Play.report = timeAndData;
+//                    Play.list = new ArrayList<>();
+//
+//                    // Все данные передаются в метод "twoCap" статического класса "Play"
+//                    new Play().twoCap(
+//                            Integer.parseInt(gas.getInputX().getText()),
+//                            Integer.parseInt(gas.getInputY().getText()),
+//                            Integer.parseInt(gas.getInputZ().getText()),
+//                            Integer.parseInt(inputF.getText()),
+//                            Integer.parseInt(inputG.getText()),
+//                            Integer.parseInt(inputH.getText()),
+//                            Integer.parseInt(gas.getInputNumber().getText()),
+//                            now,
+//                            plasticSelected
+//                    );
+//
+//                    // Результат работы метода сохраненный в "report" передается в объект вывода текста
+//                    output.setText(Play.report);
+//                } else {
+//                    output.setText("Ошибка ввода данных!");
+//                }
             }
         });
 

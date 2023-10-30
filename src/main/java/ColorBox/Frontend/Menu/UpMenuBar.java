@@ -1,10 +1,8 @@
 package ColorBox.Frontend.Menu;
 
-import ColorBox.Backend.CheckService.TextSave;
-import ColorBox.Frontend.Play;
+import ColorBox.Backend.Service.CheckService.TextSave;
 
 import javax.swing.*;
-import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -17,6 +15,8 @@ public class UpMenuBar extends JPanel implements ActionListener {
     // Объект хранящий в себе все настройки панели
     // Верхний бар с выпадающими элементами меню
     private JMenuBar bar = new JMenuBar();
+
+    private static String report = "";
 
     public UpMenuBar() {
         // Создаем новый объект меню
@@ -60,10 +60,14 @@ public class UpMenuBar extends JPanel implements ActionListener {
                 System.exit(0);
             case "Сохранить просчет":
                 TextSave textSave = new TextSave();
-                textSave.textSave(Play.report);
+                textSave.textSave(report);
             case "О программе":
                 About about = new About();
                 about.startAbout();
         }
+    }
+
+    public static void setReport(String report) {
+        UpMenuBar.report = report;
     }
 }

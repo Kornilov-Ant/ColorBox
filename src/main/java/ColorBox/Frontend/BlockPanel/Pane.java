@@ -1,5 +1,7 @@
 package ColorBox.Frontend.BlockPanel;
 
+import ColorBox.Backend.Controller.BoxController;
+
 import javax.swing.*;
 
 /**
@@ -11,6 +13,8 @@ public class Pane extends JPanel {
     // Объект, в котором есть все общие требуемые элементы
     // для будущего окна приложения
     protected GapAndSelected gas;
+
+    protected final BoxController controller = new BoxController();
 
     public Pane() {
         gas = new GapAndSelected();

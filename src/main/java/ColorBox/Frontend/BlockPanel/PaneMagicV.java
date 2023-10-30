@@ -1,10 +1,6 @@
 package ColorBox.Frontend.BlockPanel;
 
-import ColorBox.Backend.CheckService.ControlValues.CheckFG;
-import ColorBox.Backend.CheckService.ControlValues.CheckXYZGNumber;
-import ColorBox.Backend.CheckService.ControlValues.SelectedInside;
-import ColorBox.Backend.CheckService.ControlValues.SelectedOutside;
-import ColorBox.Frontend.Play;
+import ColorBox.Frontend.Menu.UpMenuBar;
 
 import javax.swing.*;
 import java.awt.*;
@@ -41,47 +37,72 @@ public class PaneMagicV extends Pane {
         gas.getB1().addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                // Проверки корректности введенных данных согласно условиям
-                boolean cX = CheckXYZGNumber.check(gas.getInputX(), gas.getTextX(), 30, 980);
-                boolean cY = CheckXYZGNumber.check(gas.getInputY(), gas.getTextY(), 30, 680);
-                boolean cZ = CheckXYZGNumber.check(gas.getInputZ(), gas.getTextZ(), 30, 450);
-                boolean cF = CheckFG.check(inputF, gas.getInputZ(), textF, 15, 450);
-                boolean cNumber = CheckXYZGNumber.check(gas.getInputNumber(), gas.getTextNumber(), 5, 5000);
+                String line = "Шкатулка вер" + "&" +
+                        gas.getInputX().getText() + "&" +
+                        gas.getInputY().getText() + "&" +
+                        gas.getInputZ().getText() + "&" +
+                        inputF.getText() + "&" +
+                        gas.getInputNumber().getText() + "&" +
+                        gas.getJComboBoxInside().getSelectedItem().toString() + "&" +
+                        gas.getJComboBoxPlastic().getSelectedItem().toString() + "&" +
+                        LocalDate.now() + " " +
+                        LocalTime.now().getHour() + ":" +
+                        LocalTime.now().getMinute();
 
-                // Считываются числовые коды выбора материала покрытия
-                int now = SelectedInside.check((String) gas.getJComboBoxInside().getSelectedItem());
-                int plasticSelected = SelectedOutside.check((String) gas.getJComboBoxPlastic().getSelectedItem());
-
-                // Далее идет блок, вполняется если все данные прошли проверку
-                // иначе пользователю сообщают, что данные введены с ошибкой
-                if (cX && cY && cZ && cF && cNumber) {
-
-                    // Сохраняется текущее время и дата
-                    String timeAndData =
-                            LocalDate.now() + " "
-                                    + LocalTime.now().getHour() + ":"
-                                    + LocalTime.now().getMinute();
-
-                    // Время и дата помещаются в глобальную переменную "report"
-                    Play.report = timeAndData;
-                    Play.list = new ArrayList<>();
-
-                    // Все данные передаются в метод "magicV" статического класса "Play"
-                    new Play().magicV(
-                            Integer.parseInt(gas.getInputX().getText()),
-                            Integer.parseInt(gas.getInputY().getText()),
-                            Integer.parseInt(gas.getInputZ().getText()),
-                            Integer.parseInt(inputF.getText()),
-                            Integer.parseInt(gas.getInputNumber().getText()),
-                            now,
-                            plasticSelected
-                    );
-
-                    // Результат работы метода сохраненный в "report" передается в объект вывода текста
-                    output.setText(Play.report);
+                String[] arr = controller.rest(line).split("&");
+                if (!arr[0].equals("ERROR")) {
+                    gas.getTextX().setText(arr[0]);
+                    gas.getTextY().setText(arr[1]);
+                    gas.getTextZ().setText(arr[2]);
+                    textF.setText(arr[3]);
+                    gas.getTextNumber().setText(arr[4]);
+                    output.setText(arr[5]);
+                    UpMenuBar.setReport(arr[5]);
                 } else {
-                    output.setText("Ошибка ввода данных!");
+                    output.setText(arr[0]);
                 }
+
+//                // Проверки корректности введенных данных согласно условиям
+//                boolean cX = CheckXYZGNumber.check(gas.getInputX(), gas.getTextX(), 30, 980);
+//                boolean cY = CheckXYZGNumber.check(gas.getInputY(), gas.getTextY(), 30, 680);
+//                boolean cZ = CheckXYZGNumber.check(gas.getInputZ(), gas.getTextZ(), 30, 450);
+//                boolean cF = CheckFG.check(inputF, gas.getInputZ(), textF, 15, 450);
+//                boolean cNumber = CheckXYZGNumber.check(gas.getInputNumber(), gas.getTextNumber(), 5, 5000);
+//
+//                // Считываются числовые коды выбора материала покрытия
+//                int now = SelectedInside.check((String) gas.getJComboBoxInside().getSelectedItem());
+//                int plasticSelected = SelectedOutside.check((String) gas.getJComboBoxPlastic().getSelectedItem());
+//
+//                // Далее идет блок, вполняется если все данные прошли проверку
+//                // иначе пользователю сообщают, что данные введены с ошибкой
+//                if (cX && cY && cZ && cF && cNumber) {
+//
+//                    // Сохраняется текущее время и дата
+//                    String timeAndData =
+//                            LocalDate.now() + " "
+//                                    + LocalTime.now().getHour() + ":"
+//                                    + LocalTime.now().getMinute();
+//
+//                    // Время и дата помещаются в глобальную переменную "report"
+//                    Play.report = timeAndData;
+//                    Play.list = new ArrayList<>();
+//
+//                    // Все данные передаются в метод "magicV" статического класса "Play"
+//                    new Play().magicV(
+//                            Integer.parseInt(gas.getInputX().getText()),
+//                            Integer.parseInt(gas.getInputY().getText()),
+//                            Integer.parseInt(gas.getInputZ().getText()),
+//                            Integer.parseInt(inputF.getText()),
+//                            Integer.parseInt(gas.getInputNumber().getText()),
+//                            now,
+//                            plasticSelected
+//                    );
+//
+//                    // Результат работы метода сохраненный в "report" передается в объект вывода текста
+//                    output.setText(Play.report);
+//                } else {
+//                    output.setText("Ошибка ввода данных!");
+//                }
             }
         });
 
