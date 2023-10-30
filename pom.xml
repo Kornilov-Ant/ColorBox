@@ -7,7 +7,7 @@
     <groupId>org.example</groupId>
     <artifactId>ColorBox</artifactId>
     <packaging>jar</packaging>
-    <version>1.0.3 ver.</version>
+    <version>1.0.4 ver.</version>
     <dependencies>
         <dependency>
             <groupId>org.projectlombok</groupId>
@@ -39,6 +39,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-jar-plugin</artifactId>
+                <version>3.3.0</version>
                 <configuration>
                     <archive>
                         <manifest>
